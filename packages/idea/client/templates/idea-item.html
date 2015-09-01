@@ -1,0 +1,14 @@
+<template name="ideaItem">
+	<tr>
+		<td>{{_id}}</td>
+		<td><a href="/idea/view/{{ this._id }}" >{{title}}</a></td>
+		<td>{{content}}</td>
+		<td>{{obj_backers}}</td>
+		<td>{{members.length}} Votes,
+        submitted by {{author}}
+         <a href="#" class="upvote btn {{upvotedClass}}">⬆</a></td>
+		{{#if isOwner}}
+			yoyo
+		{{/if}}
+	</tr>
+</template>

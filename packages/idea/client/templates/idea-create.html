@@ -1,0 +1,12 @@
+<template name="ideaCreate">
+	<h3>Create a new Idea</h3>
+  {{#autoForm collection="Idea" id="insertIdeaForm" type="insert"}}
+    <fieldset>
+      <legend>Add an Idea</legend>
+      {{> afQuickField name='title'}}
+      {{> afQuickField name='content'}}
+      {{> afQuickField name='obj_backers'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Insert</button>
+  {{/autoForm}}
+ </template>

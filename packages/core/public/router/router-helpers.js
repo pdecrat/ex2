@@ -15,13 +15,6 @@ render = function(params) {
   }
   if(!Blaze.isTemplate(Template[template]))
     template = 'not-found';
-  if (params.id) {
-    if (Collections[params.dest])
-      data = Collections[params.dest].findOne({ _id: params.id });
-    if (!data)
-      template = 'not-found';
-  } else if (Collections[params.dest]) {
-    data = Collections[params.dest].find();
-  }
+    console.log(template);
   BlazeLayout.render('layout', {template: template});
 };

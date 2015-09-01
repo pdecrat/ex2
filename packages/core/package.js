@@ -14,7 +14,8 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   var packages = [
-  'collectivz:lib'
+  'collectivz:lib',
+  'collectivz:idea'
   ];
 
   api.use(packages);
