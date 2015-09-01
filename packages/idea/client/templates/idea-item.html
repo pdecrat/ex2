@@ -1,14 +1,27 @@
 <template name="ideaItem">
-	<tr>
-		<td>{{_id}}</td>
-		<td><a href="/idea/view/{{ this._id }}" >{{title}}</a></td>
-		<td>{{content}}</td>
-		<td>{{obj_backers}}</td>
-		<td>{{members.length}} Votes,
-        submitted by {{author}}
-         <a href="#" class="upvote btn {{upvotedClass}}">⬆</a></td>
-		{{#if isOwner}}
-			is Owner
-		{{/if}}
-	</tr>
+
+	<div class="panel panel-info">
+	  <div class="panel-heading">
+		</div>
+	  <div class="panel-body" style="word-wrap: break-word;">
+			<a href="/idea/view/{{ this._id }}" >{{title}}</a>
+			<p>{{content}}</p>
+			<p>{{obj_backers}}</p>
+			<p>{{members.length}}</p>
+			<p>{{author}}</p>
+			<p><a href="#" class="upvote btn {{upvotedClass}}">⬆</a></p>
+		</div>
+		<div class="panel-footer">
+			<div class="progress" style="height:5px;">
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70"
+				aria-valuemin="0" aria-valuemax="100" style="width:70%;">
+					<span class="sr-only">70% Complete</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </template>
+
+
+<!-- style="word-wrap: break-word; -->
