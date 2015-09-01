@@ -13,7 +13,7 @@ FlowRouter.route('/', {
   }]
 });
 
-FlowRouter.route('/:dest?/:action?/:id?', {
+FlowRouter.route('/:dest?/:action?/:id?/:sub?', {
   action: function(params) {
       render(params);
   }

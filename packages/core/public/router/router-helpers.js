@@ -1,5 +1,6 @@
 Collections = {
-  user: Meteor.users
+  user: Meteor.users,
+  idea: Idea
 };
 
 capitalize = function (s) {
@@ -13,8 +14,11 @@ render = function(params) {
   } else {
     template = params.dest + 'Display';
   }
+  if (!Blaze.isTemplate(Template[template])
+    || params.id && Collections[params.dest]
+    && !Collections[params.dest].findOne({ _id : params.id}))
+    template = 'not-found';
   if(!Blaze.isTemplate(Template[template]))
     template = 'not-found';
-    console.log(template);
-  BlazeLayout.render('layout', {template: template});
+  BlazeLayout.render('layout', {template: template, content: {id: params.id, subMenu: params.sub}});
 };
