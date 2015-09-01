@@ -19,6 +19,10 @@ Meteor.methods({
       upgraded(id);
   },
   insertIdea: function (data) {
+    if (!this.userId && Meteor.isClient) {
+      Errors.throw('You must be logged in to create an idea.');
+      FlowRouter.go('/login');
+    }
     var idea = {title: data.title, content: data.content, obj_backers: 1, author: this.userId};
     Idea.insert(idea);
   },

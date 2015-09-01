@@ -1,4 +1,4 @@
-submitForm = function(e, t) {
+submitInsertForm = function(e, t) {
   e.preventDefault();
 
   var data = {title: $('#title').val(),
@@ -9,9 +9,9 @@ submitForm = function(e, t) {
 Template.ideaCreate.events({
   'keypress input': function(e, t) {
     if (event.charCode === 13)
-      submitForm(e, t);
+      submitInsertForm(e, t);
   },
   'click #submit': function(e, t) {
-      submitForm(e, t);
+      submitInsertForm(e, t);
   }
 });

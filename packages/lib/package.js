@@ -31,8 +31,16 @@ Package.onUse(function(api) {
   api.addFiles([
     'utils/template-helpers.js'
   ], ['client']);
+
+  api.addFiles([
+    'utils/error/collection.js',
+    'utils/error/errors.html',
+    'utils/error/errors.js'
+  ], ['client']);
+
   api.export([
-    '_'
+    '_',
+    'Errors'
   ]);
 
 });

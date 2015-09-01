@@ -8,5 +8,7 @@
 			{{/each}}
 		</div>
 	{{/if}}
-	{{> ideaCreate }}
+	{{#if loggedIn}}
+		{{> ideaCreate }}
+	{{/if}}
  </template>

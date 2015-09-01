@@ -40,15 +40,12 @@ Package.onUse(function(api) {
     'client/templates/basic/loading.html',
     'client/templates/basic/loading.js',
     'client/templates/basic/not-found.html',
-    'client/templates/error/errors.html',
-    'client/templates/error/errors.js',
     'client/templates/user/login.html',
     'client/templates/user/login.js',
     'client/templates/user/register.html',
     'client/templates/user/register.js',
     'client/templates/user/nav-button.html',
-    'client/templates/basic/home.html',
-    'client/collection.js'
+    'client/templates/basic/home.html'
     ], [ 'client' ]);
 
     api.export([
