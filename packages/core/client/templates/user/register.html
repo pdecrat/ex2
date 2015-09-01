@@ -1,0 +1,54 @@
+<template name="registerDisplay">
+  <div class="container" role="form">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Register</h1>
+      </div>
+    </div>
+    <br/>
+
+    <div class="row">
+      <div class="form-group col-xs-12">
+        <label for="user-name">Username:</label>
+        <input class="form-control" type="text" placeholder="Username" id="user-name" />
+      </div>
+
+      <div class="form-group col-xs-12">
+        <label for="email">Email address:</label>
+        <input class="form-control" type="email" placeholder="Email Address" id="email" />
+      </div>
+
+      <div class="form-group col-xs-6">
+          <label for="first-name">First Name:</label>
+          <input class="form-control" type="text" placeholder="First Name" id="first-name" />
+      </div>
+
+      <div class="form-group col-xs-6">
+          <label for="last-name">Last Name:</label>
+          <input class="form-control" type="text" placeholder="Last Name" id="last-name" />
+      </div>
+
+      <div class="form-group col-xs-6">
+        <label for="password">Password:</label>
+        <input class="form-control" type="password" placeholder="Password" id="password" />
+      </div>
+
+      <div class="form-group col-xs-6">
+        <label for="password-again">Confirm Password:</label>
+        <input class="form-control" type="password" placeholder="Confirm Password" id="password-again" />
+      </div>
+    </div>
+    <br/>
+
+    <div class="row">
+      <div class="text-center">
+        <button class="btn btn-primary col-xs-8 col-xs-offset-2" id="register-button" type="submit">Register</button>
+      </div>
+
+      <div class="text-center">
+        <a class="btn btn-info col-xs-8 col-xs-offset-2" href="{{pathFor 'login'}}">Login? Click here</a>
+      </div>
+    </div>
+  </div>
+
+</template>
