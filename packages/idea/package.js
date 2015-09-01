@@ -32,11 +32,12 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/templates/idea-item.html',
     'client/templates/idea-item.js',
-    'client/templates/idea-page.html',
     'client/templates/idea-create.html',
     'client/templates/ideas-list.html',
     'client/templates/ideas-list.js',
-    'client/templates/idea-update.html'
+    'client/templates/idea-update.html',
+    'client/templates/idea-view.html',
+    'client/templates/idea-view.js'
 
     ], [ 'client' ]);
 
