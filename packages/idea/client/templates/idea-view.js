@@ -2,14 +2,12 @@ Template.ideaViewDisplay.onCreated(function() {
 
 	var self = this;
 
-	console.log(this)
 	self.autorun(function() {
-		var sub = self.subscribe('idea', {action: 'view'});
+		var sub = self.subscribe('idea', {action: 'view', id: self.data.id});
 	});
 
 	self.getIdea = function() {
-		console.log(Idea.find())
-		return Idea.find();
+		return Idea.findOne({ _id: self.data.id });
 	}
 });
 
