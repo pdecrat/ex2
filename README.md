@@ -6,9 +6,9 @@ Work in progress
 
 ---
 
-### Collection architecture
+## Collection architecture
 
-## user
+### user
 ```
 {
   _id: String
