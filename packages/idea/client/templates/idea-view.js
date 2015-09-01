@@ -1,20 +1,23 @@
 Template.ideaViewDisplay.onCreated(function() {
 
 	var self = this;
+	var id = self.data.id;
 
 	self.autorun(function() {
-		self.subscribe('idea', {action: 'view', id: self.data.id});
+		self.subscribe('idea', {action: 'view', id: id});
 	});
-	if (!Idea.findOne({_id: self.data.id}))
-		FlowRouter.go('/not-found');
 
 	self.getIdea = function() {
-		return Idea.findOne({ _id: self.data.id });
+		return Idea.findOne({ _id: id });
 	}
 });
 
 Template.ideaViewDisplay.helpers({
 	idea: function() {
-		return Template.instance().getIdea();
+		var idea = Template.instance().getIdea();
+		if(idea === undefined)
+			FlowRouter.go('/not-found');
+		else
+			return idea
 	}
 });

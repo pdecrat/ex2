@@ -1,6 +1,10 @@
 <template name="ideaListDisplay">
-	{{#each ideas}}
-		{{> ideaItem}}
-	{{/each}}
+
+	{{#if Template.subscriptionsReady}}
+		{{#each ideas}}
+			{{> ideaItem}}
+		{{/each}}
+  {{/if}}
+
 	{{> ideaCreate }}
  </template>
