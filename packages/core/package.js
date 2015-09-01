@@ -18,7 +18,7 @@ Package.onUse(function(api) {
   'collectivz:idea',
   'collectivz:project',
   'collectivz:mission'
-  ];
+];
 
   api.use(packages);
   api.imply(packages);

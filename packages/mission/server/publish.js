@@ -4,7 +4,6 @@ Meteor.publish("mission", function (params) {
   return Mission.find({ _id: params.id });
 })
 
-
 Mission.before.insert(function (userId, doc) {
     if (doc.project !== undefined && doc.project !== null) {
       Project.update({_id: doc.project}, {$set: {missions: [doc._id]}});
