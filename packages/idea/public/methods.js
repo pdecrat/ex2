@@ -1,22 +1,22 @@
-Meteor.methods({
-   upvote: function(ideasId) {
+var upgraded = function(id) {
+  var idea = Idea.findOne(id);
+  project = {title: idea.title, content: idea.content, author: idea.author, members: idea.members};
+  projectID = Project.insert(project);
+  Idea.remove(id);
+}
 
-    var ideas = Idea.findOne(ideasId);
+Meteor.methods({
+   upvote: function(id) {
+    var ideas = Idea.findOne(id);
     if (_.include(ideas.members, this.userId))
       return false;
     Idea.update(ideas._id, {
       $addToSet: {members: this.userId},
       $inc: {votes: 1}
     });
-    ideas = Idea.findOne(ideasId);
+    ideas = Idea.findOne(id);
     if (ideas.votes >= ideas.obj_backers)
-      Meteor.call('upgrated', ideasId);
-  },
-   upgrated: function(ideasId) {
-    var ideas = Idea.findOne(ideasId);
-    project = {title: ideas.title, content: ideas.content, author: ideas.author, members: ideas.members};
-    projectID = Project.insert(project);
-    Idea.remove(ideasId);
+      upgraded(id);
   },
   insertIdea: function (data) {
     var idea = {title: data.title, content: data.content, obj_backers: 1, author: this.userId};
