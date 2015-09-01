@@ -3,7 +3,7 @@ Work in progress
 
 ### Todo !
 - [x] Do a todo list
-- [ ] Everything
+- [ ] Everything else
 
 ---
 
@@ -25,7 +25,7 @@ Work in progress
 }
 ```
 
-## idea
+### idea
 ```
 {
   title: {
@@ -53,7 +53,7 @@ Work in progress
 }
 ```
 
-## project
+### project
 ```
 {
   title: {
@@ -80,7 +80,7 @@ Work in progress
 }
 ```
 
-## mission
+### mission
 ```
 {
   title: {
