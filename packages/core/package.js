@@ -45,8 +45,7 @@ Package.onUse(function(api) {
     'client/templates/user/register.js',
     'client/templates/user/nav-button.html',
     'client/templates/basic/home.html',
-    'client/collection.js',
-    'client/subscribe.js'
+    'client/collection.js'
     ], [ 'client' ]);
 
     api.export([

@@ -1,6 +1,5 @@
 Collections = {
-  user: Meteor.users,
-  idea: Idea
+  user: Meteor.users
 };
 
 capitalize = function (s) {
@@ -24,5 +23,6 @@ render = function(params) {
   } else if (Collections[params.dest]) {
     data = Collections[params.dest].find();
   }
+  console.log(template);
   BlazeLayout.render('layout', template);
 };
