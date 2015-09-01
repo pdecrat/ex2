@@ -22,7 +22,8 @@ Package.onUse(function(api) {
   api.imply(packages);
 
   api.addFiles([
-    'public/collection.js'
+    'public/collection.js',
+    'public/methods.js'
     ], [ 'client', 'server' ]);
 
   api.addFiles([
@@ -33,12 +34,12 @@ Package.onUse(function(api) {
     'client/templates/idea-item.html',
     'client/templates/idea-item.js',
     'client/templates/idea-create.html',
+    'client/templates/idea-create.js',
     'client/templates/ideas-list.html',
     'client/templates/ideas-list.js',
     'client/templates/idea-update.html',
     'client/templates/idea-view.html',
     'client/templates/idea-view.js'
-
     ], [ 'client' ]);
 
   api.export([

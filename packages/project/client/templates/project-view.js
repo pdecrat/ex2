@@ -15,7 +15,7 @@ Template.projectViewDisplay.onCreated(function() {
 Template.projectViewDisplay.helpers({
 	project: function() {
 		var project = Template.instance().getProject();
-		if(project === undefined)
+		if (project === undefined)
 			FlowRouter.go('/not-found');
 		return project;
 	}
