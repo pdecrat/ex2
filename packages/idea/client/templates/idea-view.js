@@ -5,6 +5,8 @@ Template.ideaViewDisplay.onCreated(function() {
 	self.autorun(function() {
 		self.subscribe('idea', {action: 'view', id: self.data.id});
 	});
+	if (!Idea.findOne({_id: self.data.id}))
+		FlowRouter.go('/not-found');
 
 	self.getIdea = function() {
 		return Idea.findOne({ _id: self.data.id });
