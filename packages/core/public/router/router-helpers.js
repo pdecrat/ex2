@@ -24,10 +24,5 @@ render = function(params) {
   } else if (Collections[params.dest]) {
     data = Collections[params.dest].find();
   }
-  BlazeLayout.render('layout', {
-    content: {
-      template: template,
-      collection: params.dest
-    }
-    });
+  BlazeLayout.render('layout', template);
 };
