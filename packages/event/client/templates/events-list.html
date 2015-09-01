@@ -1,0 +1,26 @@
+<template name="eventsList">
+	{{#if eventsCount }}
+<h3>List all events</h3>
+	<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Created at</th>
+      </tr>
+    </thead>
+	{{#each events}}
+	<tr>
+		<td>{{title}}</td>
+		<td>{{content}}</td>
+		<td>{{createdAt}}</td>
+		<button>remove</button>
+	</tr>
+	{{/each}}
+		<td></td>
+		<td></td>
+		<td></td>
+		<th>{{ pluralize  eventsCount 'current event'}}</th>
+	</table>
+	{{/if}}
+ </template>

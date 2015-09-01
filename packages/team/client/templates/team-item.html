@@ -1,0 +1,23 @@
+<template name="teamItem">
+	<div class="row">
+		<h3>View user in team</h3>
+			<table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th>Teamname</th>
+		      </tr>
+		    </thead>
+			<tr>
+		        <td><a href="{{ pathFor 'team'}}">Teamname</a></td>
+				{{#each members}}
+				<tr>
+					<td>{{username}}</td>
+				</tr>
+				{{/each}}
+			</tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				</table>
+	</div>
+ </template>

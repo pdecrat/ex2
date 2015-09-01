@@ -1,0 +1,18 @@
+<template name="wall">
+	<p>Voici le mur</p>
+<!--	  {{#autoForm collection="Walls" id="updateWallsForm" type="update"}}
+    	<fieldset>
+    	  <legend>Ecrire un message</legend>
+    		  {{> afQuickField name='posts'}}
+    	</fieldset>
+    	<button type="submit" class="btn btn-primary">Insert</button>
+	  {{/autoForm}} -->
+	<form>
+	 	<input type="text" name="content">
+	 	<input type="submit" value="insert">
+	</form>
+	{{#each posts}}
+	<p>	username: {{username}} </p>
+	<p>	content: {{content}} </p>
+	{{/each}}
+</template>
