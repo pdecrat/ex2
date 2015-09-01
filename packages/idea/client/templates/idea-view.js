@@ -17,7 +17,6 @@ Template.ideaViewDisplay.helpers({
 		var idea = Template.instance().getIdea();
 		if(idea === undefined)
 			FlowRouter.go('/not-found');
-		else
-			return idea
+		return idea
 	}
 });

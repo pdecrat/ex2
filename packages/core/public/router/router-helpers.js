@@ -1,6 +1,8 @@
 Collections = {
   user: Meteor.users,
-  idea: Idea
+  idea: Idea,
+  project: Project,
+  mission: Mission
 };
 
 capitalize = function (s) {

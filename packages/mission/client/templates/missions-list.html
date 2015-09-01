@@ -1,0 +1,18 @@
+<template name="missionListDisplay">
+
+	{{#if Template.subscriptionsReady}}
+	<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Objectives</th>
+					<th>Content</th>
+				</tr>
+			</thead>
+		{{#each missions}}
+			{{> missionItem}}
+		{{/each}}
+	</table>
+	{{/if}}
+	  {{> missionCreate}}
+</template>
