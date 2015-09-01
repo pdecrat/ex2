@@ -1,20 +1,22 @@
 <template name="ideaItem">
 
-	<div class="panel panel-info">
+	<div class="panel panel-default" style="word-wrap: break-word;">
 	  <div class="panel-heading">
 		</div>
-	  <div class="panel-body" style="word-wrap: break-word;">
-			<a href="/idea/view/{{ this._id }}" >{{title}}</a>
-			<p>{{content}}</p>
-			<p>{{obj_backers}}</p>
-			<p>{{members.length}}</p>
-			<p>{{author}}</p>
-			<p><a href="#" class="upvote btn {{upvotedClass}}">⬆</a></p>
+	  <div class="panel-body" style="height:120px;">
+			<a href="/idea/view/{{ this._id }}" style="color:black;" ><strong>{{capitalize title}}</strong></a>
+			<p>by {{author}}</p><br/>
+			<p>{{capitalize content}}</p>
 		</div>
-		<div class="panel-footer">
+		<div class="panel-body">
+			{{#if members.length }}
+				<p>{{members.length}} users supports this idea</p>
+			{{/if}}
+			<p>{{pluralize obj_backers "backer"}} needed</p>
+			<p>Upvote this idea!<a href="#" class="upvote btn {{upvotedClass}}">⬆</a></p>
 			<div class="progress" style="height:5px;">
-				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70"
-				aria-valuemin="0" aria-valuemax="100" style="width:70%;">
+				<div class="progress-bar progress-bar-success" role="progressbar"
+				aria-valuemin="0" aria-valuemax="100" style="width:{{percent}};">
 					<span class="sr-only">70% Complete</span>
 				</div>
 			</div>

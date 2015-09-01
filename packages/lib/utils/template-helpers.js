@@ -14,3 +14,7 @@ Template.registerHelper('pluralize', function(count, string) {
   string = count === 1 ? string : string + 's';
   return count + ' ' + string ;
 });
+
+Template.registerHelper('capitalize', function(string) {
+  return string[0].toUpperCase() + string.substr(1);
+});

@@ -4,9 +4,14 @@ Template.ideaItem.helpers({
     	if (userId && !_.include(this.members, userId)) {
      		return 'btn-primary upvotable';
     	}
-    	else
-    		return 'disabled';
-    }
+  		return 'disabled';
+    },
+	percent: function() {
+		if (this.member === undefined || this.member.length === 0)
+			return "0%";
+		var percent = Math.round(this.member.length * 100 / this.obj_backers);
+		return percent.toString() + "%";
+	}
 });
 
 Template.ideaItem.events({
