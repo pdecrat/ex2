@@ -21,5 +21,8 @@ Meteor.methods({
   insertIdea: function (data) {
     var idea = {title: data.title, content: data.content, obj_backers: 1, author: this.userId};
     Idea.insert(idea);
+  },
+  updateIdea: function(data, ideaId) {
+    Idea.update(ideaId, {$set: {title: data.title, content: data.content}});
   }
 });

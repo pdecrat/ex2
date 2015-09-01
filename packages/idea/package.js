@@ -38,6 +38,7 @@ Package.onUse(function(api) {
     'client/templates/ideas-list.html',
     'client/templates/ideas-list.js',
     'client/templates/idea-update.html',
+    'client/templates/idea-update.js',
     'client/templates/idea-view.html',
     'client/templates/idea-view.js'
     ], [ 'client' ]);
