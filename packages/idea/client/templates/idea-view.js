@@ -3,7 +3,7 @@ Template.ideaViewDisplay.onCreated(function() {
 	var self = this;
 
 	self.autorun(function() {
-		var sub = self.subscribe('idea', {action: 'view', id: self.data.id});
+		self.subscribe('idea', {action: 'view', id: self.data.id});
 	});
 
 	self.getIdea = function() {

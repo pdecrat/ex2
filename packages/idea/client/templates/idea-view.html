@@ -1,3 +1,8 @@
 <template name="ideaViewDisplay">
-  {{idea._id}}
+  {{#if Template.subscriptionsReady}}
+  {{#with idea}}
+		{{> ideaItem}}
+	{{/with}}
+  {{/if}}
+
 </template>
