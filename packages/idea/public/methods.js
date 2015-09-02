@@ -25,8 +25,10 @@ Meteor.methods({
         Errors.throw('Login noob');
       return;
     }
-    if (Meteor.isClient && (data.content === "" || data.title === "" ))
-        return ;
+    if (Meteor.isClient && (data.content === "" || data.title === "" )) {
+      Errors.throw('Content et title doivent être renseignés');
+      return ;
+    }
     var idea = {title: data.title, content: data.content, obj_backers: 1, author: this.userId};
     var exist = Idea.findOne( {title: idea.title })
     if (Meteor.isClient && exist !== undefined )
