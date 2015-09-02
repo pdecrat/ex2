@@ -1,4 +1,5 @@
 Meteor.publish("wall", function (params) {
+    console.log(params)
     return Wall.find({key: params.key});
 });
 

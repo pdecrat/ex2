@@ -11,8 +11,10 @@
 	 	<input type="text" name="content">
 	 	<input type="submit" value="insert">
 	</form>
-	{{#each posts}}
-	<p>	username: {{username}} </p>
-	<p>	content: {{content}} </p>
-	{{/each}}
+	{{#if Template.subscriptionsReady}}
+			{{#each posts}}
+			<p>	username: {{username}} </p>
+			<p>	content: {{content}} </p>
+			{{/each}}
+	{{/if}}
 </template>
