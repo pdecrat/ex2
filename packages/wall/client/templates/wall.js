@@ -1,6 +1,7 @@
 Template.wall.onCreated(function() {
 	var self = this;
-	var key = self.data.id;
+	var key = self.data._id;
+	console.log(key)
 	self.autorun(function() {
 		var sub = self.subscribe('wall', { key: key });
 	});
@@ -19,11 +20,8 @@ Template.wall.helpers({
 
 Template.wall.events({
 	'submit form': function(e) {
-		var self = this;
-		var key = self.data.id;
-		console.log(wall._id)
-		console.log(self.data.id)
 		e.preventDefault();
+		key= this._id;
 		userId = Meteor.userId()
 		user = Meteor.users.findOne(userId);
 		post = {username: user.username, content: e.target.content.value};
