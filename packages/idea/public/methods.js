@@ -8,7 +8,7 @@ var upgraded = function(id) {
 Meteor.methods({
    upvote: function(id) {
     var idea = Idea.findOne(id);
-    if (_.include(ideas.members, this.userId))
+    if (_.include(idea.members, this.userId))
       return false;
     Idea.update(idea._id, {
       $addToSet: {members: this.userId},
