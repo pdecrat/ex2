@@ -8,10 +8,8 @@ Mission.before.insert(function (userId, doc) {
     if (doc.project !== undefined && doc.project !== null) {
       Project.update({_id: doc.project}, {$set: {missions: [doc._id]}});
     }
-    console.log("ici");
     doc.creator = Meteor.userId();
     doc.finish = false;
-    console.log("ici");
 });
 
 

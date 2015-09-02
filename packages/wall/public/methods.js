@@ -9,7 +9,7 @@ Meteor.methods({
     }
     else if (wall.from === 'project')
     {
-      obj = Projects.findOne(wall.key);
+      obj = Project.findOne(wall.key);
       if (_.include(obj.members, userId))
       {
         Wall.update(wall._id, {

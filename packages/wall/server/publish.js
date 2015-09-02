@@ -1,5 +1,4 @@
 Meteor.publish("wall", function (params) {
-    console.log(params)
     return Wall.find({key: params.key});
 });
 
@@ -8,10 +7,7 @@ Wall.allow({
       return true;
     },
   update: function (wallId, doc) {
-    console.log(doc);
     wall = Wall.findOne(wallId);
-    console.log(wall);
-    console.log("test");
     return true;
   },
   remove: function (doc) {
