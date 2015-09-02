@@ -29,6 +29,7 @@ Package.onUse(function(api) {
   api.imply(packages, [ 'client', 'server' ]);
 
   api.addFiles([
+    'client/stylesheet.css',
     'utils/template-helpers.js',
     'utils/error/collection.js',
     'utils/error/errors.html',
