@@ -7,9 +7,9 @@ Template.ideaItem.helpers({
   		return 'disabled';
     },
 	percent: function() {
-		if (this.member === undefined || this.member.length === 0)
+		if (this.members === undefined || this.members.length === 0)
 			return "0%";
-		var percent = Math.round(this.member.length * 100 / this.obj_backers);
+		var percent = Math.round(this.members.length * 100 / this.obj_backers);
 		return percent.toString() + "%";
 	}
 });
