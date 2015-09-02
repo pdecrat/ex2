@@ -31,6 +31,7 @@ Package.onUse(function(api) {
     ], [ 'server' ]);
 
   api.addFiles([
+    'client/templates/project-description.html',
     'client/templates/project-item.html',
     'client/templates/project-item.js',
     'client/templates/projects-list.html',

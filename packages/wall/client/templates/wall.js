@@ -1,5 +1,6 @@
 Template.wall.onCreated(function() {
 	var self = this;
+	console.log(this)
 	var key = self.data._id;
 	self.autorun(function() {
 		var sub = self.subscribe('wall', { key: key });
