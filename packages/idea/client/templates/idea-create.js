@@ -6,12 +6,8 @@ submitInsertForm = function(e, t) {
     content: $('#content').val()
   }
   Meteor.call('insertIdea', data, function(err, res) {
-    if (err) {
-      if (err.reason === "Internal server error")
-        Errors.throw("Duplicate title")
-      else
+    if (err)
         Errors.throw(err.reason)
-    }
   });
 };
 

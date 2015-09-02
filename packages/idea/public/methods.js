@@ -25,10 +25,14 @@ Meteor.methods({
         Errors.throw('Login noob');
       return;
     }
-    if (Meteor.isClient && (data.content === "" || data.title === ""))
+    if (Meteor.isClient && (data.content === "" || data.title === "" ))
         return ;
     var idea = {title: data.title, content: data.content, obj_backers: 1, author: this.userId};
-    Idea.insert(idea);
+    var exist = Idea.findOne( {title: idea.title })
+    if (Meteor.isClient && exist !== null )
+      Errors.throw('Duplicate title');
+    else if (!exist)
+      Idea.insert(idea);
   },
   updateIdea: function(data, ideaId) {
     Idea.update(ideaId, {$set: {title: data.title, content: data.content}});
