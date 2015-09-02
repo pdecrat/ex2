@@ -1,15 +1,17 @@
 submitInsertForm = function(e, t) {
   e.preventDefault();
 
-  var data = {title: $('#title').val(),
-      content: $('#content').val()}
-  Meteor.call('insertIdea', data, function(error, result) {
-    if (result === undefined) {
-      // if (error.error === 'logged-out-insert-idea') {
-        FlowRouter.go('/login');
-      // }
-      Errors.throw('Login noob');
+  var data = {
+    title: $('#title').val(),
+    content: $('#content').val()
   }
+  Meteor.call('insertIdea', data, function(err, res) {
+    if (err) {
+      if (err.reason === "Internal server error")
+        Errors.throw("Duplicate title")
+      else
+        Errors.throw(err.reason)
+    }
   });
 };
 

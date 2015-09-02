@@ -20,8 +20,13 @@ Meteor.methods({
   },
   insertIdea: function (data) {
     if (!this.userId) {
-      return undefined;
+      FlowRouter.go('/login');
+      if (Meteor.isClient)
+        Errors.throw('Login noob');
+      return;
     }
+    if (Meteor.isClient && (data.content === "" || data.title === ""))
+        return ;
     var idea = {title: data.title, content: data.content, obj_backers: 1, author: this.userId};
     Idea.insert(idea);
   },
