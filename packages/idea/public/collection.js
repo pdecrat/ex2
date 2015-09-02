@@ -1,14 +1,5 @@
 Idea = new Mongo.Collection('idea');
 
-AuthorSchema = new SimpleSchema({
-  id: {
-    type: String
-  },
-  username: {
-    type: String
-  }
-});
-
 IdeaSchema = new SimpleSchema({
   title: {
     type: String,
@@ -21,7 +12,7 @@ IdeaSchema = new SimpleSchema({
     type: Number
   },
   author: {
-    type: AuthorSchema
+    type: Schemas.author
   },
   members: {
       type: [String],

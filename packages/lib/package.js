@@ -29,18 +29,20 @@ Package.onUse(function(api) {
   api.imply(packages, [ 'client', 'server' ]);
 
   api.addFiles([
-    'utils/template-helpers.js'
-  ], ['client']);
-
-  api.addFiles([
+    'utils/template-helpers.js',
     'utils/error/collection.js',
     'utils/error/errors.html',
     'utils/error/errors.js'
   ], ['client']);
 
+  api.addFiles([
+    'utils/global-schemas.js'
+  ], ['client', 'server']);
+
   api.export([
     '_',
-    'Errors'
+    'Errors',
+    'Schemas'
   ]);
 
 });
