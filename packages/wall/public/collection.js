@@ -25,6 +25,7 @@ WallSchema = new SimpleSchema({
   },
   posts: {
     type: [Posts],
+    blackbox: true,
     optional: true
   }
 });
