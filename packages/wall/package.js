@@ -31,12 +31,10 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/templates/wall.html',
-    'client/templates/wall.js',
-    'client/subscribe.js'
-
+    'client/templates/wall.js'
     ], [ 'client' ]);
 
   api.export([
-  	'Walls'
+  	'Wall'
   	]);
 });

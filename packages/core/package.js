@@ -15,6 +15,7 @@ Package.onUse(function(api) {
 
   var packages = [
   'collectivz:lib',
+  'collectivz:wall',
   'collectivz:idea',
   'collectivz:project',
   'collectivz:mission'

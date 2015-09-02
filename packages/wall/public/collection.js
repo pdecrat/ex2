@@ -1,5 +1,5 @@
 // Write your package code here!
-Walls = new Mongo.Collection('wall');
+Wall = new Mongo.Collection('wall');
 
 Posts = new SimpleSchema({
     username: {
@@ -28,4 +28,4 @@ WallSchema = new SimpleSchema({
   }
 });
 
-Walls.attachSchema(WallSchema);
+Wall.attachSchema(WallSchema);
