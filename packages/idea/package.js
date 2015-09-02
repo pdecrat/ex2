@@ -23,7 +23,8 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'public/collection.js',
-    'public/methods.js'
+    'public/methods.js',
+    'public/hooks.js'
     ], [ 'client', 'server' ]);
 
   api.addFiles([
