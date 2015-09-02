@@ -7,16 +7,16 @@ Meteor.methods({
       if (!_.include(project.members, userId))
           return false;
     }
-    else if (wall.from === 'team')
+/*    else if (wall.from === 'team')
     {
       team = Teams.findOne(wall.key);
       if (!_.include(team.members.key, userId))
         return false;
-    }
+    }*/
     else if (wall.from === 'mission')
     {
-      team = Teams.findOne(wall.key);
-      if (!_.include(team.members.key, userId))
+      mission = Mission.findOne(wall.key);
+      if (!_.include(mission.members, userId))
           return false;
     }
     Wall.update(wall._id, {
