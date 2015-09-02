@@ -11,5 +11,8 @@ Template.ideaListDisplay.onCreated(function() {
 Template.ideaListDisplay.helpers({
 	ideas: function() {
 		return Template.instance().getIdeas();
+	},
+	loggedIn: function() {
+		return Meteor.userId();
 	}
 });

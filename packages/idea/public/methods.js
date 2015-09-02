@@ -7,15 +7,15 @@ var upgraded = function(id) {
 
 Meteor.methods({
    upvote: function(id) {
-    var ideas = Idea.findOne(id);
+    var idea = Idea.findOne(id);
     if (_.include(ideas.members, this.userId))
       return false;
-    Idea.update(ideas._id, {
+    Idea.update(idea._id, {
       $addToSet: {members: this.userId},
       $inc: {votes: 1}
     });
-    ideas = Idea.findOne(id);
-    if (ideas.votes >= ideas.obj_backers)
+    idea = Idea.findOne(id);
+    if (idea.votes >= idea.obj_backers)
       upgraded(id);
   },
   insertIdea: function (data) {
@@ -23,6 +23,7 @@ Meteor.methods({
       Errors.throw('You must be logged in to create an idea.');
       FlowRouter.go('/login');
     }
+    console.log(this.username)
     var idea = {title: data.title, content: data.content, obj_backers: 1, author: this.userId};
     Idea.insert(idea);
   },
