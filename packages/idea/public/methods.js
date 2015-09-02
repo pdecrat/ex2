@@ -29,9 +29,9 @@ Meteor.methods({
         return ;
     var idea = {title: data.title, content: data.content, obj_backers: 1, author: this.userId};
     var exist = Idea.findOne( {title: idea.title })
-    if (Meteor.isClient && exist !== null )
+    if (Meteor.isClient && exist !== undefined )
       Errors.throw('Duplicate title');
-    else if (!exist)
+    else if (Meteor.isServer && exist === undefined)
       Idea.insert(idea);
   },
   updateIdea: function(data, ideaId) {
