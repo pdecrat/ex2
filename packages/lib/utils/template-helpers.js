@@ -18,3 +18,7 @@ Template.registerHelper('pluralize', function(count, string) {
 Template.registerHelper('capitalize', function(string) {
   return string[0].toUpperCase() + string.substr(1);
 });
+
+Template.registerHelper('loggedIn', function() {
+  return Meteor.userId();
+});
