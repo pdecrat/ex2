@@ -3,20 +3,20 @@ Meteor.methods({
     wall = Wall.findOne({key: wallId});
     if (wall.from === 'project')
     {
-      obj = Project.findOne(wall.key);
-      if (!_.include(obj.members, userId))
+      project = Project.findOne(wall.key);
+      if (!_.include(project.members, userId))
           return false;
     }
     else if (wall.from === 'team')
     {
-      obj = Teams.findOne(wall.key);
-      if (!_.include(obj.members.key, userId))
+      team = Teams.findOne(wall.key);
+      if (!_.include(team.members.key, userId))
         return false;
     }
     else if (wall.from === 'mission')
     {
-      obj = Teams.findOne(wall.key);
-      if (!_.include(obj.members.key, userId))
+      team = Teams.findOne(wall.key);
+      if (!_.include(team.members.key, userId))
           return false;
     }
     Wall.update(wall._id, {
