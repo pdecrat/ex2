@@ -3,7 +3,8 @@ submitInsertForm = function(e, t) {
 
   var data = {
     title: $('#title').val(),
-    content: $('#content').val()
+    content: $('#content').val(),
+    obj_backers: $('#obj_backers').val()
   }
   Meteor.call('insertIdea', data, function(err, res) {
     if (err)
