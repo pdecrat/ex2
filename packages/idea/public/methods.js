@@ -25,11 +25,11 @@ Meteor.methods({
         Errors.throw('Login noob');
       return;
     }
-    if (Meteor.isClient && (data.content === "" || data.title === "" )) {
-      Errors.throw('Content et title doivent être renseignés');
+    if (Meteor.isClient && (data.content === "" || data.title === "" || data.obj_backers <= 0)) {
+      Errors.throw('Tout les champs doivent être renseignés');
       return ;
     }
-    var idea = {title: data.title, content: data.content, obj_backers: 1, author: this.userId};
+    var idea = {title: data.title, content: data.content, obj_backers: data.obj_backers, author: this.userId};
     var exist = Idea.findOne( {title: idea.title })
     if (Meteor.isClient && exist !== undefined )
       Errors.throw('Duplicate title');
