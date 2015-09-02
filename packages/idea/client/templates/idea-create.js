@@ -3,7 +3,12 @@ submitInsertForm = function(e, t) {
 
   var data = {title: $('#title').val(),
       content: $('#content').val()}
-  Meteor.call('insertIdea', data);
+  Meteor.call('insertIdea', data, function(error) {
+    if (error.error === 'logged-out-insert-idea') {
+      Errors.throw(error.reason);
+      FlowRouter.go('/login');
+    }
+  });
 };
 
 Template.ideaCreate.events({

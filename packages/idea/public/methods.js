@@ -19,9 +19,8 @@ Meteor.methods({
       upgraded(id);
   },
   insertIdea: function (data) {
-    if (!this.userId && Meteor.isClient) {
-      Errors.throw('You must be logged in to create an idea.');
-      FlowRouter.go('/login');
+    if (!this.userId) {
+      throw new Meteor.Error('logged-out-insert-idea', "You must be logged in to create an idea");
     }
     console.log(this.username)
     var idea = {title: data.title, content: data.content, obj_backers: 1, author: this.userId};
