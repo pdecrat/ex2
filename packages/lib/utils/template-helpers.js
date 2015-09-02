@@ -1,5 +1,5 @@
 Template.registerHelper('isOwner', function() {
-  return Meteor.userId() === this.author;
+  return Meteor.userId() === this.author.id;
 });
 
 Template.registerHelper('log', function(item) {

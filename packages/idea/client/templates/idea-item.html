@@ -5,6 +5,11 @@
 		</div>
 	  <div class="panel-body" style="height:120px;">
 			<a href="/idea/view/{{ this._id }}" style="color:black;" ><strong>{{capitalize title}}</strong></a>
+			<div>
+				{{#if isOwner}}
+					<a href="#" class="removeIdea"> Remove</a>
+				{{/if}}
+			</div>
 			<p>by {{author.username}}</p><br/>
 			<p>{{capitalize content}}</p>
 		</div>

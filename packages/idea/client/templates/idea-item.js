@@ -18,5 +18,9 @@ Template.ideaItem.events({
   'click .upvotable': function(e) {
     e.preventDefault();
     Meteor.call('upvote', this._id);
-  }
+  },
+	'click .removeIdea': function(e) {
+		e.preventDefault();
+		Meteor.call('removeIdea', this._id);
+	}
 });
