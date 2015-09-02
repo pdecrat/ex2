@@ -2,13 +2,14 @@
 Wall = new Mongo.Collection('wall');
 
 Posts = new SimpleSchema({
-    username: {
-        type: String,
-        regEx: /^[a-zA-Z-]{2,25}$/,
-        optional: true
+    author: {
+      type: Schemas.author
     },
     content: {
         type: String
+    },
+    createdAt: {
+      type: Date
     }
 });
 

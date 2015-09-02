@@ -1,5 +1,4 @@
 <template name="wall">
-	<p>Voici le mur</p>
 <!--	  {{#autoForm collection="Walls" id="updateWallsForm" type="update"}}
     	<fieldset>
     	  <legend>Ecrire un message</legend>
@@ -7,14 +6,61 @@
     	</fieldset>
     	<button type="submit" class="btn btn-primary">Insert</button>
 	  {{/autoForm}} -->
-	<form>
-	 	<input type="text" name="content">
-	 	<input type="submit" value="insert">
-	</form>
-	{{#if Template.subscriptionsReady}}
-			{{#each posts}}
-			<p>	username: {{username}} </p>
-			<p>	content: {{content}} </p>
-			{{/each}}
-	{{/if}}
+
+	<div class="container">
+	    <div class="row">
+	        <div class="panel panel-default widget">
+	            <div class="panel-heading">
+	                <h3 class="panel-title"><span class="glyphicon glyphicon-comment" style="margin-right: 20px;"></span>Recent Comments</h3>
+	            </div>
+							{{#if Template.subscriptionsReady}}
+
+	            <div class="panel-body">
+	                <ul class="list-group">
+										{{#each posts}}
+	                    <li class="list-group-item">
+	                        <div class='row text-{{OwnsR}}'>
+	                            <div class='col-xs-2 col-md-1 pull-{{OwnsR}}'>
+	                                <img src="http://placehold.it/80" class="img-circle img-responsive " alt="" /></div>
+	                            <div class="col-xs-10 col-md-11 ">
+
+	                                <div class='comment-text text-{{OwnsL}}' style="word-wrap: break-word;">
+																			{{capitalize content}}
+	                                </div>
+																	<div>
+	                                    <div class="mic-info">
+	                                        By: <a href="#">{{author.username}}</a>
+	                                    </div>
+																			<div>
+																					{{timeAgo createdAt}}
+																			</div>
+	                                </div>
+																	<div class="action">
+	                                    <button type="button" class="btn btn-primary btn-xs" title="Edit">
+	                                        <span class="glyphicon glyphicon-pencil"></span>
+	                                    </button>
+	                                    <!-- <button type="button" class="btn btn-success btn-xs" title="Approved">
+	                                        <span class="glyphicon glyphicon-ok"></span>
+	                                    </button> -->
+	                                    <button type="button" class="btn btn-danger btn-xs" title="Delete">
+	                                        <span class="glyphicon glyphicon-trash"></span>
+	                                    </button>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </li>
+											{{/each}}
+	                </ul>
+											<form>
+												<textarea name="content" class="form-control" placeholder="Feel free to comment!" rows="4" cols="50"></textarea>
+											 	<input class="btn btn-primary btn-sm btn-block" type="submit" value="insert">
+											</form>
+	                <!-- <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a> -->
+	            </div>
+	                <!-- <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a> -->
+					{{/if}}
+	        </div>
+	    </div>
+	</div>
+
 </template>

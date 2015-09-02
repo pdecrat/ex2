@@ -5,6 +5,7 @@ Template.wall.onCreated(function() {
 		var sub = self.subscribe('wall', { key: key });
 	});
 	self.getWall = function() {
+		 Wall.findOne({ key: key });
 		return Wall.findOne({ key: key });
 	}
 });
@@ -12,8 +13,17 @@ Template.wall.onCreated(function() {
 Template.wall.helpers({
 	'posts': function() {
 		wall = Template.instance().getWall();
-		if (wall)
-			return wall.posts;
+		return wall ? wall.posts : wall;
+	},
+	'count': function() {
+		wall = Template.instance().getWall();
+		return wall ? (wall.posts ? wall.posts.length : 0 ) : 0;
+	},
+	'OwnsR': function() {
+		return (Meteor.userId() === this.author.id) ? "right" : "left";
+	},
+	'OwnsL': function() {
+		return (Meteor.userId() === this.author.id) ? "left" : "right";
 	}
 })
 
@@ -23,7 +33,11 @@ Template.wall.events({
 		key= this._id;
 		userId = Meteor.userId()
 		user = Meteor.users.findOne(userId);
-		post = {username: user.username, content: e.target.content.value};
+		var authorObj = {
+			id: Meteor.userId(),
+			username: user.username
+		};
+		post = {author: authorObj, content: e.target.content.value, createdAt: new Date()};
 		Meteor.call('insertPost', userId, key, post);
 	}
 });
