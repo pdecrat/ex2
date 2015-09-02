@@ -10,7 +10,7 @@ ProjectSchema = new SimpleSchema({
     type: String
   },
   author: {
-    type: String
+    type: Schemas.author
   },
   members: {
       type: [String],
