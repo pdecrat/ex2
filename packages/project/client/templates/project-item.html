@@ -1,8 +1,25 @@
 <template name="projectItem">
-	<tr>
-		<td><a href="/project/view/{{this._id}}">{{title}}</a></td>
-		<td>{{content}}</td>
-		<td>{{author.id}}</td>
-		<td>{{author.username}}</td>
-	</tr>
+
+	<div class="panel panel-default" style="word-wrap: break-word;">
+	  <div class="panel-heading">
+		</div>
+	  <div class="panel-body" style="height:120px;">
+			<a href="/project/view/{{ this._id }}" style="color:black;" ><strong>{{capitalize title}}</strong></a>
+			<p>by {{author.username}}</p><br/>
+			<p>{{capitalize content}}</p>
+		</div>
+		<div class="panel-body">
+			<!-- {{#if members.length }}
+				<p>{{members.length}} users supports this idea</p>
+			{{/if}}
+			<p>{{pluralize obj_backers "backer"}} needed</p>
+			<p>Upvote this idea!<a href="#" class="upvote btn {{upvotedClass}}">⬆</a></p>
+			<div class="progress" style="height:5px;">
+				<div class="progress-bar progress-bar-success" role="progressbar"
+				aria-valuemin="0" aria-valuemax="100" style="width:{{percent}};">
+				</div>
+			</div> -->
+		</div>
+	</div>
+
 </template>

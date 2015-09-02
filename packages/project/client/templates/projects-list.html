@@ -1,22 +1,11 @@
 <template name="projectListDisplay">
 	{{#if Template.subscriptionsReady}}
-		{{#if projectsCount }}
-			<table class="table table-striped">
-	    	<thead>
-	      	<tr>
-	        	<th>Title</th>
-	        	<th>Content</th>
-						<th>Author id</th>
-						<th>Author username</th>
-	      	</tr>
-	    	</thead>
-				{{#each projects}}
-				{{> projectItem}}
-				{{/each}}
-				<td></td>
-				<td></td>
-				<th>{{ pluralize  projectsCount 'current project'}}</th>
-			</table>
-			{{/if}}
+		<div class="container">
+			{{#each projects}}
+				<div class="col-xs-12 col-sm-4 col-md-3">
+					{{> projectItem}}
+				</div>
+			{{/each}}
+		</div>
 	{{/if}}
 </template>
