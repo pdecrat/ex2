@@ -2,6 +2,13 @@ var upgraded = function(id) {
   var idea = Idea.findOne(id);
   project = {title: idea.title, content: idea.content, author: idea.author, members: idea.members};
   projectID = Project.insert(project);
+  wall = Walls.findOne({key: id});
+  Walls.update(wall, {
+    $set: {
+      key: projectID,
+      from: "project"
+      }
+  });
   Idea.remove(id);
 }
 
@@ -44,4 +51,10 @@ Meteor.methods({
   updateIdea: function(data, ideaId) {
     Idea.update(ideaId, {$set: {title: data.title, content: data.content}});
   }
+});
+
+Idea.after.insert(function () {
+  var post = {username: "Collectivz", content: 'content du post'};
+  var wall = {key: this._id, from: "idea", posts: [post]};
+  Walls.insert(wall);
 });
