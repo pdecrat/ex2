@@ -58,11 +58,19 @@ Meteor.methods({
   gainXp: function(missionId) {
     mission = Mission.findOne(missionId);
     creator = Meteor.users.findOne(mission.creator);
-    Characters.update(creator.profile.character, {$inc: {xp: +25}});
+    Meteor.users.update(mission.creator, {
+      $inc: {experience: +25},
+      $inc: {gold: +1}
+    });
+    //Characters.update(creator.profile.character, {$inc: {xp: +25}});
     for (var i = 0; i < mission.members.length; i++)
     {
-      user = Meteor.users.findOne(mission.members[i]);
-      Characters.update(user.profile.character, {$inc: {xp: +100}});
+      Meteor.users.update(mission.members[i], {
+        $inc: {experience: +100},
+        $inc: {gold: +4}
+    });
+    //  user = Meteor.users.findOne(mission.members[i]);
+    //  Characters.update(user.profile.character, {$inc: {xp: +100}});
     }
   }
 
