@@ -29,7 +29,12 @@ Meteor.methods({
       Errors.throw('Tout les champs doivent être renseignés');
       return ;
     }
-    var idea = {title: data.title, content: data.content, obj_backers: data.obj_backers, author: this.userId};
+
+    var authorObj = {
+      id: this.userId,
+      username: Meteor.users.findOne( {_id: this.userId }).username
+    }
+    var idea = {title: data.title, content: data.content, obj_backers: data.obj_backers, author: authorObj};
     var exist = Idea.findOne( {title: idea.title })
     if (Meteor.isClient && exist !== undefined )
       Errors.throw('Duplicate title');

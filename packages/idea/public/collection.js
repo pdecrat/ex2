@@ -1,5 +1,14 @@
 Idea = new Mongo.Collection('idea');
 
+AuthorSchema = new SimpleSchema({
+  id: {
+    type: String
+  },
+  username: {
+    type: String
+  }
+});
+
 IdeaSchema = new SimpleSchema({
   title: {
     type: String,
@@ -12,8 +21,7 @@ IdeaSchema = new SimpleSchema({
     type: Number
   },
   author: {
-    type: String,
-    optional: true
+    type: AuthorSchema
   },
   members: {
       type: [String],
@@ -24,9 +32,5 @@ IdeaSchema = new SimpleSchema({
       optional: true
   }
 });
-
-Idea.before.insert(function(userId, doc) {
-  doc.author = userId;
-})
 
 Idea.attachSchema(IdeaSchema);
