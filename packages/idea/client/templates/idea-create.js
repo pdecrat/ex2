@@ -3,12 +3,12 @@ submitInsertForm = function(e, t) {
 
   var data = {title: $('#title').val(),
       content: $('#content').val()}
-  Meteor.call('insertIdea', data, function(error) {
-    if (error) {
-      if (error.error === 'logged-out-insert-idea') {
+  Meteor.call('insertIdea', data, function(error, result) {
+    if (result === undefined) {
+      // if (error.error === 'logged-out-insert-idea') {
         FlowRouter.go('/login');
-      }
-      Errors.throw(error.reason);
+      // }
+      Errors.throw('Login noob');
   }
   });
 };

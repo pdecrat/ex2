@@ -20,9 +20,8 @@ Meteor.methods({
   },
   insertIdea: function (data) {
     if (!this.userId) {
-      throw new Meteor.Error('logged-out-insert-idea', "You must be logged in to create an idea");
+      return undefined;
     }
-    console.log(this.username)
     var idea = {title: data.title, content: data.content, obj_backers: 1, author: this.userId};
     Idea.insert(idea);
   },
