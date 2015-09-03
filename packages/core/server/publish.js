@@ -5,10 +5,7 @@ Meteor.publish("user", function (params) {
 					username: 1,
 					profile: 1,
 					roles: 1,
-					gold: 1,
-					experience: 1,
-					level: 1,
-					classe: 1
+					character: 1
 				}
 		});
 });
@@ -19,14 +16,22 @@ if (Meteor.users.find().count() == 0)
   {
     email : 'mastermind@mastermind.com',
     username: 'mastermind',
-    password : 'mastermind'
+    password : 'mastermind',
+		profile: {
+			firstName: 'master',
+			lastName: 'mind'
+		}
 	  });
 
   Accounts.createUser(
   {
     email : 'dummy@dummy.com',
     username: 'dummy',
-    password : 'dummy'
+    password : 'dummy',
+		profile: {
+			firstName: 'dum',
+			lastName: 'my'
+		}
 	});
 
 }

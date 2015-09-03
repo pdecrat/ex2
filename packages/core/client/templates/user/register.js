@@ -25,9 +25,11 @@ submitRegisterForm = function(e, t) {
     Accounts.createUser({
         username: userName,
         email: email,
-        firstName: firstName,
-        lastName: lastName,
-        password: password
+        password: password,
+        profile : {
+          firstName: firstName,
+          lastName: lastName
+        }
    }, function(error) {
       if (error) {
          console.log('Error: ' + error.reason);

@@ -1,4 +1,1 @@
-Deps.autorun(function(){
-  Meteor.subscribe('user');
-  console.log("here")
-});
+Meteor.subscribe('user');
