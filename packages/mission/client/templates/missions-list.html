@@ -1,10 +1,8 @@
 <template name="missionList">
 	{{#if Template.subscriptionsReady}}
-		<div class="container">
 			{{#each missions}}
 					{{> missionItem}}
 			{{/each}}
-		</div>
 	{{/if}}
 	  {{> missionCreate }}
 </template>
