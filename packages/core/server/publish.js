@@ -6,7 +6,11 @@ Meteor.publish("user", function (params) {
 					emails: 1,
 					username: 1,
 					profile: 1,
-					roles: 1
+					roles: 1,
+					gold: 1,
+					experience: 1,
+					level: 1,
+					classe: 1
 				}
 		});
 });

@@ -1,5 +1,6 @@
 Meteor.methods({
   finish: function(missionId) {
+    console.log("appel de finish");
     var mission = Mission.findOne(missionId);
     if (Meteor.userId() === mission.owner)
     {
@@ -10,6 +11,7 @@ Meteor.methods({
     }
   },
   register: function(missionId) {
+    console.log("appel de register");
     var mission = Mission.findOne(missionId);
     if (!_.include(this.members, Meteor.userId()))
     {

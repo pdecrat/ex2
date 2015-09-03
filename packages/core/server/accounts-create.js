@@ -7,6 +7,7 @@ Accounts.onCreateUser(function(options, user) {
    user.experience = 0;
    user.level = 0;
    user.classe = "";
+   console.log("a la creation de user");
    if (Meteor.users.find().count() == 0)
      user.roles.push('admin');
    return user;
