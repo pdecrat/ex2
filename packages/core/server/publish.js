@@ -1,7 +1,5 @@
 Meteor.publish("user", function (params) {
-		if (params.action == 'list')
-			return Meteor.users.find();
-    return Meteor.users.find({ _id: params.id },
+    return Meteor.users.find({ _id: this.userId },
 			{	fields: {
 					emails: 1,
 					username: 1,
