@@ -4,6 +4,22 @@ var getRicher = function(id, gold, xp) {
        "character.gold": gold }});
 }
 
+var canHeVote = function(members, userId, projectId) {
+  for (var i=0; i < members.length; i++) {
+      if (members[i].id === userId) {
+        if (members[i].remainingVote > 0)
+        {
+            //Project.update(projectId, {$inc: {"members[i].remainingVote": -1}});
+            Project.update( {_id : projectId , "members.id": userId }, 
+                {$inc : {"members.$.remaingVote" : -1} } );
+            return true;
+        }
+    }
+  }
+  return false;
+}
+
+
 Meteor.methods({
   insertMission: function (data) {
     if (!this.userId) {
@@ -55,5 +71,13 @@ Meteor.methods({
     console.log("test vote coordinateur");
     console.log(missionId);
     mission = Mission.findOne(missionId);
+    project = Project.findOne(mission.project);
+    user = Meteor.userId();
+    if (canHeVote(project.members, user, mission.project))
+      console.log("ton pere pu la merde");
+    else
+      console.log("ça marche");
+
+
   }
 });
