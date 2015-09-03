@@ -9,7 +9,6 @@ var canHeVote = function(members, userId, projectId) {
       if (members[i].id === userId) {
         if (members[i].remainingVote > 0)
         {
-            //Project.update(projectId, {$inc: {"members[i].remainingVote": -1}});
             Project.update( {_id : projectId , "members.id": userId }, 
                 {$inc : {"members.$.remainingVote" : -1} } );
             return true;
@@ -68,16 +67,13 @@ Meteor.methods({
     }
   },
   voteCoordinateur: function(missionId, members) {
-    console.log("test vote coordinateur");
-    console.log(missionId);
+    console.log(members);
     mission = Mission.findOne(missionId);
     project = Project.findOne(mission.project);
     user = Meteor.userId();
     if (canHeVote(project.members, user, mission.project))
-      console.log("ton pere pu la merde");
+      Project.update( {_id : mission.project, "members.id": members}, {$inc : {"members.$.voted" : +1} } );
     else
-      console.log("ça marche");
-
-
+      console.log("t'as plus assez de point pour voter mon gars");
   }
 });
