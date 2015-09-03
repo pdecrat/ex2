@@ -2,11 +2,12 @@ Meteor.methods({
   finish: function(missionId) {
     console.log("appel de finish");
     var mission = Mission.findOne(missionId);
-    if (Meteor.userId() === mission.owner)
+    if (Meteor.userId() === mission.owner.id)
     {
       Mission.update(missionId, {
         $set: {finish: true}
       });
+      console.log("appel de gainXP");
       Meteor.call('gainXp', missionId);
     }
   },
@@ -22,14 +23,18 @@ Meteor.methods({
   },
   gainXp: function(missionId) {
     mission = Mission.findOne(missionId);
-    owner = Meteor.users.findOne(mission.owner);
-    Meteor.users.update(mission.owner, {
-      $inc: {experience: +25},
-      $inc: {gold: +1}
-    });
+    if (mission.missionType !== "Vote")
+    {
+      owner = Meteor.users.findOne(mission.owner.id);
+      Meteor.users.update(mission.owner.id, {
+        $inc: {experience: +25},
+        $inc: {gold: +1}
+      });
+    }
     //Characters.update(owner.profile.character, {$inc: {xp: +25}});
     for (var i = 0; i < mission.members.length; i++)
     {
+      console.log(mission.members[i]);
       Meteor.users.update(mission.members[i], {
         $inc: {experience: +100},
         $inc: {gold: +4}
