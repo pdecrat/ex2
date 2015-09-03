@@ -11,7 +11,7 @@ var canHeVote = function(members, userId, projectId) {
         {
             //Project.update(projectId, {$inc: {"members[i].remainingVote": -1}});
             Project.update( {_id : projectId , "members.id": userId }, 
-                {$inc : {"members.$.remaingVote" : -1} } );
+                {$inc : {"members.$.remainingVote" : -1} } );
             return true;
         }
     }
