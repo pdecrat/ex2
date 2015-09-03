@@ -33,6 +33,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/templates/view/project-description.html',
     'client/templates/view/project-map.html',
+    'client/templates/view/project-map.js',
     'client/templates/view/project-missions.html',
     'client/templates/view/project-teams.html',
     'client/templates/view/project-wiki.html',

@@ -22,7 +22,8 @@ Package.onUse(function(api) {
     'aldeed:template-extension@3.4.3',
     'aldeed:collection2@2.3.3',
     'dburles:collection-helpers@1.0.3',
-    'matb33:collection-hooks@0.7.11'
+    'matb33:collection-hooks@0.7.11',
+    'reactive-var'
   ];
 
   api.use(packages, [ 'client', 'server' ]);
