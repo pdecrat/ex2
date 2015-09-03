@@ -31,7 +31,12 @@ Package.onUse(function(api) {
     ], [ 'server' ]);
 
   api.addFiles([
-    'client/templates/project-description.html',
+    'client/templates/view/project-description.html',
+    'client/templates/view/project-map.html',
+    'client/templates/view/project-missions.html',
+    'client/templates/view/project-teams.html',
+    'client/templates/view/project-wiki.html',
+    'client/templates/view/project-menu.html',
     'client/templates/project-item.html',
     'client/templates/project-item.js',
     'client/templates/projects-list.html',

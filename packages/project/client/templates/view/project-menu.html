@@ -1,0 +1,38 @@
+<template name="projectMenu">
+  <div class="container-fluid" style="color: white; background-color: #423A3B; margin-top: -20px; margin-bottom: 20px; border-top: 3px solid red">
+    <div class="container" style="border-left: 1px solid white;">
+      <div class="row" style="vertical-align: middle;">
+          <a href="/project/view/{{this._id}}/description">
+            <div class="col-xs-6 col-sm-4 col-md-2 text-center" style="border-right: 1px solid white;border-bottom: 1px solid red; line-height: 70px;">
+              <span class="glyphicon glyphicon-info-sign"><p>DESCRIPTION</p></span>
+            </div>
+          </a>
+          <a href="/project/view/{{this._id}}/missions">
+            <div class="col-xs-6 col-sm-4 col-md-2 text-center" style="border-right: 1px solid white; border-bottom: 1px solid red; line-height: 70px;">
+              <span class="glyphicon glyphicon-tasks"><p>MISSIONS</p></span>
+            </div>
+          </a>
+          <a href="/project/view/{{this._id}}/wall">
+            <div class="col-xs-6 col-sm-4 col-md-2 text-center" style="border-right: 1px solid white;border-bottom: 1px solid red; line-height: 70px;">
+              <span class="glyphicon glyphicon-comment"><p>ACTIVITE</p></span>
+            </div>
+          </a>
+          <a href="/project/view/{{this._id}}/teams">
+            <div class="col-xs-6 col-sm-4 col-md-2 text-center" style="border-right: 1px solid white;border-bottom: 1px solid red; line-height: 70px;">
+              <span class="glyphicon glyphicon-user"><p>EQUIPES</p></span>
+            </div>
+          </a>
+          <a href="/project/view/{{this._id}}/map">
+            <div class="col-xs-6 col-sm-4 col-md-2 text-center" style="border-right: 1px solid white;border-bottom: 1px solid red; line-height: 70px;">
+              <span class="glyphicon glyphicon-map-marker"><p>MAPS</p></span>
+            </div>
+          </a>
+          <a href="/project/view/{{this._id}}/wiki">
+            <div class="col-xs-6 col-sm-4 col-md-2 text-center" style="border-right: 1px solid white;border-bottom: 1px solid red; line-height: 70px;">
+              <span class="glyphicon glyphicon-question-sign"><p>WIKI</p></span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </div>
+</template>

@@ -2,24 +2,9 @@
 
   {{#if Template.subscriptionsReady}}
     {{#with project}}
-    <div class="container-fluid" style="color: white; background-color: #423A3B; height: 70px; margin-top: -20px; margin-bottom: 20px; vertical-align: middle; line-height: 70px; border-top: 3px solid red">
-      <div class="container" style="border-left: 2px solid white; border-right: 2px solid white;">
-        <div class="row">
-            <a href="/project/view/{{this._id}}/description">
-              <div class="col-xs-6 text-center" style="border-right: 2px solid white;">
-                Description
-              </div>
-            </a>
-            <a href="/project/view/{{this._id}}/wall">
-              <div class="col-xs-6 text-center" style="border-right: 2px solid white;">
-                Activité
-              </div>
-            </a>
-        </div>
-      </div>
-    </div>
 
-      {{>Template.dynamic template=menuItems data=this }}
+    {{> projectMenu }}
+    {{> Template.dynamic template=menuItems data=this }}
       <!-- {{> wall}} -->
   	{{/with}}
   {{/if}}

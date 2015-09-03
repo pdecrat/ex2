@@ -24,8 +24,10 @@ Template.projectViewDisplay.helpers({
 	},
 	menuItems: function() {
 		var menuTemplate = Template.instance().getMenu();
+		if (menuTemplate === undefined)
+				return "description";
 		if(!Blaze.isTemplate(Template[menuTemplate]))
-				return "projectDescription";
+				return "not-found";
 		return menuTemplate;
 	}
 });
