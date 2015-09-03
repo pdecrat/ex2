@@ -1,3 +1,41 @@
 body {
-  background-color: #D2D5D5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #efefef;
+  color: #626262;
+}
+
+#missionItem {
+  background-color: white;
+  margin-bottom: 20px;
+  -moz-box-shadow: 1px 1px 3px 0px #9b9b9b;
+  -webkit-box-shadow: 1px 1px 3px 0px #9b9b9b;
+  -o-box-shadow: 1px 1px 3px 0px #9b9b9b;
+  box-shadow: 1px 1px 3px 0px #9b9b9b;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color=#9b9b9b, Direction=134, Strength=3);
+}
+.navbar {
+  background-color: #fff;
+  color: #373737;
+}
+
+/*
+** PROJECT MENU
+*/
+
+#projectMenuWrapper {
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-top: 3px solid #423A3B;
+  border-bottom: 1px solid #423A3B;
+}
+
+#projectMenuItem {
+  vertical-align: middle;
+}
+
+#projectMenuItem a div {
+  line-height: 70px;
+  color: #423A3B;
 }
