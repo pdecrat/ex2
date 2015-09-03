@@ -1,5 +1,9 @@
 Meteor.publish("mission", function (params) {
-  return Mission.find({project: params.key});
+  if (params) {
+    if (params._id)
+      return Mission.find({_id: params._id});
+    return Mission.find({project: params.key});
+  }
 })
 
 Mission.before.insert(function (userId, doc) {
