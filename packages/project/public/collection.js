@@ -2,16 +2,7 @@
 Project = new Mongo.Collection('project');
 
 // Define the schema
-ProjectSchema = new SimpleSchema({
-  title: {
-    type: String
-  },
-  content: {
-    type: String
-  },
-  owner: {
-    type: Schemas.owner
-  },
+ProjectSchema = new SimpleSchema([Schemas.public, {
   members: {
       type: [String],
       optional:true
@@ -20,6 +11,6 @@ ProjectSchema = new SimpleSchema({
       type: [String],
       optional: true
   }
-});
+}]);
 
 Project.attachSchema(ProjectSchema);

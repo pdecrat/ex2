@@ -7,10 +7,10 @@ Meteor.publish("mission", function (params) {
 })
 
 Mission.before.insert(function (userId, doc) {
-    doc.owner = Meteor.userId();
+    doc.owner.username = Meteor.user().username;
+    doc.owner.id = Meteor.userId();
     doc.finish = false;
 });
-
 
 Mission.allow({
   insert: function (userId, doc) {
@@ -22,7 +22,7 @@ Mission.allow({
         return true;
       console.log("forbidden update : " + JSON.stringify(doc) + "\ncurrentUser id: " + currentUser._id);
       return false;
-    },
+  },
   remove: function (userId, doc) {
      currentUser = Meteor.user();
       if (currentUser.profile.role === 'mastermind')

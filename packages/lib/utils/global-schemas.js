@@ -9,4 +9,16 @@ OwnerSchema = new SimpleSchema({
   }
 });
 
-Schemas.owner = OwnerSchema;
+PublicSchema = new SimpleSchema({
+  title: {
+    type: String
+  },
+  content: {
+    type: String
+  },
+  owner: {
+    type: OwnerSchema
+  }
+});
+
+Schemas.public = PublicSchema;

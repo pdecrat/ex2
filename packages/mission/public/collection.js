@@ -2,16 +2,7 @@
 Mission = new Mongo.Collection('mission');
 
 // Define the schema
-MissionSchema = new SimpleSchema({
-  title: {
-    type: String
-  },
-  content: {
-    type: String
-  },
-  owner: {
-    type: Schemas.owner
-  },
+MissionSchema = new SimpleSchema([Schemas.public, {
   members: {
     type: [String],
     optional: true
@@ -42,7 +33,7 @@ MissionSchema = new SimpleSchema({
       type: Boolean,
       optional: true
   }
-});
+}]);
 
 // Validate an object against the schema
 // obj = {title: "Ulysses", owner: "James Joyce"};
