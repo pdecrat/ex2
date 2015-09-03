@@ -38,7 +38,7 @@ Work in progress
   obj_backers: {
     type: Number
   },
-  author: {
+  owner: {
     type: String,
     optional: true
   },
@@ -62,7 +62,7 @@ Work in progress
   content: {
     type: String
   },
-  author: {
+  owner: {
     type: String
   },
   members: {

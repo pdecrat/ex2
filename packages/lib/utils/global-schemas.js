@@ -1,6 +1,6 @@
 Schemas = {};
 
-AuthorSchema = new SimpleSchema({
+OwnerSchema = new SimpleSchema({
   id: {
     type: String,
     unique: true
@@ -16,8 +16,11 @@ PublicSchema = new SimpleSchema({
   },
   content: {
     type: String
+  },
+  owner: {
+    type: OwnerSchema
   }
 });
 
-Schemas.author = AuthorSchema;
+Schemas.owner = OwnerSchema;
 Schemas.public = PublicSchema;

@@ -3,9 +3,6 @@ Project = new Mongo.Collection('project');
 
 // Define the schema
 ProjectSchema = new SimpleSchema([Schemas.public, {
-  author: {
-    type: Schemas.author
-  },
   members: {
       type: [String],
       optional:true

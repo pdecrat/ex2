@@ -20,10 +20,10 @@ Template.wall.helpers({
 		return wall ? (wall.posts ? wall.posts.length : 0 ) : 0;
 	},
 	'OwnsR': function() {
-		return (Meteor.userId() === this.author.id) ? "right" : "left";
+		return (Meteor.userId() === this.owner.id) ? "right" : "left";
 	},
 	'OwnsL': function() {
-		return (Meteor.userId() === this.author.id) ? "left" : "right";
+		return (Meteor.userId() === this.owner.id) ? "left" : "right";
 	}
 })
 
@@ -33,11 +33,11 @@ Template.wall.events({
 		key= this._id;
 		userId = Meteor.userId()
 		user = Meteor.users.findOne(userId);
-		var authorObj = {
+		var ownerObj = {
 			id: Meteor.userId(),
 			username: user.username
 		};
-		post = {author: authorObj, content: e.target.content.value, createdAt: new Date()};
+		post = {owner: ownerObj, content: e.target.content.value, createdAt: new Date()};
 		Meteor.call('insertPost', userId, key, post);
 	}
 });

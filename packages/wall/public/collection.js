@@ -2,8 +2,8 @@
 Wall = new Mongo.Collection('wall');
 
 Posts = new SimpleSchema({
-    author: {
-      type: Schemas.author
+    owner: {
+      type: Schemas.owner
     },
     content: {
         type: String

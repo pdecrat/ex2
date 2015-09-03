@@ -1,6 +1,6 @@
 var upgraded = function(id) {
   var idea = Idea.findOne(id);
-  project = {title: idea.title, content: idea.content, author: idea.author, members: idea.members};
+  project = {title: idea.title, content: idea.content, owner: idea.owner, members: idea.members};
   projectID = Project.insert(project);
   wall = Wall.findOne({key: id});
   Wall.update(wall, {
@@ -37,11 +37,11 @@ Meteor.methods({
       return ;
     }
 
-    var authorObj = {
+    var ownerObj = {
       id: this.userId,
       username: Meteor.users.findOne( {_id: this.userId }).username
     }
-    var idea = {title: data.title, content: data.content, obj_backers: data.obj_backers, author: authorObj};
+    var idea = {title: data.title, content: data.content, obj_backers: data.obj_backers, owner: ownerObj};
     var exist = Idea.findOne( {title: idea.title })
     if (Meteor.isClient && exist !== undefined )
       Errors.throw('Duplicate title');

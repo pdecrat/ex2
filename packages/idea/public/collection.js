@@ -4,9 +4,6 @@ IdeaSchema = new SimpleSchema([Schemas.public, {
   obj_backers: {
     type: Number
   },
-  author: {
-    type: Schemas.author
-  },
   members: {
       type: [String],
       optional: true

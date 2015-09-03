@@ -32,30 +32,10 @@ MissionSchema = new SimpleSchema([Schemas.public, {
   finish: {
       type: Boolean,
       optional: true
-  },
-  creator: {
-      type: String,
-      optional: true
   }
-    // backersGoal: {
-  //   type: Number,
-  //   label: "Number of backers needed",
-  //   min: 0
-  // },
-  // lastCheckedOut: {
-  //   type: Date,
-  //   label: "Last date this Idea was checked out",
-  //   optional: true
-  // },
-  // summary: {
-  //   type: String,
-  //   label: "Brief summary",
-  //   optional: true,
-  //   max: 1000
-  // }
 }]);
 
 // Validate an object against the schema
-// obj = {title: "Ulysses", author: "James Joyce"};
+// obj = {title: "Ulysses", owner: "James Joyce"};
 
 Mission.attachSchema(MissionSchema);
