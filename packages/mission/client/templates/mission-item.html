@@ -1,8 +1,34 @@
 <template name="missionItem">
-  <tr>
+
+  <div class="container" style="background-color: white; margin-bottom: 20px;">
+    <div class="row" style="padding-bottom: 20px;">
+        <h4 style="padding-left: 15px;">{{capitalize title}}</h4>
+          <div class="col-xs-4 col-sm-2">
+            <a href="/mission/view/{{ this._id }}" ><img src="http://placehold.it/120x120"></a>
+          </div>
+          <div class="col-xs-8 col-sm-6">
+            <p>{{capitalize content}}</p>
+            <span class="label label-info tags">mastermind</span>
+            <span class="label label-info tags">Awesome</span>
+            <span class="label label-info tags">Crazy</span>
+          </div>
+          <div class="col-xs-12 col-sm-4 pull-right">
+            <div class="progress" style="height:5px;">
+      				<div class="progress-bar progress-bar-success" role="progressbar"
+      				aria-valuemin="0" aria-valuemax="100" style="width:20%;">
+      				</div>
+      			</div>
+            <p>niveau requis</p>
+            <p>equipes</p>
+            <p>points</p>
+          </div>
+    </div>
+  </div>
+
+  <!-- <tr>
     <td><a href="/mission/view/{{ this._id }}" >{{title}}</a></td>
     <td>{{content}} </td>
     <a href="#" class="upvote btn {{register}}">⬆</a>
     <a href="#" class="upvote btn {{finish}}">⬆</a>
-  </tr>
+  </tr> -->
 </template>
