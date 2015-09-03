@@ -1,4 +1,4 @@
-Project.after.insert(function () {
-	var mission = {title: "Election", content: "Nous vous invitons a voter pour ta mere", members: this.members, missionType: "Mission", finish : false, creator: "Collectiv'z", project: this._id};
+Project.after.insert(function (userId, doc) {
+	var mission = {title: "Election", content: "Nous vous invitons a voter pour ta mere", members: doc.members, missionType: "Mission", finish : false, project: doc._id, owner: doc.owner};
 	missionId = Mission.insert(mission);
 });

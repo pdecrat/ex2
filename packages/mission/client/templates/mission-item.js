@@ -14,7 +14,7 @@ Template.missionItem.onCreated(function() {
 Template.missionItem.helpers({
 	finish: function() {
     	var userId = Meteor.userId();
-    	if (userId === this.creator && this.finish === false) {
+    	if (userId === this.owner && this.finish === false) {
      		return 'btn-primary finish';
     	}
     	else
@@ -22,7 +22,7 @@ Template.missionItem.helpers({
   },
   register: function() {
       var userId = Meteor.userId();
-      if (userId != this.creator && !_.include(this.members, userId))
+      if (userId != this.owner && !_.include(this.members, userId))
         return 'btn-primary register';
   }
 });

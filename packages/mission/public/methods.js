@@ -1,7 +1,7 @@
 Meteor.methods({
   finish: function(missionId) {
     var mission = Mission.findOne(missionId);
-    if (Meteor.userId() === mission.creator)
+    if (Meteor.userId() === mission.owner)
     {
       Mission.update(missionId, {
         $set: {finish: true}
@@ -20,12 +20,12 @@ Meteor.methods({
   },
   gainXp: function(missionId) {
     mission = Mission.findOne(missionId);
-    creator = Meteor.users.findOne(mission.creator);
-    Meteor.users.update(mission.creator, {
+    owner = Meteor.users.findOne(mission.owner);
+    Meteor.users.update(mission.owner, {
       $inc: {experience: +25},
       $inc: {gold: +1}
     });
-    //Characters.update(creator.profile.character, {$inc: {xp: +25}});
+    //Characters.update(owner.profile.character, {$inc: {xp: +25}});
     for (var i = 0; i < mission.members.length; i++)
     {
       Meteor.users.update(mission.members[i], {

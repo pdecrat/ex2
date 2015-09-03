@@ -113,7 +113,7 @@ Work in progress
       type: Boolean,
       optional: true
   },
-  creator: {
+  owner: {
       type: String,
       optional: true
   }

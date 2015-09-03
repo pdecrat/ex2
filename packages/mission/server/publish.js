@@ -7,7 +7,7 @@ Meteor.publish("mission", function (params) {
 })
 
 Mission.before.insert(function (userId, doc) {
-    doc.creator = Meteor.userId();
+    doc.owner = Meteor.userId();
     doc.finish = false;
 });
 
