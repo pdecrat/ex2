@@ -17,11 +17,12 @@ MissionSchema = new SimpleSchema([Schemas.public, {
   },
   missionType: {
     type: String,
-    allowedValues: ['Mission', 'Challenge'],
+    allowedValues: ['Mission', 'Challenge', 'Vote'],
     autoform: {
       options: {
         Mission: "Mission",
-        Challenge: "Challenge"
+        Challenge: "Challenge",
+        Vote: "Vote"
       }
     }
   },
