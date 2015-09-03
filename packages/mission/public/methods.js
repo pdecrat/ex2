@@ -1,22 +1,48 @@
-
+var getRicher = function(id, gold, xp) {
+  Meteor.users.update(id, { "$inc": {
+       "character.experience": xp,
+       "character.gold": gold }});
+}
 
 Meteor.methods({
+  insertMission: function (data) {
+    if (!this.userId) {
+      FlowRouter.go('/login');
+      if (Meteor.isClient)
+        Errors.throw('Login noob');
+      return;
+    }
+    if (Meteor.isClient && (data.content === "" || data.title === "")) {
+      Errors.throw('Tout les champs doivent être renseignés');
+      return ;
+    }
+
+    var ownerObj = {
+      id: this.userId,
+      username: Meteor.users.findOne( {_id: this.userId }).username
+    }
+    var mission = {
+      title: data.title,
+      content: data.content,
+      missionType: data.missionType,
+      project: data.project,
+      owner: ownerObj
+    };
+    var exist = Mission.findOne( {title: mission.title })
+    if (Meteor.isClient && exist !== undefined )
+      Errors.throw('Duplicate title');
+    else if (Meteor.isServer && exist === undefined)
+      Mission.insert(mission);
+  },
   finish: function(missionId) {
     var mission = Mission.findOne(missionId);
     if (Meteor.userId() === mission.owner.id)
     {
         Mission.update(missionId, { $set: {finish: true} });
         if (mission.type !== "vote") {
-          Meteor.users.update(mission.owner.id, { "$inc": {
-               "character.experience": +25,
-               "character.gold": +1 }});
+          getRicher(mission.owner.id, 1, 25);
         }
-        for (var i = 0; i < mission.members.length; i++)
-        {
-          Meteor.users.update(mission.members[i], { "$inc": {
-               "character.experience": +100,
-               "character.gold": +4 }});
-        }
+        mission.members.forEach(function(id) { getRicher(id, 4, 100)});
     }
   },
   register: function(missionId) {
@@ -28,26 +54,4 @@ Meteor.methods({
       });
     }
   }
-  // gainXp: function(missionId) {
-  //   mission = Mission.findOne(missionId);
-  //   if (mission.missionType !== "Vote")
-  //   {
-  //     owner = Meteor.users.findOne(mission.owner.id);
-  //     Meteor.users.update(mission.owner.id, {
-  //       $inc: {experience: +25},
-  //       $inc: {gold: +1}
-  //     });
-  //   }
-  //   //Characters.update(owner.profile.character, {$inc: {xp: +25}});
-  //   for (var i = 0; i < mission.members.length; i++)
-  //   {
-  //     console.log(mission.members[i]);
-  //     Meteor.users.update(mission.members[i], {
-  //       $inc: {experience: +100},
-  //       $inc: {gold: +4}
-  //   });
-  //   //  user = Meteor.users.findOne(mission.members[i]);
-  //   //  Characters.update(user.profile.character, {$inc: {xp: +100}});
-  //   }
-  // }
 });

@@ -1,14 +1,38 @@
 <template name="missionCreate">
-	<h3>Create a new Mission</h3>
-  {{#autoForm collection="Mission" id="insertMissionForm" type="insert"}}
-    <fieldset>
-      <legend>Add a Mission</legend>
-      {{> afQuickField name='title'}}
-      {{> afQuickField name='content'}}
-      {{> afQuickField name='missionType'}}
-      {{> afQuickField name='project' value=this._id type='hidden'}}
+   <div class="container" role="form">
+     <div class="row">
+       <div class="col-xs-12">
+				 <h3>Create a new Mission</h3>
+       </div>
+     </div>
+     <br/>
 
-    </fieldset>
-    <button type="submit" class="btn btn-primary">Insert</button>
-  {{/autoForm}}
+     <div class="row">
+       <div class="form-group col-xs-12">
+         <label for="title">Title:</label>
+         <input class="form-control" type="text" placeholder="Title" id="title" />
+       </div>
+
+       <div class="form-group col-xs-12">
+         <label for="obj_backers">Objectif backers:</label>
+				 <select class="form-control" id="missionType" required>
+					  <option value="Challenge">Challenge</option>
+					  <option value="Mission">Mission</option>
+				</select>
+       </div>
+
+       <div class="form-group col-xs-12">
+         <label for="content">Content:</label>
+         <textarea placeholder="Describe your idea here..." class="form-control" id="content" rows="4" cols="50"></textarea>
+       </div>
+     </div>
+     <br/>
+
+     <div class="row">
+       <div class="text-center">
+         <button class="btn btn-primary col-xs-8 col-xs-offset-2" id="submit" type="submit">Submit</button>
+       </div>
+     </div>
+   </div>
+
  </template>
