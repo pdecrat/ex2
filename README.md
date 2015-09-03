@@ -86,9 +86,6 @@ Work in progress
   title: {
     type: String
   },
-  objectives: {
-    type: String
-  },
   content: {
     type: String
   },

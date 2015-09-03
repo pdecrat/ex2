@@ -1,13 +1,6 @@
 Idea = new Mongo.Collection('idea');
 
-IdeaSchema = new SimpleSchema({
-  title: {
-    type: String,
-    unique: true
-  },
-  content: {
-    type: String
-  },
+IdeaSchema = new SimpleSchema([Schemas.public, {
   obj_backers: {
     type: Number
   },
@@ -22,6 +15,6 @@ IdeaSchema = new SimpleSchema({
       type: Number,
       optional: true
   }
-});
+}]);
 
 Idea.attachSchema(IdeaSchema);
