@@ -1,13 +1,8 @@
 Meteor.publish("mission", function (params) {
-  if (params.action == 'list')
-    return Mission.find();
-  return Mission.find({ _id: params.id });
+  return Mission.find({project: params.key});
 })
 
 Mission.before.insert(function (userId, doc) {
-    if (doc.project !== undefined && doc.project !== null) {
-      Project.update({_id: doc.project}, {$set: {missions: [doc._id]}});
-    }
     doc.creator = Meteor.userId();
     doc.finish = false;
 });

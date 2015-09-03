@@ -19,30 +19,7 @@ ProjectSchema = new SimpleSchema({
   coordinateurs: {
       type: [String],
       optional: true
-  },
-  missions: {
-    type: [String],
-    optional: true
   }
-    // backersGoal: {
-  //   type: Number,
-  //   label: "Number of backers needed",
-  //   min: 0
-  // },
-  // lastCheckedOut: {
-  //   type: Date,
-  //   label: "Last date this Idea was checked out",
-  //   optional: true
-  // },
-  // summary: {
-  //   type: String,
-  //   label: "Brief summary",
-  //   optional: true,
-  //   max: 1000
-  // }
 });
-
-// Validate an object against the schema
-// obj = {title: "Ulysses", author: "James Joyce"};
 
 Project.attachSchema(ProjectSchema);

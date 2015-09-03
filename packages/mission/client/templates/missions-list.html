@@ -1,18 +1,12 @@
-<template name="missionListDisplay">
-
+<template name="missionList">
 	{{#if Template.subscriptionsReady}}
-	<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Objectives</th>
-					<th>Content</th>
-				</tr>
-			</thead>
-		{{#each missions}}
-			{{> missionItem}}
-		{{/each}}
-	</table>
+		<div class="container">
+			{{#each missions}}
+				<div class="col-xs-12 col-sm-4 col-md-3">
+					{{> missionItem}}
+				</div>
+			{{/each}}
+		</div>
 	{{/if}}
 	  {{> missionCreate}}
 </template>
