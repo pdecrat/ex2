@@ -1,6 +1,14 @@
 var upgraded = function(id) {
   var idea = Idea.findOne(id);
-  project = {title: idea.title, content: idea.content, owner: idea.owner, members: idea.members};
+  var members = new Array();
+  idea.members.forEach(function(element) {
+    var memberProject = {};
+    memberProject.id = element;
+    memberProject.remainingVote = 3;
+    memberProject.voted = 0;
+    members.push(memberProject);
+  });
+  project = {title: idea.title, content: idea.content, owner: idea.owner, members: members};
   projectID = Project.insert(project);
   wall = Wall.findOne({key: id});
   Wall.update(wall, {

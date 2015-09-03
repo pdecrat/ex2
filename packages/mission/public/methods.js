@@ -51,7 +51,9 @@ Meteor.methods({
       });
     }
   },
-  voteCoordinateur: function(missionId) {
+  voteCoordinateur: function(missionId, members) {
     console.log("test vote coordinateur");
+    console.log(missionId);
+    mission = Mission.findOne(missionId);
   }
 });

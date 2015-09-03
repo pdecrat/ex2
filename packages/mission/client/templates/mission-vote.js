@@ -1,12 +1,14 @@
-Template.missionItem.helpers({
+Template.missionVote.helpers({
   voteCoordinateur: function() {
        return 'btn-primary voteCoordinateur';
   }
 });
 
-Template.missionItem.events({
-  'click .voteCoordinateur': function(e) {
+Template.missionVote.events({
+  'click .voteCoordinateur': function(e,t) {
     e.preventDefault();
-    Meteor.call('voteCoordinateur', this._id);
+    console.log(t);
+    console.log(t.data);
+    Meteor.call('voteCoordinateur', t.data._id);
   }
 });
