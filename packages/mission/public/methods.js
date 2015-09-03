@@ -28,10 +28,7 @@ Meteor.methods({
       project: data.project,
       owner: ownerObj
     };
-    var exist = Mission.findOne( {title: mission.title })
-    if (Meteor.isClient && exist !== undefined )
-      Errors.throw('Duplicate title');
-    else if (Meteor.isServer && exist === undefined)
+    if (Meteor.isServer)
       Mission.insert(mission);
   },
   finish: function(missionId) {
@@ -53,5 +50,8 @@ Meteor.methods({
         $addToSet: {members: Meteor.userId()}
       });
     }
+  },
+  voteCoordinateur: function(missionId) {
+    console.log("test vote coordinateur");
   }
 });

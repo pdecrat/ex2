@@ -35,6 +35,8 @@ Package.onUse(function(api) {
     'client/templates/mission-create.js',
     'client/templates/mission-item.html',
     'client/templates/mission-item.js',
+    'client/templates/mission-vote.html',
+    'client/templates/mission-vote.js',
     'client/templates/missions-list.html',
     'client/templates/missions-list.js',
     'client/templates/mission-view.html',
