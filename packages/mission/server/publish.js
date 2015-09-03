@@ -18,8 +18,12 @@ Mission.allow({
   },
   update: function (userId, doc) {
       currentUser = Meteor.user();
-      if (Meteor.users.findOne(userId).fetch().length == 1)
+      console.log("doc " + doc)
+      console.log("userId " + userId)
+      if (Meteor.users.findOne(userId).fetch().length == 1) {
+        console.log("here " + doc)
         return true;
+      }
       console.log("forbidden update : " + JSON.stringify(doc) + "\ncurrentUser id: " + currentUser._id);
       return false;
   },
