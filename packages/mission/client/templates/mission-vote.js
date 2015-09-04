@@ -7,6 +7,6 @@ Template.missionVote.helpers({
 Template.missionVote.events({
   'click .voteCoordinateur': function(e,t) {
     e.preventDefault();
-    Meteor.call('voteCoordinateur', t.data._id, this);
+    Meteor.call('voteCoordinateur', t.data._id, this.toString());
   }
 });
