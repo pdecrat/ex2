@@ -35,6 +35,7 @@ Package.onUse(function(api) {
     'client/templates/view/project-map.html',
     'client/templates/view/project-map.js',
     'client/templates/view/project-missions.html',
+    'client/templates/view/project-missions.js',
     'client/templates/view/project-teams.html',
     'client/templates/view/project-wiki.html',
     'client/templates/view/project-menu.html',
