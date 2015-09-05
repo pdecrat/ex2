@@ -40,7 +40,6 @@ Package.onUse(function(api) {
     'client/templates/view/wiki.html',
     'client/templates/view/menu.html',
     'client/templates/project-item.html',
-    'client/templates/project-item.js',
     'client/templates/projects-list.html',
     'client/templates/projects-list.js',
     'client/templates/project-view.html',

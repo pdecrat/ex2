@@ -1,0 +1,22 @@
+<template name="slider">
+  <div class="container" id="{{this.param.css}}" style="background-color: white; margin-top: 20px; height: 100%; line-height:200px;">
+    <h4>{{this.param.title}}</h4>
+    <div class="row">
+        <div class="col-xs-1" id="prev">
+          {{#if showArrow}}
+          <span class="glyphicon glyphicon-menu-left" style=""></span>
+          {{/if}}
+        </div>
+
+        <div class="col-xs-10">
+            {{> UI.dynamic template=this.param.template data=doc}}
+        </div>
+
+        <div class="col-xs-1 text-right" id="next">
+          {{#if showArrow}}
+          <span class="glyphicon glyphicon-menu-right"></span>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+</template>
