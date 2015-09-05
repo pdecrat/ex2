@@ -4,8 +4,14 @@ Meteor.methods({
     if (wall.from === 'project')
     {
       project = Project.findOne(wall.key);
-      if (!_.include(project.members, userId))
-          return false;
+      check = _.some( project.members, function( el ) {
+        return el.id === "fzezev";
+      } );
+      if (check) {
+        Wall.update(wall._id, {
+          $addToSet: {posts: doc},
+        });
+      }
     }
 /*    else if (wall.from === 'team')
     {
