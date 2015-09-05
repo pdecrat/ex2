@@ -24,6 +24,14 @@ Template.wall.helpers({
 	},
 	'OwnsL': function() {
 		return (Meteor.userId() === this.owner.id) ? "left" : "right";
+	},
+	isMember: function() {
+			check = _.some( this.members, function( el ) {
+			return el.id === Meteor.userId();
+		});
+			if (check)
+				return true;
+			return false;
 	}
 })
 
