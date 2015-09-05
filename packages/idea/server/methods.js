@@ -9,11 +9,12 @@ var upgraded = function(id) {
     members.push(memberProject);
   });
   project = {title: idea.title, content: idea.content, owner: idea.owner, members: members};
-  projectID = Project.insert(project);
+  projectId = Project.insert(project);
+  Roles.giveToken(idea.owner.id, 'coordinator', projectId);
   wall = Wall.findOne({key: id});
   Wall.update(wall, {
     $set: {
-      key: projectID,
+      key: projectId,
       from: "project"
       }
   });
@@ -36,24 +37,15 @@ Meteor.methods({
   insertIdea: function (data) {
     if (!this.userId) {
       FlowRouter.go('/login');
-      if (Meteor.isClient)
-        Errors.throw('Login noob');
       return;
     }
-    if (Meteor.isClient && (data.content === "" || data.title === "" || data.obj_backers <= 0)) {
-      Errors.throw('Tout les champs doivent être renseignés');
-      return ;
-    }
-
     var ownerObj = {
       id: this.userId,
       username: Meteor.users.findOne( {_id: this.userId }).username
     }
     var idea = {title: data.title, content: data.content, obj_backers: data.obj_backers, owner: ownerObj};
     var exist = Idea.findOne( {title: idea.title })
-    if (Meteor.isClient && exist !== undefined )
-      Errors.throw('Duplicate title');
-    else if (Meteor.isServer && exist === undefined)
+    if (!exist)
       Idea.insert(idea);
   },
   updateIdea: function(data, ideaId) {

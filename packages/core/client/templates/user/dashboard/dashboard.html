@@ -1,5 +1,8 @@
 <template name="dashboardDisplay">
   <div class="container">
     <h1>Dashboard</h1>
+    {{#if isAdmin currentUser._id}}
+    <a href="/admin/user/list">Gérer les utilisateurs</a>
+    {{/if}}
   </div>
 </template>

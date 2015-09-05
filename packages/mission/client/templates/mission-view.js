@@ -1,7 +1,7 @@
 Template.missionViewDisplay.onCreated(function() {
  var self = this;
- console.log(this)
  var id = self.data.id;
+ 
  self.autorun(function() {
   self.subscribe('mission', { _id: id});
  });

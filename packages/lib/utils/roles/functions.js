@@ -1,6 +1,14 @@
+Roles = {};
+
 Roles.giveToken = function (userId, role, itemId) {
   var user = Meteor.users.findOne(userId);
-  var token = Roles.token;
+  var token = {
+    itemId: '',
+    admin: false,
+    superior: false,
+    coordinator: false,
+    referee: false
+  };
 
   if (itemId)
     token.id = itemId;
@@ -17,34 +25,57 @@ Roles.giveToken = function (userId, role, itemId) {
     case 'coordinator':
       token.coordinator = true;
       break;
+    default:
+      break;
   }
   Meteor.users.update(userId, {$addToSet: {roles: token}});
 };
 
+Roles.removeToken = function(userId, role, itemId) {
+  if (itemId) {
+    Meteor.users.update(userId, {$pull: { roles: { itemId: itemId }}});
+  } else {
+    switch (role) {
+      case 'admin':
+        Meteor.users.update(userId, {$pull: { roles: { admin: true }}});
+        break;
+      case 'superior':
+        Meteor.users.update(userId, {$pull: { roles: { superior: true }}});
+        break;
+      default:
+        break;
+    }
+  }
+};
 
 Roles.getRoles = function (userId) {
-  if (!userId)
-    return Meteor.users.findOne( {_id: Meteor.userId()} ).roles;
-  return Meteor.users.findOne( {_id: userId} ).roles;
+  return Meteor.users.findOne(userId).roles;
 };
 
 Roles.isAdmin = function (userId) {
   var roles = Roles.getRoles(userId);
-  var isAd = 0;
-  _.each(roles, function(elem) {
-    if (elem.admin === true)
-      return isAd++;
-  });
-  return (isAd != 0) ? true : false;
+
+  if (_.find(roles, function(elem) { return elem.admin === true; }))
+    return true;
+  return false;
 };
 
 Roles.isSuperior = function (userId) {
   var roles = Roles.getRoles(userId);
-  var isSup = 0;
+
+  if (_.find(roles, function(elem) { return elem.superior === true; }))
+    return true;
+  return false;
+};
+
+Roles.getRoleFor = function (userId, itemId) {
+  var roles = Roles.getRoles(userId);
+  var role = undefined;
 
   _.each(roles, function(elem) {
-    if (elem.superior === true)
-      return isSup++;
-  });
-  return (isSup != 0) ? true : false;
+    if (elem.id === itemId){
+      return role = (elem.referee === true) ? 'referee' : 'coordinator';
+    }
+  }, itemId);
+  return role;
 };

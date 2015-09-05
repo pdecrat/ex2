@@ -17,7 +17,9 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/idea/list">Ideas</a></li>
           <li><a href="/project/list">Projects</a></li>
-          <li><a href="/dashboard">Dashboard</a></li>
+          {{#if loggedIn}}
+            <li><a href="/dashboard">Dashboard</a></li>
+          {{/if}}
           <li>{{> navButton}}</li>
         </ul>
       </div><!-- /.navbar-collapse -->

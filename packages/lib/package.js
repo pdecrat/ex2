@@ -32,18 +32,19 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/stylesheet.css',
     'utils/template-helpers.js',
+    'utils/roles/template-helpers.js',
     'utils/error/collection.js',
     'utils/error/errors.html',
     'utils/error/errors.js'
   ], ['client']);
 
   api.addFiles([
-    'utils/global-schemas.js'
+    'utils/global-schemas.js',
+    'utils/roles/functions.js',
+    'utils/utils.js'
   ], ['client', 'server']);
 
   api.addFiles([
-    'utils/roles/definition.js',
-    'utils/roles/functions.js',
     'utils/roles/methods.js'
   ], ['server']);
 
@@ -51,7 +52,8 @@ Package.onUse(function(api) {
     '_',
     'Errors',
     'Schemas',
-    'Roles'
+    'Roles',
+    'Utils'
   ]);
 
 });

@@ -48,8 +48,10 @@ Package.onUse(function(api) {
     'client/templates/user/register.js',
     'client/templates/user/nav-button.html',
     'client/templates/basic/home.html',
-    'client/templates/basic/home.js',
     'client/templates/user/dashboard/dashboard.html',
+    'client/templates/helpers.js',
+    'client/templates/admin/users-list.html',
+    'client/templates/admin/users-list.js',
     'client/subscribe.js'
     ], [ 'client' ]);
 
