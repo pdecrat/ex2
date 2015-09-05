@@ -8,7 +8,11 @@ Accounts.onCreateUser(function(options, user) {
    user.profile = options.profile;
    user.roles = [];
    user.character = character;
-   if (Meteor.users.find().count() == 0)
-     user.roles.push('admin');
-   return user;
+   if (Meteor.users.find().count() == 0){
+     var token = Roles.token;
+
+     token.admin = true;
+     user.roles.push(token);
+  }
+  return user;
 });

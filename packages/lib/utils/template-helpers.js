@@ -2,6 +2,10 @@ Template.registerHelper('isOwner', function() {
   return Meteor.userId() === this.owner.id;
 });
 
+Template.registerHelper('isAdmin', function() {
+    return Roles.isAdmin(Meteor.users.findOne( {_id: Meteor.userId()} ).roles);
+});
+
 Template.registerHelper('log', function(item) {
   console.log(item);
 })

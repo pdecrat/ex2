@@ -1,1 +1,1 @@
-Meteor.subscribe('user');
+userSub = Meteor.subscribe('user');

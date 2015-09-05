@@ -41,10 +41,17 @@ Package.onUse(function(api) {
     'utils/global-schemas.js'
   ], ['client', 'server']);
 
+  api.addFiles([
+    'utils/roles/definition.js',
+    'utils/roles/functions.js',
+    'utils/roles/methods.js'
+  ], ['server']);
+
   api.export([
     '_',
     'Errors',
-    'Schemas'
+    'Schemas',
+    'Roles'
   ]);
 
 });
