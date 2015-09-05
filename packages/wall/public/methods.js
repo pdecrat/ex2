@@ -5,13 +5,10 @@ Meteor.methods({
     {
       project = Project.findOne(wall.key);
       check = _.some( project.members, function( el ) {
-        return el.id === "fzezev";
+        return el.id === userId;
       } );
-      if (check) {
-        Wall.update(wall._id, {
-          $addToSet: {posts: doc},
-        });
-      }
+      if (check)
+        Wall.update(wall._id, { $addToSet: {posts: doc} });
     }
 /*    else if (wall.from === 'team')
     {
@@ -24,9 +21,9 @@ Meteor.methods({
       mission = Mission.findOne(wall.key);
       if (!_.include(mission.members, userId))
           return false;
+      Wall.update(wall._id, {
+        $addToSet: {posts: doc},
+      });
     }
-    Wall.update(wall._id, {
-      $addToSet: {posts: doc},
-    });
-    }
+  }
 });
