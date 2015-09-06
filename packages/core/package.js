@@ -50,14 +50,11 @@ Package.onUse(function(api) {
     'client/templates/user/nav-button.html',
     'client/templates/basic/home.html',
     'client/templates/user/dashboard/dashboard.html',
-<<<<<<< HEAD
     'client/templates/helpers.js',
     'client/templates/admin/users-list.html',
     'client/templates/admin/users-list.js',
-=======
     'client/templates/user/dashboard/dashboard.js',
     'client/templates/user/dashboard/user-item.html',
->>>>>>> 939d967535d0f6a163257888c0cdff47a1313f03
     'client/subscribe.js'
     ], [ 'client' ]);
 
