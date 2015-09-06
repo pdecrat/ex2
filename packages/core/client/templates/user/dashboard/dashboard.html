@@ -1,4 +1,5 @@
 <template name="privateDashboardDisplay">
+    {{#if Template.subscriptionsReady}}
   <div class="container">
     <div class="row">
       <h1>Welcome home {{currentUser.username}}</h1>
@@ -11,7 +12,6 @@
     {{/if}}
   </div>
 
-    {{#if Template.subscriptionsReady}}
       {{#if projects.dataContext.length}}
           {{> slider param=projects  }}
       {{/if}}
