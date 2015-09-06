@@ -38,6 +38,7 @@ Package.onUse(function(api) {
     'client/templates/mission-vote.html',
     'client/templates/mission-vote.js',
     'client/templates/missions-list.html',
+    'client/templates/missions-list.js',
     'client/templates/mission-view.html',
     'client/templates/mission-view.js'
   ], [ 'client' ]);

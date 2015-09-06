@@ -3,15 +3,15 @@
 	<div class="panel panel-default" style="word-wrap: break-word;">
 	  <div class="panel-heading" style='height: 200px; background: url("http://placehold.it/800x200/2460A4") center;'>
 		</div>
-	  <div class="panel-body" style="height:140px;">
+	  <div class="panel-body" style="height:120px;">
 			<a href="/idea/view/{{ this._id }}" style="color:black;" ><strong>{{capitalize title}}</strong></a>
 			<div>
 				{{#if isOwner}}
 					<a href="#" class="removeIdea"> Remove</a>
 				{{/if}}
 			</div>
-			<p>by {{owner.username}}</p>
-			<p>{{synopsis content}}</p>
+			<p>by {{owner.username}}</p><br/>
+			<p>{{capitalize content}}</p>
 		</div>
 		<div class="panel-body">
 			{{#if members.length }}

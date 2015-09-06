@@ -22,7 +22,3 @@ Template.registerHelper('capitalize', function(string) {
 Template.registerHelper('loggedIn', function() {
   return Meteor.userId();
 });
-
-Template.registerHelper('synopsis', function(string) {
-  return string[0].toUpperCase() + string.substr(1, 70) + "...";
-});

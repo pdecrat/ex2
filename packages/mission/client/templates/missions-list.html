@@ -1,5 +1,8 @@
 <template name="missionList">
-		{{#each this}}
+	{{#if Template.subscriptionsReady}}
+			{{#each missions}}
 					{{> missionItem}}
-		{{/each}}
+			{{/each}}
+	{{/if}}
+	  {{> missionCreate }}
 </template>

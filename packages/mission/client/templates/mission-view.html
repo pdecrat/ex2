@@ -1,11 +1,8 @@
-<template name="missionView">
+<template name="missionViewDisplay">
   missionViewDisplay
-  {{#with mission}}
-    {{_id}}
-    {{title}}
-    {{content}}
-    {{#if isVote missionType }}
-      {{> missionVote}}
-    {{/if}}
-  {{/with}}
+  {{#if Template.subscriptionsReady}}
+    {{#with mission}}
+        {{> Template.dynamic template=subTemplate data=this }}
+   {{/with}}
+  {{/if}}
 </template>

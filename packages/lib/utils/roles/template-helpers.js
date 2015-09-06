@@ -1,19 +1,15 @@
 Template.registerHelper('isAdmin', function(userId) {
-    return Roles.isAdmin(userId);
+    return Roles.checkRole(userId, 'admin');
 });
 
 Template.registerHelper('isSuperior', function(userId) {
-  return Roles.isSuperior(userId);
+  return Roles.checkRole(userId, 'superior');
 });
 
 Template.registerHelper('isCoordinator', function(userId, itemId) {
-  if (Roles.getRoleFor(userId, itemId) === 'coordinator')
-    return true;
-  return false;
+  return Roles.checkRole(userId, 'coordinator', itemId);
 });
 
 Template.registerHelper('isReferee', function(userId, itemId) {
-  if (Roles.getRoleFor(userId, itemId) === 'referee')
-    return true;
-  return false;
+  return Roles.checkRole(userId, 'referee', itemId);
 });

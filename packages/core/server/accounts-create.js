@@ -11,13 +11,9 @@ Accounts.onCreateUser(function(options, user) {
    if (Meteor.users.find().count() == 0){
      var token = {
        itemId: '',
-       admin: false,
-       superior: false,
-       coordinator: false,
-       referee: false
+       role: 'admin'
      };
 
-     token.admin = true;
      user.roles.push(token);
   }
   return user;

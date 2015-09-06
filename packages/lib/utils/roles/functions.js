@@ -33,3 +33,28 @@ Roles.checkRole = function (userId, role, itemId) {
     return true;
   return false;
 };
+
+// Roles.isAdmin = function (userId) {
+//   var roles = Roles.getRoles(userId);
+//
+//   if (_.find(roles, function(elem) { return elem.role === 'admin'; }))
+//     return true;
+//   return false;
+// };
+//
+// Roles.isSuperior = function (userId) {
+//   var roles = Roles.getRoles(userId);
+//
+//   if (_.find(roles, function(elem) { return elem.role === 'superior'; }))
+//     return true;
+//   return false;
+// };
+//
+// Roles.isCoordinator = function (userId, itemId) {
+//   var roles = Roles.getRoles(userId);
+//
+//     if (_.find(roles, function(elem) { return elem.role === 'coo'
+//                                               && elem.itemId === itemId ; }, itemId))
+//       return true;
+//     return false;
+// };

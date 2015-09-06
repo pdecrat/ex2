@@ -1,4 +1,7 @@
-<template name="dashboardDisplay">
+<template name="privateDashboardDisplay">
+    {{#if isAdmin currentUser._id}}
+    <a href="/admin/user/list">Gérer les utilisateurs</a>
+    {{/if}}
     <div class="container">
         <div class="row">
             <h1>Welcome home {{currentUser.username}}</h1>
@@ -9,7 +12,4 @@
             {{> slider param=projects  }}
             {{> slider param=ideas }}
         {{/if}}
-    {{#if isAdmin currentUser._id}}
-    <a href="/admin/user/list">Gérer les utilisateurs</a>
-    {{/if}}
 </template>
