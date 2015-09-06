@@ -23,5 +23,11 @@ Template.adminUserListDisplay.events({
     var token = $(fieldName).val();
 
     Meteor.call('giveToken', this._id, token);
-  }
+  },
+	'click .remove-token': function (e, t) {
+    var fieldName = '#' + this.username + '-remove-role';
+    var token = $(fieldName).val();
+
+    Meteor.call('removeToken', this._id, token);
+	}
 })

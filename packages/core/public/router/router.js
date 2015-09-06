@@ -2,7 +2,7 @@ var adminRoutes = FlowRouter.group({
   prefix: '/admin',
   name: 'admin',
   triggersEnter: [function(context, redirect) {
-    if (!Meteor.userId() || userSub.ready() && !Roles.isAdmin(Meteor.userId())) {
+    if (!Meteor.userId() || userSub.ready() && !Roles.checkRole(Meteor.userId(), 'admin')) {
       Errors.throw("Vous n'êtes pas autorisé à accéder à cette page.");
       redirect('/home');
     }
@@ -12,6 +12,24 @@ var adminRoutes = FlowRouter.group({
 adminRoutes.route('/:dest?/:action?/:id?/:sub?', {
   action: function(params) {
       params.dest = 'admin' + Utils.capitalize(params.dest);
+      render(params);
+  }
+});
+
+var privateRoutes = FlowRouter.group({
+  prefix: '/private',
+  name: 'private',
+  triggersEnter: [function(context, redirect) {
+    if (!Meteor.userId()) {
+      Errors.throw("Vous devez vous connecter pour accéder à cette page");
+      redirect('/login');
+    }
+}],
+});
+
+privateRoutes.route('/:dest?/:action?/:id?/:sub?', {
+  action: function(params) {
+      params.dest = 'private' + Utils.capitalize(params.dest);
       render(params);
   }
 });

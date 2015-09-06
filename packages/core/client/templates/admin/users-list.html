@@ -5,24 +5,16 @@
 		    {{#each users}}
 		      <div class="col-xs-12" style="background-color: white;">
 	          <span>{{this.username}}</span>
-						<span>Add a role: </span>
+						<span>Ajouter un role: </span>
             <select id="{{this.username}}-add-role">
               <option value="superior">Supérieur</option>
               <option value="admin">Admin</option>
             </select>
             <button class="add-token">Ajouter</button>
-						<span>Remove a role: </span>
+						<span>Retirer un role: </span>
             <select id="{{this.username}}-remove-role">
 							{{#each this.roles}}
-								{{#if this.admin}}
-              		<option value="admin">Admin</option>
-								{{/if}}
-								{{#if this.superior}}
-									<option value="superior">Supérieur</option>
-								{{/if}}
-								{{#with id}}
-									<option value="{{this}}">{{this}}</option>
-								{{/with}}
+									<option value="{{ this.role }}">{{this.role}}{{#with this.id}} pour {{this}}{{/with}}</option>
 							{{/each}}
 						</select>
             <button class="remove-token">Supprimer</button>
