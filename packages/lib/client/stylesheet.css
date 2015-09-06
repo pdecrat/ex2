@@ -6,6 +6,24 @@ body {
   color: #626262;
 }
 
+.clickable {
+  box-shadow: 1px 1px 3px 0px
+}
+
+.clickable:hover {
+  -webkit-animation: small-grow 3s infinite;
+  -webkit-animation-timing-function: ease;
+}
+
+@-webkit-keyframes small-grow {
+  0% {transform: scale(1,1);
+        box-shadow: 1px 1px 3px 0px;}
+  50% {transform: scale(1.01,1.01);
+        box-shadow: 2px 2px 3px 0px;}
+  100% {transform: scale(1,1);
+        box-shadow: 1px 1px 3px 0px;}
+}
+
 #missionItem {
   background-color: white;
   margin-bottom: 20px;

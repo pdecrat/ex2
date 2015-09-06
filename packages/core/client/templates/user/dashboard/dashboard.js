@@ -31,3 +31,9 @@ Template.privateDashboardDisplay.helpers({
       dataContext: Template.instance().getMyIdeas() }
   }
 })
+
+Template.privateDashboardDisplay.events({
+  'click #users-list': function() {
+    FlowRouter.go('/admin/user/list');
+  }
+})
