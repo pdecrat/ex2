@@ -1,4 +1,5 @@
 <template name="projectMenu">
+  <div class="container-fluid" style="background: url('http://www.masserialavolpe.it/wp-content/uploads/2014/03/logistica-img-1600x300.jpg'); height:300px; margin-top: -20px"></div>
   <div id="projectMenuWrapper" class="nav container-fluid">
     <div id="projectMenu" class="container">
       <div id="projectMenuItem" class="row">
@@ -8,11 +9,11 @@
             </div>
           </a>
           <a href="/project/view/{{this._id}}/missions">
-            <div class="col-xs-6 col-sm-4 col-md-2 text-center">
+            <div class="col-xs-6 col-sm-4 col-md-2 text-center reset">
               <span class="glyphicon glyphicon-tasks"><p>MISSIONS</p></span>
             </div>
           </a>
-          <a href="/project/view/{{this._id}}/wall">
+          <a class="resetSelectMission" href="/project/view/{{this._id}}/wall">
             <div class="col-xs-6 col-sm-4 col-md-2 text-center">
               <span class="glyphicon glyphicon-comment"><p>ACTIVITE</p></span>
             </div>

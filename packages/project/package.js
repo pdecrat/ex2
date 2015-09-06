@@ -31,15 +31,15 @@ Package.onUse(function(api) {
     ], [ 'server' ]);
 
   api.addFiles([
-    'client/templates/view/project-description.html',
-    'client/templates/view/project-map.html',
-    'client/templates/view/project-map.js',
-    'client/templates/view/project-missions.html',
-    'client/templates/view/project-teams.html',
-    'client/templates/view/project-wiki.html',
-    'client/templates/view/project-menu.html',
+    'client/templates/view/description.html',
+    'client/templates/view/map.html',
+    'client/templates/view/map.js',
+    'client/templates/view/missions.html',
+    'client/templates/view/missions.js',
+    'client/templates/view/teams.html',
+    'client/templates/view/wiki.html',
+    'client/templates/view/menu.html',
     'client/templates/project-item.html',
-    'client/templates/project-item.js',
     'client/templates/projects-list.html',
     'client/templates/projects-list.js',
     'client/templates/project-view.html',

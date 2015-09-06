@@ -1,10 +1,10 @@
 <template name="projectViewDisplay">
   {{#if Template.subscriptionsReady}}
     {{#with project}}
-      <div class="container-fluid" style="background: url('http://www.masserialavolpe.it/wp-content/uploads/2014/03/logistica-img-1600x300.jpg'); height:300px; margin-top: -20px"></div>
-      {{> projectMenu }}
-      {{> Template.dynamic template=menuItems data=this }}
-        <!-- {{> wall}} -->
+    {{> projectMenu }}
+
+    {{> Template.dynamic template=menuItems data=dataContext }}
+      <!-- {{> wall}} -->
   	{{/with}}
   {{/if}}
 </template>

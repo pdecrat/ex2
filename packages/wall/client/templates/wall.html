@@ -10,12 +10,17 @@
 	<div class="container">
 	    <div class="row">
 	        <div class="panel panel-default widget">
+
 	            <div class="panel-heading">
+								{{#if count}}
 	                <h3 class="panel-title"><span class="glyphicon glyphicon-comment" style="margin-right: 20px;"></span>Recent Comments</h3>
+								{{else}}
+									<h3 class="panel-title"><span class="glyphicon glyphicon-comment" style="margin-right: 20px;"></span>Il n'y a pas de commentaires pour le moment</h3>
+								{{/if}}
 	            </div>
 							{{#if Template.subscriptionsReady}}
-
 	            <div class="panel-body">
+								{{#if count}}
 	                <ul class="list-group">
 										{{#each posts}}
 	                    <li class="list-group-item">
@@ -51,10 +56,15 @@
 	                    </li>
 											{{/each}}
 	                </ul>
+									{{/if}}
+									{{#if isMember}}
 											<form>
 												<textarea name="content" class="form-control" placeholder="Feel free to comment!" rows="4" cols="50"></textarea>
 											 	<input class="btn btn-primary btn-sm btn-block" type="submit" value="insert">
 											</form>
+									{{else}}
+										<p>Vous devez faire parti du projet pour pouvoir commenter</p>
+									{{/if}}
 	                <!-- <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a> -->
 	            </div>
 	                <!-- <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a> -->
