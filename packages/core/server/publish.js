@@ -1,13 +1,16 @@
 Meteor.publish("user", function (params) {
-    return Meteor.users.find({ _id: this.userId },
+  if (params && params.action == 'list') {
+    return Meteor.users.find();
+  }
+  return Meteor.users.find({ _id: this.userId },
 			{	fields: {
 					emails: 1,
 					username: 1,
 					profile: 1,
 					roles: 1,
 					character: 1
-				}
-		});
+				}}
+      );
 });
 
 if (Meteor.users.find().count() == 0)

@@ -52,6 +52,9 @@ Package.onUse(function(api) {
     'client/templates/user/dashboard/dashboard.html',
     'client/templates/user/dashboard/dashboard.js',
     'client/templates/user/dashboard/user-item.html',
+    'client/templates/helpers.js',
+    'client/templates/admin/users-list.html',
+    'client/templates/admin/users-list.js',
     'client/subscribe.js'
     ], [ 'client' ]);
 
