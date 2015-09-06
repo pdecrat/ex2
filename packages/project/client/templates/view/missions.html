@@ -2,7 +2,8 @@
   {{#if isList}}
     {{> missionList }}
   {{else}}
-    {{> missionView }}
+    {{> Template.dynamic template=type data=mission }}
   {{/if}}
-  {{> missionCreate projectId}}
+
+  {{> missionCreate mission.project }}
 </template>

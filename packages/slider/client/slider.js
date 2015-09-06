@@ -1,9 +1,3 @@
-function sessionSave(name, index) {
-  $("#" + name).fadeOut(function() {
-    Template.instance().Sindex.set(index);
-  }).fadeIn();
-}
-
 Template.slider.onCreated(function() {
   var self = this;
   self.Sindex = new ReactiveVar(0);

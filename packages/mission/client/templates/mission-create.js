@@ -7,6 +7,8 @@ submitInsertForm = function(e, t) {
     missionType: $('#missionType option:selected').val(),
     project: t.data
   }
+  console.log(this)
+
   Meteor.call('insertMission', data, function(err, res) {
     if (err)
         Errors.throw(err.reason)
