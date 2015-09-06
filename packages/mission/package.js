@@ -37,10 +37,10 @@ Package.onUse(function(api) {
     'client/templates/mission-item.js',
     'client/templates/mission-vote.html',
     'client/templates/mission-vote.js',
-    'client/templates/missions-list.html',
-    'client/templates/mission-view.html',
-    'client/templates/mission-view.js'
-  ], [ 'client' ]);
+    'client/templates/mission-mission.html',
+    'client/templates/mission-challenge.html',
+    'client/templates/missions-list.html'
+    ], [ 'client' ]);
 
   api.export([
     'Mission'
