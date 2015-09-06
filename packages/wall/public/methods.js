@@ -10,12 +10,13 @@ Meteor.methods({
       if (check)
         Wall.update(wall._id, { $addToSet: {posts: doc} });
     }
-/*    else if (wall.from === 'team')
+    else if (wall.from === 'idea')
     {
-      team = Teams.findOne(wall.key);
-      if (!_.include(team.members.key, userId))
-        return false;
-    }*/
+      idea = Idea.findOne(wall.key);
+      check = _.contains( idea.members, userId);
+      if (check)
+        Wall.update(wall._id, { $addToSet: {posts: doc} });
+    }
     else if (wall.from === 'mission')
     {
       mission = Mission.findOne(wall.key);
