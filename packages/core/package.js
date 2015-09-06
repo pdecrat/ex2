@@ -15,6 +15,7 @@ Package.onUse(function(api) {
 
   var packages = [
   'collectivz:lib',
+  'collectivz:slider',
   'collectivz:geoloc',
   'collectivz:wall',
   'collectivz:mission',
@@ -49,11 +50,11 @@ Package.onUse(function(api) {
     'client/templates/user/nav-button.html',
     'client/templates/basic/home.html',
     'client/templates/user/dashboard/dashboard.html',
-    'client/templates/user/dashboard/dashboard.js',
-    'client/templates/user/dashboard/user-item.html',
     'client/templates/helpers.js',
     'client/templates/admin/users-list.html',
     'client/templates/admin/users-list.js',
+    'client/templates/user/dashboard/dashboard.js',
+    'client/templates/user/dashboard/user-item.html',
     'client/subscribe.js'
     ], [ 'client' ]);
 

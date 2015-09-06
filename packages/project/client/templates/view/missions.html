@@ -1,0 +1,8 @@
+<template name="missions">
+  {{#if isList}}
+    {{> missionList }}
+  {{else}}
+    {{> missionView }}
+  {{/if}}
+  {{> missionCreate projectId}}
+</template>
