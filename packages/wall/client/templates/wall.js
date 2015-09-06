@@ -26,10 +26,12 @@ Template.wall.helpers({
 		return (Meteor.userId() === this.owner.id) ? "left" : "right";
 	},
 	isMember: function() {
-			check = _.some( this.members, function( el ) {
+		console.log(this)
+		project = _.some( this.members, function( el ) {
 			return el.id === Meteor.userId();
 		});
-			if (check)
+		idea = _.contains(this.members, Meteor.userId());
+			if (project || idea)
 				return true;
 			return false;
 	}

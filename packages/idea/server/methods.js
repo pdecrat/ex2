@@ -43,7 +43,7 @@ Meteor.methods({
       id: this.userId,
       username: Meteor.users.findOne( {_id: this.userId }).username
     }
-    var idea = {title: data.title, content: data.content, obj_backers: data.obj_backers, owner: ownerObj};
+    var idea = {title: data.title, content: data.content, obj_backers: data.obj_backers, owner: ownerObj, members: [this.userId]};
     var exist = Idea.findOne( {title: idea.title })
     if (!exist)
       Idea.insert(idea);
