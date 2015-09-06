@@ -20,7 +20,8 @@ Package.onUse(function(api) {
   'collectivz:wall',
   'collectivz:mission',
   'collectivz:idea',
-  'collectivz:project'
+  'collectivz:project',
+  'collectivz:team'
 ];
 
   api.use(packages);

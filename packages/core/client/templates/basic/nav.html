@@ -11,12 +11,16 @@
         </button>
         <a class="navbar-brand" href="/home">Collectiz</a>
       </div>
+    <div class="navbar-center col-xs-6" style="border-radius: 5px;">
+      {{> errors }}
+    </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/idea/list">Ideas</a></li>
-          <li><a href="/project/list">Projects</a></li>
+          <li><a href="/idea/list">Idées</a></li>
+          <li><a href="/project/list">Projets</a></li>
+          <li><a href="/team/list">Equipes</a></li>
           {{#if loggedIn}}
             <li><a href="/private/dashboard">Dashboard</a></li>
           {{/if}}

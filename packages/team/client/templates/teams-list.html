@@ -1,0 +1,16 @@
+<template name="teamListDisplay">
+	{{#if Template.subscriptionsReady}}
+		<div class="container">
+			<div class="col-xs-12 item">
+				<h1 class="col-xs-9">Liste des équipes:</h1>
+				<a href="#modal" class="btn go btn-primary col-xs-3">Créer une équipe</a>
+			</div>
+			{{#each teams}}
+				<div class="col-xs-12 item clickable">
+					{{> teamItem}}
+				</div>
+			{{/each}}
+		</div>
+		{{> teamCreate}}
+	{{/if}}
+</template>

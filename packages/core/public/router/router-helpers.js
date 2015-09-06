@@ -2,7 +2,8 @@ Collections = {
   user: Meteor.users,
   idea: Idea,
   project: Project,
-  mission: Mission
+  mission: Mission,
+  team: Team
 };
 
 render = function(params) {
