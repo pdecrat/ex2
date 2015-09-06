@@ -10,8 +10,13 @@
     <!-- <a href="/admin/user/list">Gérer les utilisateurs</a> -->
     {{/if}}
   </div>
-  {{#if Template.subscriptionsReady}}
-    {{> slider param=projects  }}
-    {{> slider param=ideas }}
-  {{/if}}
+
+    {{#if Template.subscriptionsReady}}
+      {{#if projects.dataContext.length}}
+          {{> slider param=projects  }}
+      {{/if}}
+      {{#if ideas.dataContext.length}}
+          {{> slider param=ideas }}
+      {{/if}}
+    {{/if}}
 </template>
