@@ -7,7 +7,7 @@ Roles.giveToken = function (userId, role, itemId) {
   };
 
   if (itemId)
-    token.id = itemId;
+    token.itemId = itemId;
   Meteor.users.update(userId, {$addToSet: {roles: token}});
 };
 

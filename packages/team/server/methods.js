@@ -3,8 +3,9 @@ Meteor.methods({
     if (Meteor.userId()) {
       var exist = Team.findOne( {name: data.name });
 
-      if (!exist)
+      if (!exist) {
         Team.insert(data);
+      }
     }
   },
   getUserInfo: function(username) {
