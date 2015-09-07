@@ -1,38 +1,54 @@
 <template name="teamCreate">
-   <div class="container item" id="modal" role="form">
-     <div class="row">
-       <br />
-       <div class="form-group col-xs-12">
-         <label for="name">Nom de l'équipe:</label>
-         <input class="form-control" type="text" placeholder="Nom d'équipe" id="name" />
-       </div>
-       <div class="form-group col-xs-12">
-         <label for="description">Description:</label>
-         <textarea placeholder="Décrivez votre équipe ici..." class="form-control" id="description" rows="4" cols="50"></textarea>
-       </div>
-     </div>
-     <div class="row">
-      <div class="form-group col-xs-12">
-        <label class="col-xs-12" for="members">Inviter des membres:</label>
-        {{#each members}}
-          <div class="col-xs-12">
-          <span class="col-xs-10">{{username}}</span><button class="btn btn-danger" id="remove-member" type="submit"><strong>-</strong></button>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Ajouter une équipe !</h4>
         </div>
-        {{/each}}
-        <input class="col-xs-10" type="text" placeholder="Nom de l'utilisateur" id="member" />
-        <button class="btn btn-success" id="submit-member" type="submit"><strong>+</strong></button>
+        <div class="modal-body">
+          <div class="row">
+            <br />
+            <div class="form-group col-xs-12">
+              <label for="name">Nom de l'équipe:</label>
+              <input class="form-control" type="text" placeholder="Nom d'équipe" id="name" />
+            </div>
+            <div class="form-group col-xs-12">
+              <label for="description">Description:</label>
+              <textarea placeholder="Décrivez votre équipe ici..." class="form-control" id="description" rows="4" cols="50"></textarea>
+            </div>
+          </div>
+          <div class="row">
+           <div class="form-group col-xs-12">
+             <label class="col-xs-12" for="members">Inviter des membres:</label>
+             {{#each members}}
+              <div class="col-xs-10">
+               <span>{{username}}</span>
+             </div>
+             <div class='col-xs-2'>
+              <button class="glyphicon glyphicon-minus" id="remove-member" type="submit"></button>
+             </div>
+             {{/each}}
+             <div class="col-xs-10">
+               <input class="col-xs-12" type="text" placeholder="Nom de l'utilisateur" id="member" />
+            </div>
+            <div class='col-xs-2'>
+              <button class="glyphicon glyphicon-plus" id="submit-member" type="submit"></button>
+            </div>
+           </div>
+          </div>
+          <!-- <div class="row">
+            <div class="text-center">
+            </div>
+          </div> -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success col-xs-8 col-xs-offset-2" id="submit" type="submit">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
-     </div>
-     <hr>
+    </div>
+  </div>
 
-     <div class="row">
-       <div class="text-center">
-         <button class="btn btn-success col-xs-8 col-xs-offset-2" id="submit" type="submit">Submit</button>
-       </div>
-			<div class="cf footer">
-				<a href="#" class="btn btn-danger">Close</a>
-			</div>
-     </div>
-   </div>
 
  </template>
