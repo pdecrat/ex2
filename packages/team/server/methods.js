@@ -6,5 +6,10 @@ Meteor.methods({
       if (!exist)
         Team.insert(data);
     }
+  },
+  getUserInfo: function(username) {
+    var ret = Utils.getUserInfo(username);
+
+    return ret;
   }
 })

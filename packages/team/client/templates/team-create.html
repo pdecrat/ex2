@@ -11,6 +11,18 @@
          <textarea placeholder="Décrivez votre équipe ici..." class="form-control" id="description" rows="4" cols="50"></textarea>
        </div>
      </div>
+     <div class="row">
+      <div class="form-group col-xs-12">
+        <label class="col-xs-12" for="members">Inviter des membres:</label>
+        {{#each members}}
+          <div class="col-xs-12">
+          <span class="col-xs-10">{{username}}</span><button class="btn btn-danger" id="remove-member" type="submit"><strong>-</strong></button>
+        </div>
+        {{/each}}
+        <input class="col-xs-10" type="text" placeholder="Nom de l'utilisateur" id="member" />
+        <button class="btn btn-success" id="submit-member" type="submit"><strong>+</strong></button>
+      </div>
+     </div>
      <hr>
 
      <div class="row">

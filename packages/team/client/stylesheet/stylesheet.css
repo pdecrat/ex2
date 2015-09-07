@@ -11,11 +11,6 @@
   transform: translate(-10px);
 }
 
-@-webkit-keyframes go-left {
-  0% {right: 0px;}
-  100% {right: 5px;}
-}
-
 /* Normal styles for the modal */
 #modal {
 	background:#fff;

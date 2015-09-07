@@ -9,7 +9,7 @@ var canHeVote = function(members, userId, projectId) {
       if (members[i].id === userId) {
         if (members[i].remainingVote > 0)
         {
-            Project.update( {_id : projectId , "members.id": userId }, 
+            Project.update( {_id : projectId , "members.id": userId },
                 {$inc : {"members.$.remainingVote" : -1} } );
             return true;
         }
@@ -67,7 +67,6 @@ Meteor.methods({
     }
   },
   voteCoordinateur: function(missionId, members) {
-    console.log(members);
     mission = Mission.findOne(missionId);
     project = Project.findOne(mission.project);
     user = Meteor.userId();

@@ -26,7 +26,6 @@ Template.wall.helpers({
 		return (Meteor.userId() === this.owner.id) ? "left" : "right";
 	},
 	isMember: function() {
-		console.log(this)
 		project = _.some( this.members, function( el ) {
 			return el.id === Meteor.userId();
 		});
