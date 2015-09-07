@@ -8,7 +8,8 @@ Meteor.publish("user", function (params) {
 					username: 1,
 					profile: 1,
 					roles: 1,
-					character: 1
+					character: 1,
+          notification: 1
 				}}
       );
 });

@@ -21,5 +21,24 @@ PublicSchema = new SimpleSchema({
   }
 });
 
+NotificationSchema = new SimpleSchema({
+  id: {
+    type: Number
+  },
+  content: {
+    type: String
+  },
+  fromType: {
+    type: String
+  },
+  fromId: {
+    type: String
+  },
+  seen: {
+    type: Boolean
+  }
+})
+
+Schemas.notification = NotificationSchema;
 Schemas.public = PublicSchema;
 Schemas.user = UserSchema;

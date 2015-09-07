@@ -5,6 +5,6 @@
     {{> Template.dynamic template=type data=mission }}
   {{/if}}
   {{#if isCoordinator currentUser._id projectId}}
-    {{> missionCreate projectId}}
+    {{> missionCreate mission.project}}
   {{/if}}
 </template>

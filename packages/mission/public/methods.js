@@ -43,8 +43,17 @@ Meteor.methods({
       project: data.project,
       owner: ownerObj
     };
-    if (Meteor.isServer)
-      Mission.insert(mission);
+    if (Meteor.isServer) {
+      var id = Mission.insert(mission);
+      console.log(id)
+      projectMembers = Project.findOne({ _id: mission.project }).members;
+      console.log(projectMembers)
+      Notif.addNotification(projectMembers, {
+        content: "A new mission has been added",
+        fromType: "mission",
+        fromId: id
+      })
+    }
   },
   finish: function(missionId) {
     var mission = Mission.findOne(missionId);

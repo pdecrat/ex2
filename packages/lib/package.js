@@ -45,7 +45,8 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
 
   api.addFiles([
-    'utils/roles/methods.js'
+    'utils/roles/methods.js',
+    'utils/notification.js'
   ], ['server']);
 
   api.export([
@@ -53,7 +54,8 @@ Package.onUse(function(api) {
     'Errors',
     'Schemas',
     'Roles',
-    'Utils'
+    'Utils',
+    'Notif'
   ]);
 
 });

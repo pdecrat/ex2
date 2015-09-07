@@ -8,6 +8,7 @@ Accounts.onCreateUser(function(options, user) {
    user.profile = options.profile;
    user.roles = [];
    user.character = character;
+   user.notification = [];
    if (Meteor.users.find().count() == 0){
      var token = {
        itemId: '',
