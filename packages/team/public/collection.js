@@ -10,8 +10,7 @@ TeamSchema = new SimpleSchema({
     type: String
   },
   members: {
-    type: [Schemas.user],
-    optional: true
+    type: [Schemas.user]
   },
   wall : {
     type: String,

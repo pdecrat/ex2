@@ -69,6 +69,9 @@ Template.teamCreate.events({
   },
   'click #remove-member': function(e, t) {
     e.preventDefault();
-    removeMember(t, this);
+    if (this.id === Meteor.userId())
+      Errors.throw("Vous ne pouvez vous retirer de l'équipe.");
+    else
+      removeMember(t, this);
   }
 });
