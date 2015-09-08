@@ -1,16 +1,17 @@
 var upgraded = function(id) {
   var idea = Idea.findOne(id);
-  var members = new Array();
+  var members = [];
+
   idea.members.forEach(function(element) {
     var memberProject = {};
-    memberProject.id = element;
+    memberProject.id = element.id;
+    memberProject.username = element.username;
     memberProject.remainingVote = 3;
     memberProject.voted = 0;
     members.push(memberProject);
   });
   project = {title: idea.title, content: idea.content, owner: idea.owner, members: members};
   projectId = Project.insert(project);
-  Roles.giveToken(idea.owner.id, 'coordinator', projectId);
   Notif.addNotification(idea.members, {
     content: "Un nouveau projet est né : ",
     title: idea.title,
@@ -27,18 +28,24 @@ var upgraded = function(id) {
   Idea.remove(id);
 }
 
+var upvote = function(userId, ideaId) {
+ var idea = Idea.findOne(ideaId);
+ var user = Meteor.users.findOne(userId);
+
+ if (_.include(idea.members, userId))
+   return false;
+ Idea.update(idea._id, {
+   $addToSet: {members: {id: user._id, username: user.username}},
+   $inc: {votes: 1}
+ });
+ idea = Idea.findOne(ideaId);
+ if (idea.votes >= idea.obj_backers)
+   upgraded(ideaId);
+};
+
 Meteor.methods({
    upvote: function(id) {
-    var idea = Idea.findOne(id);
-    if (_.include(idea.members, this.userId))
-      return false;
-    Idea.update(idea._id, {
-      $addToSet: {members: this.userId},
-      $inc: {votes: 1}
-    });
-    idea = Idea.findOne(id);
-    if (idea.votes >= idea.obj_backers)
-      upgraded(id);
+     upvote(this.userId, id);
   },
   insertIdea: function (data) {
     if (!this.userId) {
@@ -49,10 +56,12 @@ Meteor.methods({
       id: this.userId,
       username: Meteor.users.findOne( {_id: this.userId }).username
     }
-    var idea = {title: data.title, content: data.content, obj_backers: data.obj_backers, owner: ownerObj, members: [this.userId]};
+    var idea = {title: data.title, content: data.content, obj_backers: data.obj_backers, owner: ownerObj, members: [ownerObj]};
     var exist = Idea.findOne( {title: idea.title })
-    if (!exist)
-      Idea.insert(idea);
+    if (!exist){
+      ideaId = Idea.insert(idea);
+      upvote(this.userId, ideaId);
+    }
   },
   updateIdea: function(data, ideaId) {
     Idea.update(ideaId, {$set: {title: data.title, content: data.content}});

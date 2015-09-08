@@ -5,7 +5,7 @@ IdeaSchema = new SimpleSchema([Schemas.public, {
     type: Number
   },
   members: {
-      type: [String],
+      type: [Schemas.user],
       optional: true
   },
   votes: {

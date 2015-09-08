@@ -1,5 +1,5 @@
 Project.after.insert(function (userId, doc) {
-	members = new Array();
+	members = [];
 	doc.members.forEach(function(element) {
     var memberProject = element.id;
     members.push(memberProject);

@@ -1,14 +1,22 @@
 <template name="ideaListDisplay">
 	{{#if Template.subscriptionsReady}}
-		<div class="container">
+		<div class="container ">
+			<div class="col-xs-12 item">
+				<h1 class="col-xs-10">Liste des idées:</h1>
+				{{#if loggedIn}}
+				<div>
+					<button href="#myModal" class="btn-lg go btn-success" data-toggle="modal" style="position: absolute; right: 15px; top: 15px">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+				</div>
+				{{/if}}
+			</div>
 			{{#each ideas}}
-				<div class="col-xs-12 col-sm-4 col-md-3">
+				<div class="col-xs-12 item clickable">
 					{{> ideaItem}}
 				</div>
 			{{/each}}
 		</div>
+		{{> ideaCreate}}
 	{{/if}}
-	<!-- {{#if loggedIn}} -->
-		{{> ideaCreate }}
-	<!-- {{/if}} -->
  </template>

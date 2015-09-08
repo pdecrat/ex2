@@ -10,7 +10,11 @@ submitInsertForm = function(e, t) {
     data.members = t.members.get();
     Meteor.call('insertTeam', data, function(err, res) {
       if (err)
-        Errors.throw(err.reason)
+        Errors.throw(err.reason);
+      else {
+        $('#name').val('');
+        $('#description').val('');
+      }
     });
   }
 };
@@ -26,6 +30,7 @@ submitMember = function(e, t) {
         var newMembers = t.members.get();
         newMembers.push(res);
         t.members.set(newMembers);
+        $('#member').val('');
       } else {
         Errors.throw('Ce nom ne correspond à personne.');
       }

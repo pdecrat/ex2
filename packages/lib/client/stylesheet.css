@@ -6,6 +6,23 @@ body {
   color: #626262;
 }
 
+.item {
+  background-color: white;
+  box-shadow: 1px 1px 3px 0px;
+}
+
+.clickable {
+  transition: all 1s;
+}
+
+.clickable:hover {
+  transform: scale(0.99,0.99);
+}
+
+textarea {
+    resize: none;
+}
+
 #missionItem {
   background-color: white;
   margin-bottom: 20px;

@@ -35,8 +35,7 @@ Package.onUse(function(api) {
     'client/templates/team-create.js',
     'client/templates/team-item.html',
     'client/templates/teams-list.html',
-    'client/templates/teams-list.js',
-    'client/stylesheet/stylesheet.css'
+    'client/templates/teams-list.js'
     ], [ 'client' ]);
 
   api.export([

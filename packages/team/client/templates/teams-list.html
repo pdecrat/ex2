@@ -3,7 +3,13 @@
 		<div class="container ">
 			<div class="col-xs-12 item">
 				<h1 class="col-xs-10">Liste des équipes:</h1>
-				<div><a href="#myModal" class="btn-lg go btn-success" data-toggle="modal" style="position: absolute; right: 15px; top: 15px"><strong>+</strong></a></div>
+				{{#if loggedIn}}
+				<div>
+					<button href="#myModal" class="btn-lg go btn-success" data-toggle="modal" style="position: absolute; right: 15px; top: 15px">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+				</div>
+				{{/if}}
 			</div>
 			{{#each teams}}
 				<div class="col-xs-12 item clickable">
