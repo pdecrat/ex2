@@ -35,15 +35,19 @@ Package.onUse(function(api) {
   api.addFiles([
     'server/accounts-create.js',
     'server/publish.js',
+    'server/methods.js',
     'server/start.js'
     ], [ 'server' ]);
 
   api.addFiles([
     'client/templates/basic/layout.html',
     'client/templates/basic/nav.html',
+    'client/templates/basic/nav.js',
     'client/templates/basic/loading.html',
     'client/templates/basic/loading.js',
     'client/templates/basic/not-found.html',
+    'client/templates/user/notification.html',
+    'client/templates/user/notification.js',
     'client/templates/user/login.html',
     'client/templates/user/login.js',
     'client/templates/user/register.html',

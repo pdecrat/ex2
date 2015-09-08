@@ -1,7 +1,5 @@
 <template name="missionChallenge">
-  {{#with this}}
-    {{_id}}
-    {{title}}
-    {{missionType}}
-    {{content}}
-  {{/with}}</template>
+    {{#with this}}
+        {{> missionItem}}
+    {{/with}}
+</template>

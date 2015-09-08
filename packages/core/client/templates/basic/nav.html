@@ -21,7 +21,15 @@
           <li><a href="/idea/list">Idées</a></li>
           <li><a href="/project/list">Projets</a></li>
           <li><a href="/team/list">Equipes</a></li>
-          {{#if loggedIn}}
+          {{#if loggedIn }}
+            {{#if count}}
+          <li>
+            <a href="#notifModal" data-toggle="modal" class="overflow: hidden;">
+              <span class="glyphicon glyphicon-comment" style="font-size: 20px;"></span>
+              <span class="badge" style="background:red;position:relative;top: -15px;left: -15px;">{{count}}</span>
+            </a>
+          </li>
+          {{/if}}
             <li><a href="/private/dashboard">Dashboard</a></li>
           {{/if}}
           <li>{{> navButton}}</li>
@@ -30,17 +38,3 @@
     </div><!-- /.container-fluid -->
   </nav>
 </template>
-
-
-<!--
-  Dropdown menu item example
- <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</li> -->

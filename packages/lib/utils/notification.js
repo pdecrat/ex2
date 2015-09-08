@@ -1,16 +1,48 @@
 Notif = {};
 
+notification = new SimpleSchema({
+  id: {
+    type: Number
+  },
+  content: {
+    type: String
+  },
+  fromType: {
+    type: String
+  },
+  projectId: {
+    type: String
+  },
+  title: {
+    type: String,
+  },
+  seen: {
+    type: Boolean
+  }
+})
+
+genLink = function(doc) {
+    if (doc.fromType === "project")
+      return "/project/view/" + doc.projectId;
+    else if (doc.fromType === "mission")
+      return "/project/view/" + doc.projectId + "/missions";
+  return "#";
+}
+
+
 Notif.addNotification = function(idOrIds, doc) {
-   var context = Schemas.notification.newContext();
+   var context = notification.newContext();
    notificationId = 1;
    newNotification = {
      id: 0,
      content: doc.content,
+     title: doc.title,
      fromType: doc.fromType,
-     fromId: doc.fromId,
+     projectId: doc.projectId,
      seen: false
   }
   if (context.validate(newNotification)) {
+    newNotification.link = genLink(newNotification);
     if (typeof idOrIds === "string") {
       newNotification.id = Meteor.users.findOne({ _id: idOrIds },{fields: {notification: 1, _id: 0}}).notification.length + 1;
       Meteor.users.update({ _id: idOrIds }, { $addToSet: { notification: newNotification }});

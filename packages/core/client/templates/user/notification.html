@@ -1,0 +1,30 @@
+<template name="notification">
+  {{#if currentUser}}
+    <div class="modal fade" id="notifModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Vous avez {{pluralize count "notification"}}</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <ul class="list-unstyled">
+                {{#each notSeenNotif}}
+                  <li >
+                    <div class="col-xs-10">
+                        {{this.content}} <a href="{{this.link}}">{{this.title}}</a>
+                    </div>
+                    <div class="col-xs-2">
+                      <span id="markAsSeen" class="glyphicon glyphicon-remove"></span>
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+</template>

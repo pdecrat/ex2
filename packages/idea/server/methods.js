@@ -11,6 +11,12 @@ var upgraded = function(id) {
   project = {title: idea.title, content: idea.content, owner: idea.owner, members: members};
   projectId = Project.insert(project);
   Roles.giveToken(idea.owner.id, 'coordinator', projectId);
+  Notif.addNotification(idea.members, {
+    content: "Un nouveau projet est né : ",
+    title: idea.title,
+    fromType: "project",
+    projectId: projectId
+  })
   wall = Wall.findOne({key: id});
   Wall.update(wall, {
     $set: {

@@ -45,12 +45,14 @@ Meteor.methods({
     };
     if (Meteor.isServer) {
       var id = Mission.insert(mission);
-      projectMembers = Project.findOne({ _id: mission.project }, {fields: {members: 1}}).members;
-      Notif.addNotification(projectMembers, {
-        content: "A new mission has been added",
+      project = Project.findOne({ _id: mission.project }, {fields: {members: 1, title: 1, _id: 1}});
+      Notif.addNotification(project.members, {
+        content: "Une nouvelle mission a été ajouté au projet " + project.title + " : ",
+        title: mission.title,
         fromType: "mission",
-        fromId: id
+        projectId: project._id
       })
+
     }
   },
   finish: function(missionId) {

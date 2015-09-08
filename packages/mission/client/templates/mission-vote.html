@@ -1,6 +1,12 @@
 <template name="missionVote">
-  		{{#each this.members}}
-  			{{this}}
-  			<button href="#" class="btn btn-primary voteCoordinateur">Vote</button>
-  		{{/each}}
+  {{#with this}}
+    {{> missionItem}}
+
+    {{#each this.members}}
+      {{this}}
+      <button href="#" class="btn btn-primary voteCoordinateur">Vote</button>
+    {{/each}}
+
+  {{/with}}
+
 </template>
