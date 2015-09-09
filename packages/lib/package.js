@@ -30,6 +30,7 @@ Package.onUse(function(api) {
   api.imply(packages, [ 'client', 'server' ]);
 
   api.addFiles([
+    'utils/upload.js',
     'client/stylesheet.css',
     'utils/template-helpers.js',
     'utils/roles/template-helpers.js',
@@ -55,7 +56,8 @@ Package.onUse(function(api) {
     'Schemas',
     'Roles',
     'Utils',
-    'Notif'
+    'Notif',
+    'upload'
   ]);
 
 });

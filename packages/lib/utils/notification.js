@@ -1,3 +1,7 @@
+/*
+** This is all accessible on server side only
+*/
+
 Notif = {};
 
 notification = new SimpleSchema({

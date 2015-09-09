@@ -4,12 +4,9 @@ submitInsertForm = function(e, t) {
   var data = {
     title: $('#title').val(),
     content: $('#content').val(),
-    obj_backers: $('#obj_backers').val()
+    obj_backers: $('#obj_backers').val(),
   }
-  Meteor.call('insertIdea', data, function(err, res) {
-    if (err)
-        Errors.throw(err.reason)
-  });
+  upload.getPic('insertIdea', pic.get(), data, 1600, 1600);
 };
 
 Template.ideaCreate.events({
@@ -19,5 +16,14 @@ Template.ideaCreate.events({
   },
   'click #submit': function(e, t) {
       submitInsertForm(e, t);
+  },
+  'change #file': function(e) {
+    e.preventDefault();
+    var file = e.currentTarget.files[0];
+    pic.set(file);
   }
+});
+
+Template.ideaCreate.onCreated(function(){
+  pic = new ReactiveVar(0);
 });

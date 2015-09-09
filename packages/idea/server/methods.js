@@ -56,7 +56,8 @@ Meteor.methods({
       id: this.userId,
       username: Meteor.users.findOne( {_id: this.userId }).username
     }
-    var idea = {title: data.title, content: data.content, obj_backers: data.obj_backers, owner: ownerObj, members: [ownerObj]};
+    console.log(data)
+    var idea = {canvas: data.canvas, title: data.title, content: data.content, obj_backers: data.obj_backers, owner: ownerObj, members: [ownerObj]};
     var exist = Idea.findOne( {title: idea.title })
     if (!exist){
       ideaId = Idea.insert(idea);

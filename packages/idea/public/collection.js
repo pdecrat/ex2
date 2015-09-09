@@ -11,6 +11,10 @@ IdeaSchema = new SimpleSchema([Schemas.public, {
   votes: {
       type: Number,
       optional: true
+  },
+  canvas: {
+    type: String,
+    optional: true
   }
 }]);
 
