@@ -119,3 +119,5 @@ Work in progress
   }
 }
 ```
+
+Pour les pieces d'ors nous sommes tombées d'accord, pour remttre le total de piece d'or a 10 s'il est inférieur a 10; sinon bite.
