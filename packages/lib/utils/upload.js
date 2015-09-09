@@ -1,3 +1,8 @@
+/*
+** This is all accessible on client side only
+**
+*/
+
 upload = {};
 
 validateFileType = function(file) {
@@ -11,7 +16,7 @@ validateFileType = function(file) {
     return false;
 }
 
-resizeImage = function(dataUrl, max_height, max_width) {
+upload.resizeImage = function(dataUrl, max_height, max_width) {
   var img = document.createElement("img");
   img.src = dataUrl;
 
@@ -37,7 +42,6 @@ upload.getPic = function(type, pic, obj, max_height, max_width) {
       reader.addEventListener('load', function() {
         var canvas = resizeImage(this.result, max_height, max_width);
         obj.canvas = canvas.toDataURL("image/png");
-        console.log(obj)
         Meteor.call(type, obj);
       }, false);
   }

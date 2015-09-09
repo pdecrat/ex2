@@ -5,9 +5,22 @@ submitInsertForm = function(e, t) {
     title: $('#title').val(),
     content: $('#content').val(),
     obj_backers: $('#obj_backers').val(),
+    canvas: pic.get()
   }
-  upload.getPic('insertIdea', pic.get(), data, 1600, 1600);
+  console.log(data)
+  Meteor.call('insertIdea', data);
+  pic.set(null);
+  p.set(null)
 };
+
+Template.ideaCreate.helpers({
+  'progress': function() {
+     obj = p.get();
+     if (!obj || obj.total === 0)
+        return 0;
+     return (obj.loaded * 100 / obj.total);
+  }
+})
 
 Template.ideaCreate.events({
   'keypress input': function(e, t) {
@@ -20,10 +33,21 @@ Template.ideaCreate.events({
   'change #file': function(e) {
     e.preventDefault();
     var file = e.currentTarget.files[0];
-    pic.set(file);
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.addEventListener('progress', function(e) {
+        p.set({ loaded: e.loaded, total: e.total })
+    }, false)
+    reader.addEventListener('load', function() {
+      var canvas = upload.resizeImage(this.result, 400, 400);
+      canvas.toDataURL("image/png");
+      pic.set(canvas.toDataURL("image/png"));
+    }, false);
+
   }
 });
 
 Template.ideaCreate.onCreated(function(){
-  pic = new ReactiveVar(0);
+  pic = new ReactiveVar(null);
+  p = new ReactiveVar(null);
 });

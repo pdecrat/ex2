@@ -4,8 +4,10 @@
       Title: {{title}}
       <br />
       Content: {{content}}
+      {{#if canvas}}
       <img src="{{canvas}}" alt="" class="img-responsive">
       <br />
+      {{/if}}
       {{> wall}}
       {{#if isOwner}}
         {{>ideaUpdate idea}}
