@@ -1,5 +1,5 @@
-Meteor.publish("Election", function (params) {
+Meteor.publish("election", function (params) {
   if (params.action == 'list')
-    return Collectivz.findAll('Election');
-  return Collectivz.findAll(capitalize(params.type), params.id);
+    return Election.find({});
+  return Election.find({ _id: params.id });
 });
