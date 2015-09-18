@@ -1,0 +1,10 @@
+<template name="electionViewDisplay">
+  {{#if Template.subscriptionsReady}}
+    {{#with election}}
+      {{#each members}}
+        {{this}}
+         <button href="#" class="btn btn-primary voteCoordinateur">Vote</button>
+      {{/each}}
+  	{{/with}}
+  {{/if}}
+</template>

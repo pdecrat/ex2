@@ -3,36 +3,26 @@ var upgraded = function(id) {
   var members = [];
 
   idea.members.forEach(function(element) {
-    var memberProject = {};
-    memberProject.id = element.id;
-    memberProject.username = element.username;
-    memberProject.remainingVote = 3;
-    memberProject.voted = 0;
-    members.push(memberProject);
+    var memberElection = {};
+    memberElection.id = element.id;
+    memberElection.username = element.username;
+    memberElection.remainingVote = 3;
+    memberElection.voted = 0;
+    members.push(memberElection);
   });
 
-  project = {title: idea.title, content: idea.content, owner: idea.owner, members: members};
+  project = {title: idea.title, content: idea.content, owner: idea.owner, members: idea.members};
   projectId = Project.insert(project);
-  missionMembers = [];
-  members.forEach(function(element) {
-    var memberProject = element.id;
-    missionMembers.push(memberProject);
-    });
-  var mission = {
-    title: "Election",
-    content: "Nous vous invitons a voter pour un coordinateur",
-    members: missionMembers,
-    missionType: "Vote",
-    finish : false,
+  var election = {
+    votes: 0,
+    members: members,
     project: projectId,
-    owner: { id: "Collectivz", username: "Collectivz"}
+    createdAt: new Date()
   };
   var wall = {key: projectId, from: "project"};
   Wall.insert(wall);
 
-  missionId = Mission.insert(mission);
-  var wall = {key: missionId, from: "mission"};
-  Wall.insert(wall);
+  console.log(Election.insert(election));
 
   Notif.addNotification(idea.members, {
     content: "Un nouveau projet est né : ",

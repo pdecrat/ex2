@@ -4,11 +4,8 @@ Members = new SimpleSchema({
     id: {
       type: String
     },
-    remainingVote: {
-       type: Number
-    },
-    voted: {
-      type: Number
+    username: {
+       type: String
     }
 });
 

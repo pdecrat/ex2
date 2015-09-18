@@ -17,6 +17,7 @@ Package.onUse(function(api) {
   'collectivz:lib',
   'collectivz:wall',
   'collectivz:mission',
+  'collectivz:election',
   'collectivz:idea',
   'collectivz:project',
   'collectivz:team',
