@@ -19,10 +19,10 @@ var upgraded = function(id) {
     project: projectId,
     createdAt: new Date()
   };
-  var wall = {key: projectId, from: "project"};
-  Wall.insert(wall);
 
-  console.log(Election.insert(election));
+  electionId = Election.insert(election);
+  var wall = {key: electionId, from: "election"};
+  Wall.insert(wall);
 
   Notif.addNotification(idea.members, {
     content: "Un nouveau projet est né : ",

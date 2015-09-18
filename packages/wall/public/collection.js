@@ -28,7 +28,7 @@ WallSchema = new SimpleSchema({
   },
   from: {
     type: String,
-    allowedValues: ['idea', 'project', 'team', 'mission'],
+    allowedValues: ['idea', 'project', 'team', 'mission', 'election'],
     optional: true
   },
   posts: {
