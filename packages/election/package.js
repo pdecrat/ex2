@@ -27,12 +27,15 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'server/methods.js',
-    'server/publish.js'
+    'server/publish.js',
     ], [ 'server' ]);
 
   api.addFiles([
+    'client/election-item.html',
+    'client/election-list.html',
+    'client/election-list.js',
     'client/election-view.html',
-    'client/election-view.js'
+    'client/election-view.js',
     ], [ 'client' ]);
 
   api.export([

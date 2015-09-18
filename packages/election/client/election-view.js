@@ -2,7 +2,6 @@ Template.electionViewDisplay.onCreated(function() {
 
 	var self = this;
 	var id = self.data.id;
-
 	self.autorun(function() {
 		self.subscribe('election', {action: 'view', id: id});
 	});
