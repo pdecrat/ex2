@@ -1,11 +1,8 @@
 Template.missionItem.onCreated(function() {
-
 	var instance = this;
-
 	instance.autorun(function() {
 		var sub = instance.subscribe('mission', {action: 'list'});
 	});
-
 	instance.mission = function() {
 		return Mission.find();
 	}

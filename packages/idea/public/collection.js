@@ -1,11 +1,27 @@
 Idea = new Mongo.Collection('idea');
 
-IdeaSchema = new SimpleSchema([Schemas.public, {
+UserSchema = new SimpleSchema({
+  id: {
+    type: String
+  },
+  username: {
+    type: String
+  }
+});
+
+IdeaSchema = new SimpleSchema({
+  title: {
+    type: String
+  },
+  content: {
+    type: String
+  },
   obj_backers: {
     type: Number
   },
   members: {
-      type: [Schemas.user],
+      type: [UserSchema],
+      blackbox: true,
       optional: true
   },
   votes: {
@@ -16,6 +32,4 @@ IdeaSchema = new SimpleSchema([Schemas.public, {
     type: String,
     optional: true
   }
-}]);
-
-Idea.attachSchema(IdeaSchema);
+});

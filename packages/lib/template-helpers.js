@@ -26,3 +26,9 @@ Template.registerHelper('loggedIn', function() {
 Template.registerHelper('synopsis', function(string) {
   return string[0].toUpperCase() + string.substr(1, 70) + "...";
 });
+
+Template.registerHelper('userSubRdy', function() {
+  if (userSub.ready())
+    return true;
+  return false;
+})

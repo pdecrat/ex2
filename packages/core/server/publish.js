@@ -37,19 +37,4 @@ if (Meteor.users.find().count() == 0)
 			lastName: 'my'
 		}
 	});
-
 }
-
-
-// Meteor.users.before.insert(function (userId, doc) {
-//   doc.profile.role = "user";
-//   doc.profile.templates = ['profile'];
-// });
-//
-// Meteor.users.after.insert(function () {
-//   var charac = {userID: this._id, gold: 10, xp: 0, lvl: 1};
-//   characterID = Characters.insert(charac);
-//   Meteor.users.update(this._id, {
-//     $set: {"profile.character": characterID}
-//   });
-// })

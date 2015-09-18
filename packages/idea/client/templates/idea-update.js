@@ -17,4 +17,5 @@ Template.ideaUpdate.events({
 
 Template.ideaUpdate.onRendered(function (){
   $('#title').val(this.data.title);
+  $('#content').val(this.data.content);
 });

@@ -10,12 +10,7 @@ Accounts.onCreateUser(function(options, user) {
    user.character = character;
    user.notification = [];
    if (Meteor.users.find().count() == 0){
-     var token = {
-       itemId: '',
-       role: 'admin'
-     };
-
-     user.roles.push(token);
+     user.roles.push('admin');
   }
   return user;
 });

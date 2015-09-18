@@ -4,13 +4,18 @@ Meteor.methods({
       var exist = Team.findOne( {name: data.name });
 
       if (!exist) {
-        Team.insert(data);
+        teamId = Team.insert(data);
+        var wall = {key: teamId, from: "team"};
+        Wall.insert(wall);
       }
     }
   },
-  getUserInfo: function(username) {
-    var ret = Utils.getUserInfo(username);
-
-    return ret;
+  isUser: function(username) {
+    var user = null;
+    if (typeof username === "string")
+        user = Meteor.users.findOne({ username: username });
+    if (user)
+        return { id: user._id, username: user.username };
+    return null;
   }
 })

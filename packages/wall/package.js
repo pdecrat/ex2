@@ -7,7 +7,7 @@ Package.describe({
   git: '',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+  documentation: ''
 });
 
 Package.onUse(function(api) {
@@ -23,11 +23,11 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'public/collection.js',
-    'public/methods.js'
     ], [ 'client', 'server' ]);
 
   api.addFiles([
-    'server/publish.js'
+    'server/methods.js',
+    'server/publish.js',
     ], [ 'server' ]);
 
   api.addFiles([

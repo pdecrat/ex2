@@ -18,7 +18,6 @@ var canHeVote = function(members, userId, projectId) {
   return false;
 }
 
-
 Meteor.methods({
   insertMission: function (data) {
     if (!this.userId) {
@@ -43,8 +42,11 @@ Meteor.methods({
       project: data.project,
       owner: ownerObj
     };
+
     if (Meteor.isServer) {
-      var id = Mission.insert(mission);
+      var missionId = Mission.insert(mission);
+      var wall = {key: missionId, from: "mission"};
+      Wall.insert(wall);
       project = Project.findOne({ _id: mission.project }, {fields: {members: 1, title: 1, _id: 1}});
       Notif.addNotification(project.members, {
         content: "Une nouvelle mission a été ajouté au projet " + project.title + " : ",

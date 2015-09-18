@@ -1,4 +1,3 @@
-// Write your package code here!
 Project = new Mongo.Collection('project');
 
 Members = new SimpleSchema({
@@ -13,8 +12,13 @@ Members = new SimpleSchema({
     }
 });
 
-// Define the schema
-ProjectSchema = new SimpleSchema([Schemas.public, {
+ProjectSchema = new SimpleSchema({
+  title: {
+    type: String
+  },
+  content: {
+    type: String
+  },
   members: {
       type: [Members],
       optional: true,
@@ -24,6 +28,4 @@ ProjectSchema = new SimpleSchema([Schemas.public, {
       type: [String],
       optional: true
   }
-}]);
-
-Project.attachSchema(ProjectSchema);
+});

@@ -1,5 +1,14 @@
 Team = new Mongo.Collection('teams');
 
+user = new SimpleSchema({
+  id: {
+    type: String
+  },
+  username: {
+    type: String
+  }
+})
+
 TeamSchema = new SimpleSchema({
   name: {
     type: String,
@@ -10,7 +19,7 @@ TeamSchema = new SimpleSchema({
     type: String
   },
   members: {
-    type: [Schemas.user]
+    type: [user]
   },
   wall : {
     type: String,

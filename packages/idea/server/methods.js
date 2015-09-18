@@ -10,8 +10,30 @@ var upgraded = function(id) {
     memberProject.voted = 0;
     members.push(memberProject);
   });
+
   project = {title: idea.title, content: idea.content, owner: idea.owner, members: members};
   projectId = Project.insert(project);
+  missionMembers = [];
+  members.forEach(function(element) {
+    var memberProject = element.id;
+    missionMembers.push(memberProject);
+    });
+  var mission = {
+    title: "Election",
+    content: "Nous vous invitons a voter pour un coordinateur",
+    members: missionMembers,
+    missionType: "Vote",
+    finish : false,
+    project: projectId,
+    owner: { id: "Collectivz", username: "Collectivz"}
+  };
+  var wall = {key: projectId, from: "project"};
+  Wall.insert(wall);
+
+  missionId = Mission.insert(mission);
+  var wall = {key: missionId, from: "mission"};
+  Wall.insert(wall);
+
   Notif.addNotification(idea.members, {
     content: "Un nouveau projet est né : ",
     title: idea.title,
@@ -61,6 +83,8 @@ Meteor.methods({
     var exist = Idea.findOne( {title: idea.title })
     if (!exist){
       ideaId = Idea.insert(idea);
+      var wall = {key: ideaId, from: "idea"};
+      Wall.insert(wall);
       upvote(this.userId, ideaId);
     }
   },

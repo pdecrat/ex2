@@ -22,23 +22,22 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'public/collection.js',
-    'public/methods.js',
-    'public/hooks.js'
     ], [ 'client', 'server' ]);
 
   api.addFiles([
-    'server/publish.js'
+    'server/methods.js',
+    'server/publish.js',
     ], [ 'server' ]);
 
   api.addFiles([
+    'client/templates/mission-challenge.html',
     'client/templates/mission-create.html',
     'client/templates/mission-create.js',
     'client/templates/mission-item.html',
     'client/templates/mission-item.js',
+    'client/templates/mission-mission.html',
     'client/templates/mission-vote.html',
     'client/templates/mission-vote.js',
-    'client/templates/mission-mission.html',
-    'client/templates/mission-challenge.html',
     'client/templates/missions-list.html'
     ], [ 'client' ]);
 

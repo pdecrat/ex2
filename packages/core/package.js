@@ -7,7 +7,7 @@ Package.describe({
   git: '',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+  documentation: ''
 });
 
 Package.onUse(function(api) {
@@ -15,55 +15,47 @@ Package.onUse(function(api) {
 
   var packages = [
   'collectivz:lib',
-  'collectivz:slider',
-  'collectivz:geoloc',
   'collectivz:wall',
   'collectivz:mission',
   'collectivz:idea',
   'collectivz:project',
-  'collectivz:team'
+  'collectivz:team',
 ];
 
   api.use(packages);
   api.imply(packages);
 
   api.addFiles([
-    'public/router/router.js',
-    'public/router/router-helpers.js'
+    'common/router.js',
+    'common/render-template.js',
     ], [ 'client', 'server' ]);
 
   api.addFiles([
     'server/accounts-create.js',
     'server/publish.js',
     'server/methods.js',
-    'server/start.js'
     ], [ 'server' ]);
 
   api.addFiles([
+    'client/templates/basic/home.html',
     'client/templates/basic/layout.html',
+    'client/templates/basic/loading.html',
     'client/templates/basic/nav.html',
     'client/templates/basic/nav.js',
-    'client/templates/basic/loading.html',
-    'client/templates/basic/loading.js',
     'client/templates/basic/not-found.html',
-    'client/templates/user/notification.html',
-    'client/templates/user/notification.js',
+
+    'client/templates/user/dashboard.html',
+    'client/templates/user/dashboard.js',
     'client/templates/user/login.html',
     'client/templates/user/login.js',
+    'client/templates/user/nav-button.html',
+    'client/templates/user/notification.html',
+    'client/templates/user/notification.js',
     'client/templates/user/register.html',
     'client/templates/user/register.js',
-    'client/templates/user/nav-button.html',
-    'client/templates/basic/home.html',
-    'client/templates/user/dashboard/dashboard.html',
-    'client/templates/helpers.js',
-    'client/templates/admin/users-list.html',
-    'client/templates/admin/users-list.js',
-    'client/templates/user/dashboard/dashboard.js',
-    'client/templates/user/dashboard/user-item.html',
-    'client/subscribe.js'
-    ], [ 'client' ]);
+    'client/templates/user/users-list.html',
+    'client/templates/user/users-list.js',
 
-    api.export([
-      'Errors'
-    ]);
+    'client/subscribe.js',
+    ], [ 'client' ]);
 });

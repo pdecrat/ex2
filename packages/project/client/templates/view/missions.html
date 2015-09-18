@@ -4,7 +4,5 @@
   {{else}}
     {{> Template.dynamic template=type data=mission }}
   {{/if}}
-  {{#if isCoordinator currentUser._id projectId}}
-    {{> missionCreate mission.project}}
-  {{/if}}
+  {{> missionCreate mission.project}}
 </template>

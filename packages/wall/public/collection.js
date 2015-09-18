@@ -1,9 +1,17 @@
-// Write your package code here!
 Wall = new Mongo.Collection('wall');
+
+owner = new SimpleSchema({
+  id: {
+    type: String
+  },
+  username: {
+    type: String
+  }
+})
 
 Posts = new SimpleSchema({
     owner: {
-      type: Schemas.owner
+      type: owner
     },
     content: {
         type: String
@@ -29,5 +37,3 @@ WallSchema = new SimpleSchema({
     optional: true
   }
 });
-
-Wall.attachSchema(WallSchema);

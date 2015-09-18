@@ -3,7 +3,7 @@ Package.describe({
   version: '0.0.1',
   summary: '',
   git: '',
-  documentation: 'README.md'
+  documentation: ''
 });
 
 Package.onUse(function(api) {
@@ -30,31 +30,25 @@ Package.onUse(function(api) {
   api.imply(packages, [ 'client', 'server' ]);
 
   api.addFiles([
-    'utils/upload.js',
-    'client/stylesheet.css',
-    'utils/template-helpers.js',
-    'utils/roles/template-helpers.js',
-    'utils/error/collection.js',
-    'utils/error/errors.html',
-    'utils/error/errors.js'
+    'upload.js',
+    'stylesheet.css',
+    'template-helpers.js',
+    'error/collection.js',
+    'error/errors.html',
+    'error/errors.js'
   ], ['client']);
 
   api.addFiles([
-    'utils/global-schemas.js',
-    'utils/roles/functions.js',
-    'utils/utils.js'
+    'utils.js'
   ], ['client', 'server']);
 
   api.addFiles([
-    'utils/roles/methods.js',
-    'utils/notification.js'
+    'notification.js'
   ], ['server']);
 
   api.export([
     '_',
     'Errors',
-    'Schemas',
-    'Roles',
     'Utils',
     'Notif',
     'upload'

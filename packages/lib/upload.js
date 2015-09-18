@@ -1,6 +1,5 @@
 /*
 ** This is all accessible on client side only
-**
 */
 
 upload = {};
@@ -46,38 +45,3 @@ upload.getPic = function(type, pic, obj, max_height, max_width) {
       }, false);
   }
 }
-
-// upload.saveImageToProfile = function(canvas) {
-//   var resizedDataUrl = canvas.toDataURL("image/png");
-//   var isSaved = Meteor.users.update(Meteor.userId(), {$set: {"profile.pic": resizedDataUrl}});
-//   if (!isSaved)
-//     Errors.throw("A problem occured while saving your Image.. please try again");
-// }
-
-
-// Template.upload.events({
-//   'change input': function(e) {
-//     e.preventDefault();
-//
-//     var pic = e.currentTarget.files[0];
-//     if (validateFileType(pic)) {
-//         var reader = new FileReader();
-//         reader.readAsDataURL(pic);
-//         reader.addEventListener('load', function() {
-//           var canvas = resizeImage(this.result, 400, 400);
-//           // saveImage(canvas);
-//         }, false);
-//     } else {
-//       Errors.throw('File extension must be .png, .jpg or .jpeg');
-//     }
-//   }
-// });
-
-// Template.upload.helpers({
-//   hasPic: function() {
-//     var profile = Meteor.user().profile;
-//     if (profile.pic !== undefined && profile.pic !== "")
-//       return "Update your profile picture";
-//     return "Add a profile picture";
-//   }
-// })

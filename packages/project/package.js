@@ -7,7 +7,7 @@ Package.describe({
   git: '',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+  documentation: ''
 });
 
 Package.onUse(function(api) {
@@ -23,27 +23,26 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'public/collection.js',
-    'public/hooks.js'
     ], [ 'client', 'server' ]);
 
   api.addFiles([
-    'server/publish.js'
+    'server/publish.js',
     ], [ 'server' ]);
 
   api.addFiles([
     'client/templates/view/description.html',
     'client/templates/view/map.html',
-    'client/templates/view/map.js',
+    'client/templates/view/menu.html',
     'client/templates/view/missions.html',
     'client/templates/view/missions.js',
     'client/templates/view/teams.html',
     'client/templates/view/wiki.html',
-    'client/templates/view/menu.html',
+
     'client/templates/project-item.html',
+    'client/templates/project-view.html',
+    'client/templates/project-view.js',
     'client/templates/projects-list.html',
     'client/templates/projects-list.js',
-    'client/templates/project-view.html',
-    'client/templates/project-view.js'
     ], [ 'client' ]);
 
   api.export([
