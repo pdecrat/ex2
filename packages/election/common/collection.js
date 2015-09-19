@@ -32,5 +32,3 @@ ElectionSchema = new SimpleSchema({
     optional: true
   }
 });
-
-// Idea.attachSchema(IdeaSchema);

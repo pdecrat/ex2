@@ -13,10 +13,10 @@ Accounts.onCreateUser(function(options, user) {
      user.roles.push('admin');
   }
   project = Project.findOne({ title: "Mes premiers pas avec Collectivz"});
-  var members = {};
-  members.id = user._id;
-  members.username = user.username;
-  Project.update(project._id, { $addToSet: {members: members}});
+  var member = {};
+  member.id = user._id;
+  member.username = user.username;
+  Project.update(project._id, { $addToSet: {members: member}});
 
   return user;
 });

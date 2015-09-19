@@ -21,6 +21,7 @@ Package.onUse(function(api) {
   'collectivz:idea',
   'collectivz:project',
   'collectivz:team',
+  'collectivz:activity',
 ];
 
   api.use(packages);
