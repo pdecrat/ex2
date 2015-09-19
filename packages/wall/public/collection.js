@@ -1,6 +1,6 @@
 Wall = new Mongo.Collection('wall');
 
-owner = new SimpleSchema({
+Wall.ownerSchema = new SimpleSchema({
   id: {
     type: String
   },
@@ -9,9 +9,9 @@ owner = new SimpleSchema({
   }
 })
 
-Posts = new SimpleSchema({
+Wall.postSchema = new SimpleSchema({
     owner: {
-      type: owner
+      type: Wall.ownerSchema
     },
     content: {
         type: String
@@ -22,7 +22,7 @@ Posts = new SimpleSchema({
 });
 
 // Define the schema
-WallSchema = new SimpleSchema({
+Wall.wallSchema = new SimpleSchema({
   key: {
     type: String
   },
@@ -32,7 +32,7 @@ WallSchema = new SimpleSchema({
     optional: true
   },
   posts: {
-    type: [Posts],
+    type: [Wall.postSchema],
     blackbox: true,
     optional: true
   }

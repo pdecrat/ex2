@@ -49,14 +49,10 @@
 											{{/each}}
 	                </ul>
 									{{/if}}
-									{{#if isMember}}
-											<form>
-												<textarea name="content" class="form-control" placeholder="Feel free to comment!" rows="4" cols="50"></textarea>
-											 	<input class="btn btn-primary btn-sm btn-block" type="submit" value="insert">
-											</form>
-									{{else}}
-										<p>Vous devez être membre pour pouvoir commenter</p>
-									{{/if}}
+									<form>
+										<textarea name="content" class="form-control" placeholder="Feel free to comment!" rows="4" cols="50"></textarea>
+									 	<input class="btn btn-primary btn-sm btn-block" type="submit" value="insert">
+									</form>
 	            </div>
 					{{/if}}
 	        </div>

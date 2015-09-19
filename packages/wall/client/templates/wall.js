@@ -1,7 +1,6 @@
 Template.wall.onCreated(function() {
 	var self = this;
 	var key = self.data._id;
-	console.log(self)
 	self.autorun(function() {
 		var sub = self.subscribe('wall', { key: key });
 	});
@@ -25,31 +24,26 @@ Template.wall.helpers({
 	},
 	'OwnsL': function() {
 		return (Meteor.userId() === this.owner.id) ? "left" : "right";
-	},
-	isMember: function() {
-		project = _.some( this.members, function( el ) {
-			return el.id === Meteor.userId();
-		});
-		idea = _.contains(this.members, Meteor.userId());
-			if (project || idea)
-				return true;
-			return false;
 	}
 })
+
+// need to add client side validation for e.target.content.value
 
 Template.wall.events({
 	'submit form': function(e) {
 		e.preventDefault();
-		console.log(e)
+		var ownerObj = {};
 		key= this._id;
 		userId = Meteor.userId()
 		user = Meteor.users.findOne(userId);
-		var ownerObj = {
-			id: user._id,
-			username: user.username
-		};
-		console.log(e.target.content.value)
+		if (userId) {
+			ownerObj.id = userId;
+			ownerObj.username = user.username;
+		}
 		post = {owner: ownerObj, content: e.target.content.value, createdAt: new Date()};
-		Meteor.call('insertPost', userId, key, post);
+		Meteor.call('insertPost', userId, key, post, function(err, res) {
+			if (typeof res === "string")
+				Errors.throw(res)
+		});
 	}
 });

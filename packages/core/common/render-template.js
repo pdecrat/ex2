@@ -12,7 +12,6 @@ render = function(params) {
   } else {
     template = params.dest + 'Display';
   }
-  console.log(template)
   if(!Blaze.isTemplate(Template[template]))
     template = 'not-found';
   BlazeLayout.render('layout', {template: template, content: {id: params.id, subMenu: params.sub}});

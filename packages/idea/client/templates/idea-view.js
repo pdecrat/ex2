@@ -1,7 +1,6 @@
 Template.ideaViewDisplay.onCreated(function() {
 
 	var self = this;
-	console.log(self)
 	var id = self.data.id;
 
 	self.autorun(function() {

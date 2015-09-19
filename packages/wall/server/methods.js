@@ -1,30 +1,49 @@
+/*
+**  WALL INSERT :
+**  1) Check if user is logged
+**  2) Check if wall exists
+**  3) Check if document is conform to Wall.postSchema and doc.owner to Wall.ownerSchema
+**  4) Parse depending of wall.from
+**     project, election : checks if user is member or not ( members is an array of object with id field)
+**     mission : checks if user is member or not ( members is array of Strings representing the id )
+**     idea : everyone can post
+**  5) update wall and return
+*/
+
 Meteor.methods({
    insertPost: function(userId, wallId, doc) {
+    if (!this.userId)
+      return "Vous devez vous logged pour pouvoir poster";
     wall = Wall.findOne({key: wallId});
+    if (_.isEmpty(wall))
+      return "Ce mur n'existe pas";
+    if (!Match.test(doc, Wall.postSchema) || !Match.test(doc.owner, Wall.ownerSchema))
+      return "Un problème est survenu lors de la validation des champs"
     if (wall.from === 'project')
     {
       project = Project.findOne(wall.key);
-      check = _.some( project.members, function( el ) {
-        return el.id === userId;
-      } );
+      if (!_.isEmpty(project))
+        check = _.some( project.members, function( el ) { return el.id === userId; } );
       if (check)
-        Wall.update(wall._id, { $addToSet: {posts: doc} });
+        return Wall.update(wall._id, { $addToSet: {posts: doc} });
     }
     else if (wall.from === 'idea')
+        return Wall.update(wall._id, { $addToSet: {posts: doc} });
+    else if (wall.from === 'election')
     {
-      idea = Idea.findOne(wall.key);
-      check = _.contains( idea.members, userId);
+      election = Election.findOne(wall.key);
+      if (!_.isEmpty(election))
+        check = _.some( election.members, function( el ) { return el.id === userId; } );
       if (check)
-        Wall.update(wall._id, { $addToSet: {posts: doc} });
+        return Wall.update(wall._id, { $addToSet: {posts: doc} });
     }
     else if (wall.from === 'mission')
     {
       mission = Mission.findOne(wall.key);
-      if (!_.include(mission.members, userId))
-          return false;
-      Wall.update(wall._id, {
-        $addToSet: {posts: doc},
-      });
+      if (!_.isEmpty(election))
+        check = _.include(mission.members, userId)
+      if (check)
+        return Wall.update(wall._id, { $addToSet: {posts: doc} });
     }
   }
 });
