@@ -24,12 +24,12 @@ var upgraded = function(id) {
   var wall = {key: electionId, from: "election"};
   Wall.insert(wall);
 
-  Notif.addNotification(idea.members, {
-    content: "Un nouveau projet est né : ",
-    title: idea.title,
-    fromType: "project",
-    projectId: projectId
-  })
+  // Notif.addNotification(idea.members, {
+  //   content: "Un nouveau projet est né : ",
+  //   title: idea.title,
+  //   fromType: "project",
+  //   projectId: projectId
+  // })
   wall = Wall.findOne({key: id});
   Wall.update(wall, {
     $set: {

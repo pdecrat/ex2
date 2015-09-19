@@ -21,21 +21,23 @@ Package.onUse(function(api) {
   'collectivz:idea',
   'collectivz:project',
   'collectivz:team',
-  'collectivz:activity',
 ];
 
   api.use(packages);
   api.imply(packages);
 
   api.addFiles([
+    'common/collection.js',
     'common/router.js',
     'common/render-template.js',
     ], [ 'client', 'server' ]);
 
   api.addFiles([
-    'server/accounts-create.js',
+    'server/hooks/accounts-create.js',
+    'server/hooks/activity.js',
     'server/publish.js',
     'server/methods.js',
+
     ], [ 'server' ]);
 
   api.addFiles([
@@ -58,6 +60,14 @@ Package.onUse(function(api) {
     'client/templates/user/users-list.html',
     'client/templates/user/users-list.js',
 
+    'client/templates/activity/activity-item.html',
+    'client/templates/activity/activity-list.html',
+    'client/templates/activity/activity-list.js',
+
     'client/subscribe.js',
     ], [ 'client' ]);
+
+    api.export([
+      'Activity'
+      ]);
 });
