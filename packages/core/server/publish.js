@@ -14,6 +14,12 @@ Meteor.publish("user", function (params) {
       );
 });
 
+Meteor.publish("activity", function (params) {
+  if (this.userId)
+    return Activity.find({ userId: this.userId });
+});
+
+
 if (Meteor.users.find().count() == 0)
 {
   Accounts.createUser(
