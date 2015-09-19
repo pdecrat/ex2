@@ -12,5 +12,11 @@ Accounts.onCreateUser(function(options, user) {
    if (Meteor.users.find().count() == 0){
      user.roles.push('admin');
   }
+  project = Project.findOne({ title: "Mes premiers pas avec Collectivz"});
+  var members = {};
+  members.id = user._id;
+  members.username = user.username;
+  Project.update(project._id, { $addToSet: {members: members}});
+
   return user;
 });

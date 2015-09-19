@@ -19,17 +19,6 @@ MissionSchema = new SimpleSchema({
     type: String,
     optional: true
   },
-  missionType: {
-    type: String,
-    allowedValues: ['Mission', 'Challenge', 'Vote'],
-    autoform: {
-      options: {
-        Mission: "Mission",
-        Challenge: "Challenge",
-        Vote: "Vote"
-      }
-    }
-  },
   wall: {
       type: String,
       optional: true

@@ -4,7 +4,6 @@ submitInsertForm = function(e, t) {
   var data = {
     title: $('#title').val(),
     content: $('#content').val(),
-    missionType: $('#missionType option:selected').val(),
     project: t.data
   }
 
