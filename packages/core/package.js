@@ -16,10 +16,10 @@ Package.onUse(function(api) {
   var packages = [
   'collectivz:lib',
   'collectivz:wall',
-  'collectivz:mission',
   'collectivz:election',
   'collectivz:idea',
   'collectivz:project',
+  'collectivz:mission',
   'collectivz:team',
 ];
 
@@ -33,8 +33,9 @@ Package.onUse(function(api) {
     ], [ 'client', 'server' ]);
 
   api.addFiles([
-    'server/hooks/accounts-create.js',
+    'server/hooks/accounts.js',
     'server/hooks/activity.js',
+    'server/hooks/mission.js',
     'server/publish.js',
     'server/methods.js',
 
