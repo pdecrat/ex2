@@ -1,0 +1,16 @@
+<template name="surveyListDisplay">
+	{{#if Template.subscriptionsReady}}
+		<div class="container ">
+			<div class="col-xs-12 item">
+				<h1 class="col-xs-10">Liste des sondages:</h1>
+				{{#if currentUser}}
+				{{/if}}
+			</div>
+			{{#each surveys}}
+				<div class="col-xs-12 item clickable">
+					{{> surveyItem}}
+				</div>
+			{{/each}}
+		</div>
+	{{/if}}
+ </template>
