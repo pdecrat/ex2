@@ -21,6 +21,7 @@ Package.onUse(function(api) {
   'collectivz:project',
   'collectivz:mission',
   'collectivz:team',
+  'collectivz:survey',
 ];
 
   api.use(packages);
