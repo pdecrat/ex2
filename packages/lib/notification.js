@@ -4,7 +4,7 @@
 
 Notif = {};
 
-notification = new SimpleSchema({
+Notif.notification = new SimpleSchema({
   id: {
     type: Number
   },
@@ -25,7 +25,7 @@ notification = new SimpleSchema({
   }
 })
 
-genLink = function(doc) {
+Notif.genLink = function(doc) {
     if (doc.fromType === "project")
       return "/project/view/" + doc.projectId;
     else if (doc.fromType === "mission")
@@ -35,7 +35,7 @@ genLink = function(doc) {
 
 
 Notif.addNotification = function(idOrIds, doc) {
-   var context = notification.newContext();
+   var context = Notif.notification.newContext();
    notificationId = 1;
    newNotification = {
      id: 0,
@@ -46,7 +46,7 @@ Notif.addNotification = function(idOrIds, doc) {
      seen: false
   }
   if (context.validate(newNotification)) {
-    newNotification.link = genLink(newNotification);
+    newNotification.link = Notif.genLink(newNotification);
     if (typeof idOrIds === "string") {
       newNotification.id = Meteor.users.findOne({ _id: idOrIds },{fields: {notification: 1, _id: 0}}).notification.length + 1;
       Meteor.users.update({ _id: idOrIds }, { $addToSet: { notification: newNotification }});
