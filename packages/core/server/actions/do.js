@@ -37,6 +37,7 @@ Actions.do = function(origin, actions, targets) {
 
     // Apply an array of action to a single target
   } else if (Array.isArray(actions)) {
+    // console.log(Collectivz.findOne(targets));
     if (targets)
       targets = Collectivz.findOne(targets);
     actions.forEach(function(action) {

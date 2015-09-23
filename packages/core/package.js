@@ -75,6 +75,8 @@ Package.onUse(function(api) {
     ], [ 'client' ]);
 
     api.export([
-      'Activity'
+      'Activity',
+      'Collectivz',
+      'Actions',
       ]);
 });

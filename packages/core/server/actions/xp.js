@@ -1,6 +1,6 @@
 Actions.getXp = function(origin, target, params) {
-  if (origin.xp)
-    origin.xp += params.xp;
+  if (origin.character.experience)
+    origin.character.experience += params.xp;
   else
-    origin.xp = params.xp;
+    origin.character.experience = params.xp;
 }

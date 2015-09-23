@@ -5,7 +5,9 @@ submitInsertForm = function(e, t) {
     title: $('#title').val(),
     content: $('#content').val(),
     obj_backers: $('#obj_backers').val(),
-    canvas: pic.get()
+    canvas: pic.get(),
+    type: 'Idea',
+    credits: 0
   }
   console.log(data)
   Meteor.call('insertIdea', data);

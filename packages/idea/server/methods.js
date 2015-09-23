@@ -68,14 +68,13 @@ Meteor.methods({
       id: this.userId,
       username: Meteor.users.findOne( {_id: this.userId }).username
     }
-    console.log(data)
-    var idea = {canvas: data.canvas, title: data.title, content: data.content, obj_backers: data.obj_backers, owner: ownerObj, members: [ownerObj]};
-    var exist = Idea.findOne( {title: idea.title })
+    // var idea = {type: data.type, canvas: data.canvas, title: data.title, content: data.content, obj_backers: data.obj_backers, owner: ownerObj, members: [ownerObj]};
+    var exist = Idea.findOne( {title: data.title })
     if (!exist){
-      ideaId = Idea.insert(idea);
+      ideaId = Idea.insert(data);
       var wall = {key: ideaId, from: "idea"};
       Wall.insert(wall);
-      upvote(this.userId, ideaId);
+      // upvote(this.userId, ideaId);
     }
   },
   updateIdea: function(data, ideaId) {
@@ -83,5 +82,15 @@ Meteor.methods({
   },
   removeIdea: function(ideaId) {
     Idea.remove(ideaId);
+  },
+  giveCredits: function(target) {
+    var user = Meteor.user();
+    var actions = [
+      {name: 'giveCredits', params: {amount: 1}},
+      {name: 'getXp', params: {xp: 10}},
+    ];
+    Actions.do(user, actions, target);
+    if (target.credits >= target.obj_backers)
+      upgraded(target);
   }
 });

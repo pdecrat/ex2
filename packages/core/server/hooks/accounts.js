@@ -5,13 +5,14 @@ Accounts.onCreateUser(function(options, user) {
     class: "",
     credits: 10
   };
-   user.profile = options.profile;
-   user.roles = [];
-   user.character = character;
-   user.notification = [];
-   if (Meteor.users.find().count() == 0){
-     user.roles.push('admin');
-     user.character.credits = 9001;
+  user.type = 'Person';
+  user.profile = options.profile;
+  user.roles = [];
+  user.character = character;
+  user.notification = [];
+  if (Meteor.users.find().count() == 0){
+   user.roles.push('admin');
+   user.character.credits = 9001;
   }
   project = Project.findOne({ title: "Mes premiers pas avec Collectivz"});
   var member = {};
