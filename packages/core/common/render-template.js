@@ -1,10 +1,10 @@
-Collections = {
-  user: Meteor.users,
-  idea: Idea,
-  project: Project,
-  mission: Mission,
-  team: Team
-};
+// Collections = {
+//   user: Meteor.users,
+//   idea: Idea,
+//   project: Project,
+//   mission: Mission,
+//   team: Team
+// };
 
 render = function(params) {
   if (params.action) {

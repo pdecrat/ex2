@@ -31,6 +31,7 @@ Package.onUse(function(api) {
     'common/collection.js',
     'common/router.js',
     'common/render-template.js',
+    'common/collectivz.js',
     ], [ 'client', 'server' ]);
 
   api.addFiles([
@@ -39,7 +40,11 @@ Package.onUse(function(api) {
     'server/hooks/mission.js',
     'server/publish.js',
     'server/methods.js',
-
+    'server/actions/do.js',
+    'server/actions/xp.js',
+    'server/actions/credits.js',
+    'server/actions/members.js',
+    'server/actions/security.js',
     ], [ 'server' ]);
 
   api.addFiles([

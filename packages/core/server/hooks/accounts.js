@@ -3,7 +3,7 @@ Accounts.onCreateUser(function(options, user) {
     experience: 0,
     level: 0,
     class: "",
-    gold: 10
+    credits: 10
   };
    user.profile = options.profile;
    user.roles = [];
@@ -11,6 +11,7 @@ Accounts.onCreateUser(function(options, user) {
    user.notification = [];
    if (Meteor.users.find().count() == 0){
      user.roles.push('admin');
+     user.character.credits = 9001;
   }
   project = Project.findOne({ title: "Mes premiers pas avec Collectivz"});
   var member = {};

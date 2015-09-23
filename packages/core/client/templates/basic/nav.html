@@ -11,6 +11,9 @@
         </button>
         <a class="navbar-brand" href="/home">Collectivz</a>
       </div>
+      {{#with currentUser}}
+        Credits: {{this.character.credits}}
+      {{/with}}
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
