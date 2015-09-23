@@ -35,7 +35,6 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'notification.js',
-    'search/server.js',
   ], ['server']);
 
   api.addFiles([
@@ -45,7 +44,6 @@ Package.onUse(function(api) {
     'error/collection.js',
     'error/errors.html',
     'error/errors.js',
-    'search/client.js',
   ], ['client']);
 
   api.export([

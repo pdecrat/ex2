@@ -1,33 +1,30 @@
 <template name="ideaListDisplay">
-	<input type="text" id="search-box" placeholder="Rechercher une idée par titre" />
+	<div class="container">
 
-	{{#if Template.subscriptionsReady}}
-		<div class="container ">
-			<div class="col-xs-12 item">
-				<h1 class="col-xs-10">Liste des idées:</h1>
-				{{#if currentUser}}
-				<div>
-					<button href="#myModal" class="btn-lg go btn-success" data-toggle="modal" style="position: absolute; right: 15px; top: 15px">
-						<span class="glyphicon glyphicon-plus"></span>
+		<div class="row">
+		{{#if currentUser}}
+				<div class="col-xs-12 text-center">
+					<h4 class="text-left">
+						IDEES
+					</h4>
+					<button href="#myModal" class="btn go btn-success" data-toggle="modal">
+						Publier une idée
 					</button>
 				</div>
-				{{/if}}
-			</div>
-			{{#if search}}
-					{{#each getIdeas}}
-						<div class="col-xs-12 item clickable">
-							{{> ideaItem}}
-						</div>
-					{{/each}}
-			{{else}}
-				{{#each ideas}}
-				<div class="col-xs-12 item clickable">
-					{{> ideaItem}}
+		{{/if}}
+				<div class="col-xs-12">
+					<input type="text" id="search-box" placeholder="Rechercher une idée par titre" />
+					<span class="pull-right">test</span>
 				</div>
-				{{/each}}
-			{{/if}}
 		</div>
-		{{> ideaCreate}}
-	{{/if}}
+		<div class="row">
+		{{#if Template.subscriptionsReady}}
+			{{#each ideas}}
+					{{> ideaItem}}
+			{{/each}}
+		{{/if}}
+		 </div>
+	</div>
 
+	{{> ideaCreate}}
  </template>

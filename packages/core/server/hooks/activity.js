@@ -1,11 +1,13 @@
 Idea.after.insert(function(userId, doc) {
-  doc.members.forEach(function(el) {
-    Activity.insert({ userId: el.id })
-    Notif.addNotification(el.id, {
-      content: "Une nouvelle idée a été ajouté : ",
-      title: doc.title,
-      fromType: "idea",
-      projectId: doc._id
+  if (doc.members) {
+    doc.members.forEach(function(el) {
+      Activity.insert({ userId: el.id })
+      Notif.addNotification(el.id, {
+        content: "Une nouvelle idée a été ajouté : ",
+        title: doc.title,
+        fromType: "idea",
+        projectId: doc._id
+      })
     })
-  })
+  }
 })

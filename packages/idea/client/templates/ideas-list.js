@@ -1,29 +1,26 @@
 Template.ideaListDisplay.onCreated(function() {
 	var self = this;
-	self.search = new ReactiveVar(null);
+	self.search = new ReactiveVar('');
 	self.autorun(function() {
 		var sub = self.subscribe('idea', {action: 'list'});
 	});
-	self.getIdeas = function() {
-		return Idea.find();
+	self.getIdeas = function(searchText) {
+    var parts = searchText.trim().split(/[ \-\:]+/);
+		regExp = new RegExp("(" + parts.join(' ') + ")", "ig");
+		return Idea.find({ title: { $regex: regExp } } );
 	}
 });
 
+//   return new RegExp("(" + parts.join('|') + ")", "ig");
+
+// db.products.find( { sku: { $regex: /^ABC/i } } )
+
+
 Template.ideaListDisplay.helpers({
 	ideas: function() {
-		return Template.instance().getIdeas();
-	},
-	search: function() {
-		if (Template.instance()) {
-			t = Template.instance().search.get();
-			if (t == "" || t == undefined || t == null)
-				return false;
-			return true;
-		}
-		return false
-	},
-	getIdeas: function() {
-		return IdeaSearch.getData();
+		t = Template.instance()
+		s = t.search.get();
+		return t.getIdeas(s);
 	}
 });
 
@@ -32,6 +29,5 @@ Template.ideaListDisplay.events({
   "keyup #search-box": _.throttle(function(e, t) {
 		template = t;
 			t.search.set($(e.target).val().trim());
-    	IdeaSearch.search(t.search.get());
-	  }, 200)
+		}, 200)
 });
