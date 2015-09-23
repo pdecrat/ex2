@@ -27,10 +27,12 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'server/methods.js',
-    'server/publish.js'
+    'server/publish.js',
+    'server/ideas-search.js',
     ], [ 'server' ]);
 
   api.addFiles([
+    'client/ideas-search.js',
     'client/templates/idea-create.html',
     'client/templates/idea-create.js',
     'client/templates/idea-item.html',

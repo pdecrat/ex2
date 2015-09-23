@@ -30,28 +30,31 @@ Package.onUse(function(api) {
   api.imply(packages, [ 'client', 'server' ]);
 
   api.addFiles([
+    'utils.js'
+  ], ['client', 'server']);
+
+  api.addFiles([
+    'notification.js',
+    'search/server.js',
+  ], ['server']);
+
+  api.addFiles([
     'upload.js',
     'stylesheet.css',
     'template-helpers.js',
     'error/collection.js',
     'error/errors.html',
-    'error/errors.js'
+    'error/errors.js',
+    'search/client.js',
   ], ['client']);
-
-  api.addFiles([
-    'utils.js'
-  ], ['client', 'server']);
-
-  api.addFiles([
-    'notification.js'
-  ], ['server']);
 
   api.export([
     '_',
     'Errors',
     'Utils',
     'Notif',
-    'upload'
+    'upload',
+    'Search',
   ]);
 
 });

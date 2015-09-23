@@ -1,4 +1,6 @@
 <template name="ideaListDisplay">
+	{{> searchBox }}
+
 	{{#if Template.subscriptionsReady}}
 		<div class="container ">
 			<div class="col-xs-12 item">
@@ -11,12 +13,31 @@
 				</div>
 				{{/if}}
 			</div>
-			{{#each ideas}}
-				<div class="col-xs-12 item clickable">
-					{{> ideaItem}}
-				</div>
-			{{/each}}
+			{{> ideaSearch}}
 		</div>
 		{{> ideaCreate}}
 	{{/if}}
+
  </template>
+
+
+<template name="ideaSearch">
+	{{#each getIdeas}}
+	<div class="col-xs-12 item clickable">
+		{{> ideaItem}}
+	</div>
+<!-- <div class="package">
+  <h4 class="name">
+    <h3>{{{title}}}</h3>
+  </h4>
+  <div class="description">
+    {{{content}}}
+  </div>
+</div> -->
+{{/each}}
+</template>
+
+
+<template name="searchBox">
+  <input type="text" id="search-box" placeholder="Rechercher une idée par titre" />
+</template>

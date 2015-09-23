@@ -13,3 +13,20 @@ Template.ideaListDisplay.helpers({
 		return Template.instance().getIdeas();
 	}
 });
+
+Template.ideaSearch.helpers({
+  getIdeas: function() {
+    return IdeaSearch.getData();
+  }
+});
+
+Template.searchBox.events({
+  "keyup #search-box": _.throttle(function(e) {
+    var text = $(e.target).val().trim();
+    IdeaSearch.search(text);
+  }, 200)
+});
+
+Template.searchBox.onCreated(function() {
+	IdeaSearch.search("");
+});
