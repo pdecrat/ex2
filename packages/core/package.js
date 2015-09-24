@@ -46,6 +46,8 @@ Package.onUse(function(api) {
     'server/actions/notify.js',
     'server/actions/members.js',
     'server/actions/security.js',
+    'server/actions/create.js',
+    'server/actions/posts.js',
     ], [ 'server' ]);
 
   api.addFiles([

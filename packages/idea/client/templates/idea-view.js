@@ -10,6 +10,7 @@ Template.ideaViewDisplay.onCreated(function() {
 	self.getIdea = function() {
 		return Idea.findOne({ _id: id });
 	}
+
 });
 
 Template.ideaViewDisplay.helpers({

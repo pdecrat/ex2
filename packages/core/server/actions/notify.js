@@ -1,5 +1,5 @@
 Actions.notifyMembers = function(origin, target, params) {
-  var members = Meteor.users.find({_id: {$in: target.members}}).fetch();
+  var members = Meteor.users.find({username: {$in: target.members}}).fetch();
   var notif = {
     content: params.message,
     title: "Activité sur " + target.title,
@@ -15,7 +15,7 @@ Actions.notifyMembers = function(origin, target, params) {
 }
 
 Actions.notifyInCharge = function(origin, target, params) {
-  var inCharge = Meteor.users.find({_id: {$in: target.inCharge}}).fetch();
+  var inCharge = Meteor.users.find({username: {$in: target.inCharge}}).fetch();
   var notif = {
     content: params.message,
     title: "Activité sur " + target.title,

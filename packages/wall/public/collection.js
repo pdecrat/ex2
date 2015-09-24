@@ -1,17 +1,8 @@
 Wall = new Mongo.Collection('wall');
 
-Wall.ownerSchema = new SimpleSchema({
-  id: {
-    type: String
-  },
-  username: {
-    type: String
-  }
-})
-
 Wall.postSchema = new SimpleSchema({
-    owner: {
-      type: Wall.ownerSchema
+    inCharge: {
+      type: [String]
     },
     content: {
         type: String
@@ -23,13 +14,9 @@ Wall.postSchema = new SimpleSchema({
 
 // Define the schema
 Wall.wallSchema = new SimpleSchema({
-  key: {
-    type: String
-  },
-  from: {
-    type: String,
-    allowedValues: ['idea', 'project', 'team', 'mission', 'election'],
-    optional: true
+  attachedTo: {
+    type: Object,
+    blackbox: true
   },
   posts: {
     type: [Wall.postSchema],

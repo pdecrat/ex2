@@ -1,12 +1,13 @@
 Template.wall.onCreated(function() {
 	var self = this;
-	var key = self.data._id;
+	var data = self.data;
+	var attachedTo = {_id: data._id, type: data.type}
+
 	self.autorun(function() {
-		var sub = self.subscribe('wall', { key: key });
+		var sub = self.subscribe('wall', { attachedTo: attachedTo });
 	});
 	self.getWall = function() {
-		 Wall.findOne({ key: key });
-		return Wall.findOne({ key: key });
+		return Wall.findOne({ attachedTo: attachedTo });
 	}
 });
 
@@ -20,30 +21,24 @@ Template.wall.helpers({
 		return wall ? (wall.posts ? wall.posts.length : 0 ) : 0;
 	},
 	'OwnsR': function() {
-		return (Meteor.userId() === this.owner.id) ? "right" : "left";
+		return (Meteor.userId() === this.inCharge) ? "right" : "left";
 	},
 	'OwnsL': function() {
-		return (Meteor.userId() === this.owner.id) ? "left" : "right";
+		return (Meteor.userId() === this.inCharge) ? "left" : "right";
 	}
 })
 
 // need to add client side validation for e.target.content.value
 
 Template.wall.events({
-	'submit form': function(e) {
+	'submit form': function(e, t) {
 		e.preventDefault();
-		var ownerObj = {};
-		key= this._id;
-		userId = Meteor.userId()
-		user = Meteor.users.findOne(userId);
-		if (userId) {
-			ownerObj.id = userId;
-			ownerObj.username = user.username;
-		}
-		post = {owner: ownerObj, content: e.target.content.value, createdAt: new Date()};
-		Meteor.call('insertPost', userId, key, post, function(err, res) {
-			if (typeof res === "string")
-				Errors.throw(res)
+		var target = {_id: this._id, type: this.type};
+		var content = e.target.content.value;
+		Meteor.call('post', target, content, function(err, res) {
+			if (err) {
+				Errors.throw(err);
+			}
 		});
 	}
 });
