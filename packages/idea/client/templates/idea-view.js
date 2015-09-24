@@ -16,8 +16,8 @@ Template.ideaViewDisplay.onCreated(function() {
 Template.ideaViewDisplay.helpers({
 	idea: function() {
 		var idea = Template.instance().getIdea();
-		// if(idea === undefined)
-		// 	FlowRouter.go('/not-found');
+		if (idea === undefined)
+			FlowRouter.go('/not-found');
 		return idea
 	},
 	canStart: function() {
