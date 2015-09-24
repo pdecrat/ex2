@@ -1,10 +1,11 @@
 Template.ideaViewDisplay.onCreated(function() {
 
 	var self = this;
-	var id = self.data.id;
+	console.log(this);
+	var id = self.data._id;
 
 	self.autorun(function() {
-		self.subscribe('idea', {action: 'view', id: id});
+		self.subscribe('idea', {action: 'view', _id: id});
 	});
 
 	self.getIdea = function() {
@@ -15,8 +16,8 @@ Template.ideaViewDisplay.onCreated(function() {
 Template.ideaViewDisplay.helpers({
 	idea: function() {
 		var idea = Template.instance().getIdea();
-		if(idea === undefined)
-			FlowRouter.go('/not-found');
+		// if(idea === undefined)
+		// 	FlowRouter.go('/not-found');
 		return idea
 	},
 	canStart: function() {
