@@ -6,7 +6,7 @@ Actions.giveCredits = function (origin, target, params) {
       if (!target.credits) {
         target.credits = params.amount;
       } else {
-        target.credits +=  params.amount;
+        target.credits += params.amount;
       }
       origin.character.credits -=  params.amount;
     }

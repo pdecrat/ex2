@@ -9,7 +9,6 @@ submitInsertForm = function(e, t) {
     type: 'Idea',
     credits: 0
   }
-  console.log(data)
   Meteor.call('insertIdea', data);
   t.pic.set(null);
   t.p.set(null)

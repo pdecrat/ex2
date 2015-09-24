@@ -15,13 +15,6 @@
                 <a href="/idea/update/{{this._id}}" class="btn btn-info">Editer</a>
               </p>
 							<p>Upvote this idea!<a href="#" class="upvote btn {{upvotedClass}}">⬆</a></p>
-          		<div class="progress" style="height:5px;">
-          			<div class="progress-bar progress-bar-success" role="progressbar"
-          			aria-valuemin="0" aria-valuemax="100" style="width:{{percent}};">
-          			</div>
-          		</div>
-              Credits: {{credits}}
-              <button id="giveCredits"><span class="glyphicon glyphicon-piggy-bank"></span></button>
               <p style="margin-bottom: 20px;">
                 <span class="label label-info tags">mastermind</span>
                 <span class="label label-info tags">Awesome</span>
@@ -45,6 +38,14 @@
           </div>
           <div class="col-xs-6">
             <p>progression</p>
+              Credits: {{credits}}
+              <button id="becomeMember"><span title="Devenez membre" class="glyphicon glyphicon-user"></span></button>
+              <button id="giveCredits" ><span title="Supportez l'idée" class="glyphicon glyphicon-piggy-bank"></span></button>
+          		<div class="progress" style="height:5px;">
+          			<div class="progress-bar progress-bar-success" role="progressbar"
+          			aria-valuemin="0" aria-valuemax="100" style="width:{{percent}};">
+          			</div>
+          		</div>
           </div>
         </div>
     </div>

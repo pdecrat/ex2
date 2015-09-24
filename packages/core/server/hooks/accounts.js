@@ -3,7 +3,7 @@ Accounts.onCreateUser(function(options, user) {
     experience: 0,
     level: 0,
     class: "",
-    credits: 10
+    credits: 100
   };
   user.type = 'Person';
   user.profile = options.profile;

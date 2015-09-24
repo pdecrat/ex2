@@ -40,37 +40,20 @@ var upgraded = function(id) {
   Idea.remove(id);
 }
 
-var upvote = function(userId, ideaId) {
- var idea = Idea.findOne(ideaId);
- var user = Meteor.users.findOne(userId);
-
- if (_.include(idea.members, userId))
-   return false;
- Idea.update(idea._id, {
-   $addToSet: {members: {id: user._id, username: user.username}},
-   $inc: {votes: 1}
- });
- idea = Idea.findOne(ideaId);
- if (idea.votes >= idea.obj_backers)
-   upgraded(ideaId);
-};
 
 Meteor.methods({
-   upvote: function(id) {
-     upvote(this.userId, id);
-  },
   insertIdea: function (data) {
     if (!this.userId) {
       FlowRouter.go('/login');
       return;
     }
-    var ownerObj = {
-      id: this.userId,
-      username: Meteor.users.findOne( {_id: this.userId }).username
-    }
     // var idea = {type: data.type, canvas: data.canvas, title: data.title, content: data.content, obj_backers: data.obj_backers, owner: ownerObj, members: [ownerObj]};
     var exist = Idea.findOne( {title: data.title })
     if (!exist){
+      data.members = [this.userId];
+      data.inCharge = [this.userId];
+      data._id = new Mongo.ObjectID();
+      data.url = '/' + data.type + '/view/' + data._id;
       ideaId = Idea.insert(data);
       var wall = {key: ideaId, from: "idea"};
       Wall.insert(wall);
@@ -88,9 +71,24 @@ Meteor.methods({
     var actions = [
       {name: 'giveCredits', params: {amount: 1}},
       {name: 'getXp', params: {xp: 10}},
+      {name: 'notifyInCharge', params: {
+        message: user.username + " à supporté l'idée."}}
     ];
+
     Actions.do(user, actions, target);
-    if (target.credits >= target.obj_backers)
-      upgraded(target);
+    // if (target.credits >= target.obj_backers)
+      // upgraded(target);
+  },
+  becomeMember: function(target) {
+    var user = Meteor.user();
+    var actions = [
+      {name: 'giveCredits', params: {amount: 5}},
+      {name: 'getXp', params: {xp: 250}},
+      {name: 'becomeMember'},
+      {name: 'notifyMembers', params: {
+        message: user.username + " s'est inscrit à l'idée"}}
+    ];
+
+    Actions.do(user, actions, target);
   }
 });

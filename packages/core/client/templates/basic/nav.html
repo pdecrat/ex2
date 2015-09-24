@@ -23,14 +23,14 @@
           <li><a href="/project/list">Projets</a></li>
           <li><a href="/team/list">Equipes</a></li>
           {{#if loggedIn }}
-            {{#if count}}
           <li>
             <a href="#notifModal" data-toggle="modal" class="overflow: hidden;">
               <span class="glyphicon glyphicon-comment" style="font-size: 20px;"></span>
-              <span class="badge" style="background:red;position:relative;top: -15px;left: -15px;">{{count}}</span>
+              {{#if count}}
+                <span class="badge" style="background:red;position:relative;top: -15px;left: -15px;">{{count}}</span>
+              {{/if}}
             </a>
           </li>
-          {{/if}}
             <li><a href="/private/dashboard">Dashboard</a></li>
           {{/if}}
           <li>{{> navButton}}</li>

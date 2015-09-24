@@ -43,4 +43,26 @@ if (Meteor.users.find().count() == 0)
 			lastName: 'my'
 		}
 	});
+
+  Accounts.createUser(
+  {
+    email : 'dummya@dummy.com',
+    username: 'dummya',
+    password : 'dummya',
+		profile: {
+			firstName: 'dum',
+			lastName: 'mya'
+		}
+	});
+
+  Accounts.createUser(
+  {
+    email : 'dummyb@dummy.com',
+    username: 'dummyb',
+    password : 'dummyb',
+		profile: {
+			firstName: 'dum',
+			lastName: 'myb'
+		}
+	});
 }

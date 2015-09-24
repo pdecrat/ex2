@@ -43,6 +43,7 @@ Package.onUse(function(api) {
     'server/actions/do.js',
     'server/actions/xp.js',
     'server/actions/credits.js',
+    'server/actions/notify.js',
     'server/actions/members.js',
     'server/actions/security.js',
     ], [ 'server' ]);

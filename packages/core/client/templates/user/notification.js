@@ -3,7 +3,7 @@ Template.notification.events({
     console.log("go to")
   },
   'click #markAsSeen': function() {
-    Meteor.call('markAsSeen', this.id);
+    Meteor.call('markAsSeen', this._id);
   }
 })
 
