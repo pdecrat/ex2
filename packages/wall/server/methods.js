@@ -24,7 +24,6 @@ Meteor.methods({
       {name: 'post', params: {post: content}}
     ];
 
-    console.log(actions)
     Actions.do(user, actions, target);
   },
   //  insertPost: function(userId, wallId, doc) {

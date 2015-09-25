@@ -6,7 +6,7 @@ Actions.post = function(origin, target, params) {
     'attachedTo._id': target._id,
     'attachedTo.type': target.type
   }
-  });
+ });
 
   post.content = params.post;
   post.inCharge = origin.username;
@@ -16,7 +16,6 @@ Actions.post = function(origin, target, params) {
       posts: [post],
       type: 'Wall'
     };
-
     wall.attachedTo = {_id: target._id, type: target.type};
     Actions.create(wall)
   } else {

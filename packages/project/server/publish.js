@@ -8,6 +8,7 @@ if (Project.find().count() == 0)
 {
   projectMembers = [];
   project = {
+    type: "Project", 
     title: "Mes premiers pas avec Collectivz",
     content: "Decouvre la plateform Collectivz en quelques missions!",
     owner: "Collectivz",
