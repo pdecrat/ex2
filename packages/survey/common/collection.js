@@ -10,6 +10,9 @@ Proposal = new SimpleSchema({
 });
 
 SurveySchema = new SimpleSchema({
+  title: {
+    type: String
+  },
   members: {
     type: [String]
   },

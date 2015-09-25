@@ -31,6 +31,11 @@ Package.onUse(function(api) {
     ], [ 'server' ]);
 
   api.addFiles([
+    'client/survey-create.html',
+    'client/survey-create.js',
+    'client/survey-item.html',
+    'client/survey-list.html',
+    'client/survey-list.js',
     'client/survey-view.html',
     'client/survey-view.js',
     ], [ 'client' ]);
