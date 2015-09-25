@@ -25,13 +25,13 @@ Collectivz.reactiveSubs = new ReactiveVar([]);
 Collectivz.find = function (query) {
   //il se passe un truc chelou quand je passe l'object query dans le find : il retrouve pas tout les objets !
   //du coup j'ai rajouté un champs options
-   options = query.options || {};
-    return Collectivz.collections[query.type].find(options);
+  //  options = query.options || {};
+    return Collectivz.collections[query.type].find(query);
 };
 
 Collectivz.findOne = function (query) {
-   options = query.options || {};
-  return Collectivz.collections[query.type].findOne(options);
+  //  options = query.options || {};
+  return Collectivz.collections[query.type].findOne(query);
 };
 
 Collectivz.insert = function (query) {
@@ -58,7 +58,7 @@ Collectivz.remove = function (query) {
 ** or Template.instance().getItem() if action <=> view
 ** to get the matching element(s)
 ** if options.search = true, setting Template.instance().search (default value: '')
-** to the an input value will take care of returning the matching values. 
+** to the an input value will take care of returning the matching values.
 **
 */
 
@@ -83,7 +83,7 @@ Collectivz.templateSub = function (context, options) {
          if (options.search) {
             var parts = searchText.trim().split(/[ \-\:]+/);
             regExp = new RegExp("(" + parts.join(' ') + ")", "ig");
-            query.options = {title: { $regex: regExp } }
+            query.title = { $regex: regExp }
          }
          return Collectivz.find(query)
       }
@@ -91,7 +91,7 @@ Collectivz.templateSub = function (context, options) {
       self.getItem = function() {
          query = {
             type: self.type,
-            options: {_id: id}
+            _id: id
          }
          return Collectivz.findOne(query);
       }
