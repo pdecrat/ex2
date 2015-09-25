@@ -43,14 +43,15 @@
 
 Meteor.methods({
   insertIdea: function (data) {
+
     var exist = Idea.findOne( {title: data.title });
     var user = Meteor.users.findOne({_id: this.userId});
 
     if (!this.userId) {
-      FlowRouter.go('/login');
-      return;
+     FlowRouter.go('/login');
+     return;
     }
-
+    console.log(data)
     if (!exist){
       data.members = [user.username];
       data.inCharge = [user.username];

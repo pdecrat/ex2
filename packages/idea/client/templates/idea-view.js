@@ -1,21 +1,10 @@
 Template.ideaViewDisplay.onCreated(function() {
-
-	var self = this;
-	var id = self.data._id;
-
-	self.autorun(function() {
-		self.subscribe('idea', {action: 'view', _id: id});
-	});
-
-	self.getIdea = function() {
-		return Idea.findOne({ _id: id });
-	}
-
+	Collectivz.templateSub(this)
 });
 
 Template.ideaViewDisplay.helpers({
 	idea: function() {
-		var idea = Template.instance().getIdea();
+		var idea = Template.instance().getItem();
 		if (idea === undefined)
 			FlowRouter.go('/not-found');
 		return idea
