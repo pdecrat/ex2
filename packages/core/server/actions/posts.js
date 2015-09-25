@@ -2,9 +2,9 @@ Actions.post = function(origin, target, params) {
   var post = {};
   var wall = Collectivz.findOne({
     type: 'Wall',
-    options: {
-    'attachedTo._id': target._id,
-    'attachedTo.type': target.type
+    attachedTo: {
+    '_id': target._id,
+    'type': target.type
   }
  });
 
