@@ -23,7 +23,9 @@ Package.onUse(function(api) {
     'aldeed:collection2@2.3.3',
     'dburles:collection-helpers@1.0.3',
     'matb33:collection-hooks@0.7.11',
-    'reactive-var'
+    'reactive-var',
+    'anti:fake',
+    'meteorhacks:kadira'
   ];
 
   api.use(packages, [ 'client', 'server' ]);
@@ -35,6 +37,7 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'notification.js',
+    'kadira.js',
   ], ['server']);
 
   api.addFiles([

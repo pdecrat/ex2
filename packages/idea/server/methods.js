@@ -51,7 +51,6 @@ Meteor.methods({
      FlowRouter.go('/login');
      return;
     }
-    console.log(data)
     if (!exist){
       data.members = [user.username];
       data.inCharge = [user.username];

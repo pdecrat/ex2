@@ -14,5 +14,5 @@ render = function(params) {
   }
   if(!Blaze.isTemplate(Template[template]))
     template = 'not-found';
-  BlazeLayout.render('layout', {template: template, content: {_id: params._id, subMenu: params.sub}});
+  BlazeLayout.render('layout', {template: template, content: params});
 };

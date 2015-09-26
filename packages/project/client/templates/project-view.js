@@ -17,7 +17,7 @@ Template.projectViewDisplay.onCreated(function() {
      return Mission.find({ _id: missionId }).fetch();
   }
 	self.getMenu = function() {
-		return self.data.subMenu
+		return self.data.sub
 	}
 });
 

@@ -22,6 +22,7 @@ Package.onUse(function(api) {
   'collectivz:mission',
   'collectivz:team',
   'collectivz:survey',
+  'collectivz:content-generator'
 ];
 
   api.use(packages);
@@ -35,6 +36,7 @@ Package.onUse(function(api) {
     ], [ 'client', 'server' ]);
 
   api.addFiles([
+    // 'server/start.js',
     'server/hooks/accounts.js',
     'server/hooks/activity.js',
     'server/hooks/mission.js',
