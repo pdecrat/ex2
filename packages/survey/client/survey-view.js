@@ -1,4 +1,4 @@
-Template.surveyViewDisplay.onCreated(function() {
+Template.SurveyViewDisplay.onCreated(function() {
 
 	var self = this;
 	var id = self.data.id;
@@ -11,14 +11,14 @@ Template.surveyViewDisplay.onCreated(function() {
 	}
 });
 
-Template.surveyViewDisplay.events({
+Template.SurveyViewDisplay.events({
   'click .voteSurvey': function(e,t) {
     e.preventDefault();
     Meteor.call('voteSurvey', t.data.id, this.proposal);
   }
 });
 
-Template.surveyViewDisplay.helpers({
+Template.SurveyViewDisplay.helpers({
 	survey: function() {
 		var survey = Template.instance().getSurvey();
 		if(survey === undefined)

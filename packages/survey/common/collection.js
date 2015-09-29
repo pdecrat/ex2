@@ -1,7 +1,7 @@
 Survey = new Mongo.Collection('survey');
 
 Proposal = new SimpleSchema({
-    proposal: {
+    name: {
       type: String
     },
     voted: {

@@ -1,5 +1,7 @@
 submitInsertForm = function(e, t) {
   e.preventDefault();
+  console.log("test1");
+
 
   var data = {
     title: $('#title').val(),
@@ -22,24 +24,29 @@ submitProposal = function(e, t) {
 
   var proposal = $('#proposal').val();
   var newProposal = t.proposal.get();
-  newProposal.voted = 0;
+  var option = {};
+  option.name = proposal;
+  option.voted = 0;
+  newProposal.push(option);
   t.proposal.set(newProposal);
   proposal: $('#proposal').val('');
 }
 
 removeProposal = function (t, proposal) {
-  var proposals = t.proposals.get();
+  console.log("test3");
+
+  var proposals = t.proposal.get();
   var index = proposals.indexOf(proposal);
 
   proposals.splice(index, 1);
-  t.proposals.set(proposals);
+  t.proposal.set(proposals);
 }
 
 Template.surveyCreate.onCreated(function() {
   var self = this;
   var user = Meteor.users.findOne(Meteor.userId());
 
-  self.proposal = new ReactiveVar([{}]);
+  self.proposal = new ReactiveVar([]);
 })
 
 Template.surveyCreate.helpers({
