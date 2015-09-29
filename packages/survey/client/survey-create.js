@@ -1,12 +1,8 @@
 submitInsertForm = function(e, t) {
   e.preventDefault();
-  console.log("test1");
-
-
   var data = {
     title: $('#title').val(),
   }
-
   if (data.title) {
     data.proposal = t.proposal.get();
     Meteor.call('insertSurvey', data, function(err, res) {
@@ -33,7 +29,6 @@ submitProposal = function(e, t) {
 }
 
 removeProposal = function (t, proposal) {
-  console.log("test3");
 
   var proposals = t.proposal.get();
   var index = proposals.indexOf(proposal);

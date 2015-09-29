@@ -1,5 +1,16 @@
 Meteor.methods({
-voteSurvey: function(surveyId, proposal) {
+  insertSurvey: function(data) {
+    if (Meteor.userId()) {
+      var exist = Survey.findOne( {title: data.title });
+
+      if (!exist) {
+        surveyId = Survey.insert(data);
+        var wall = {key: surveyId, from: "survey"};
+        Wall.insert(wall);
+      }
+    }
+  },
+  voteSurvey: function(surveyId, proposal) {
     survey = Survey.findOne(surveyId);
     user = Meteor.userId();
     if (survey.members.includes(user))
