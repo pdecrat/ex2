@@ -1,11 +1,11 @@
 submitForm = function(e, t) {
   e.preventDefault();
-  var data = {title: $('#title').val(),
-      content: $('#content').val()}
+  var data = {name: $('#name').val(),
+      description: $('#description').val()}
   Meteor.call('updateIdea', data, t.data._id);
 };
 
-Template.ideaUpdate.events({
+Template.IdeaUpdate.events({
   'keypress input': function(e, t) {
     if (event.charCode === 13)
       submitForm(e, t);
@@ -15,7 +15,7 @@ Template.ideaUpdate.events({
   }
 });
 
-Template.ideaUpdate.onRendered(function (){
-  $('#title').val(this.data.title);
-  $('#content').val(this.data.content);
+Template.IdeaUpdate.onRendered(function (){
+  $('#name').val(this.data.name);
+  $('#description').val(this.data.description);
 });

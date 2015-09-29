@@ -1,14 +1,14 @@
-Template.projectViewDisplay.onCreated(function() {
+Template.ProjectViewDisplay.onCreated(function() {
 	selectedMission = new ReactiveVar(0);
 	var self = this;
-	var id = self.data._id;
+	var _id = self.data._id;
 	self.autorun(function() {
-		self.subscribe('project', {action: 'view', id: id});
-		self.subscribe('mission', { key: id });
+		self.subscribe('Project', {action: 'View', _id: _id});
+		self.subscribe('Mission', { key: _id });
 	});
 
 	self.getProject = function() {
-		return Project.findOne({ _id: id });
+		return Project.findOne({ _id: _id });
 	}
 	self.findAllMission = function(projectId) {
      return Mission.find({ project: projectId }).fetch();
@@ -21,7 +21,7 @@ Template.projectViewDisplay.onCreated(function() {
 	}
 });
 
-Template.projectViewDisplay.helpers({
+Template.ProjectViewDisplay.helpers({
 	project: function() {
 		var project = Template.instance().getProject();
 		if (project === undefined) {
@@ -49,7 +49,7 @@ Template.projectViewDisplay.helpers({
 	}
 });
 
-Template.projectViewDisplay.events({
+Template.ProjectViewDisplay.events({
 	'click .selectMission': function(e,t) {
 		e.preventDefault();
 		selectedMission.set(e.currentTarget.id)

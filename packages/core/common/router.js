@@ -9,9 +9,9 @@ var adminRoutes = FlowRouter.group({
 }],
 });
 
-adminRoutes.route('/:dest?/:action?/:_id?/:sub?', {
+adminRoutes.route('/:type?/:action?/:_id?/:sub?', {
   action: function(params) {
-      params.dest = 'admin' + Utils.capitalize(params.dest);
+      params.type = 'admin' + params.type;
       render(params);
   }
 });
@@ -27,9 +27,9 @@ var privateRoutes = FlowRouter.group({
 }],
 });
 
-privateRoutes.route('/:dest?/:action?/:_id?/:sub?', {
+privateRoutes.route('/:type?/:action?/:_id?/:sub?', {
   action: function(params) {
-      params.dest = 'private' + Utils.capitalize(params.dest);
+      params.type = 'private' + params.type;
       render(params);
   }
 });
@@ -49,7 +49,7 @@ FlowRouter.route('/', {
   }]
 });
 
-FlowRouter.route('/:dest?/:action?/:_id?/:sub?', {
+FlowRouter.route('/:type?/:action?/:_id?/:sub?', {
   action: function(params) {
       render(params);
   }

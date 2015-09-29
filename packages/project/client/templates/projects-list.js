@@ -1,14 +1,14 @@
-Template.projectListDisplay.onCreated(function() {
+Template.ProjectListDisplay.onCreated(function() {
 	var self = this;
 	self.autorun(function() {
-		var sub = self.subscribe('project', {action: 'list'});
+		var sub = self.subscribe('Project', {action: 'List'});
 	});
 	self.getProjects = function() {
 		return Project.find();
 	}
 });
 
-Template.projectListDisplay.helpers({
+Template.ProjectListDisplay.helpers({
 	projects: function() {
 		return Template.instance().getProjects();
 	},

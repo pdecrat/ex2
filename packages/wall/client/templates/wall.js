@@ -1,17 +1,17 @@
-Template.wall.onCreated(function() {
+Template.Wall.onCreated(function() {
 	var self = this;
 	var data = self.data;
 	var attachedTo = {_id: data._id, type: data.type}
 
 	self.autorun(function() {
-		var sub = self.subscribe('wall', { attachedTo: attachedTo });
+		var sub = self.subscribe('Wall', { attachedTo: attachedTo });
 	});
 	self.getWall = function() {
 		return Wall.findOne({ attachedTo: attachedTo });
 	}
 });
 
-Template.wall.helpers({
+Template.Wall.helpers({
 	'posts': function() {
 		wall = Template.instance().getWall();
 		return wall ? wall.posts : wall;
@@ -21,16 +21,16 @@ Template.wall.helpers({
 		return wall ? (wall.posts ? wall.posts.length : 0 ) : 0;
 	},
 	'OwnsR': function() {
-		return (Meteor.userId() === this.inCharge) ? "right" : "left";
+		return (Meteor.user() && Meteor.user().username === this.inCharge) ? "right" : "left";
 	},
 	'OwnsL': function() {
-		return (Meteor.userId() === this.inCharge) ? "left" : "right";
+		return (Meteor.user() && Meteor.user().username === this.inCharge) ? "left" : "right";
 	}
 })
 
 // need to add client side validation for e.target.content.value
 
-Template.wall.events({
+Template.Wall.events({
 	'submit form': function(e, t) {
 		e.preventDefault();
 		var target = {_id: this._id, type: this.type};

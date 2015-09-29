@@ -1,17 +1,33 @@
-<template name="ideaViewDisplay">
+<template name="IdeaViewDisplay">
   {{#if Template.subscriptionsReady}}
     {{#with idea}}
-      Title: {{title}}
-      <br />
-      Content: {{content}}
-      {{#if canvas}}
-      <img src="{{canvas}}" alt="" class="img-responsive">
-      <br />
-      {{/if}}
-      <button class="{{canStart}}" id="applyCandidature"><span title="Devenez candidat" class="glyphicon glyphicon-user"></span></button>
-      <button class="{{canStart}}" id="vote"><span title="Votez pour des coordinateurs" class="glyphicon glyphicon-star"></span></button>
-      {{> wall}}
-      {{>ideaUpdate idea}}
+    <div class="container-fluid item" style="height:200px; margin-top: -20px">
+      <div class="col-xs-6">
+        <img src="{{canvas}}" alt="" class="img-responsive">
+      </div>
+      <div class="col-xs-6">
+        <h2>{{name}}</h2>
+        Credits : {{credits}}
+        <br />
+        Créée par : {{#each inCharge}}{{this}}{{/each}}
+      </div>
+    </div>
+    <div id="projectMenuWrapper" class="nav container-fluid">
+      <div id="projectMenu" class="container">
+        <div id="projectMenuItem" class="row">
+          <div class="btn-group btn-group-justified">
+            {{#each templates}}
+              <a href="#" class="btn btn-primary menuButton">{{this.name}}</a>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{> Template.dynamic template=getContent data=this}}
   	{{/with}}
   {{/if}}
+</template>
+
+<template name="IdeaView">
+  {{description}}
 </template>

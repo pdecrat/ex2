@@ -1,2 +1,2 @@
-userSub = Meteor.subscribe('user');
+userSub = Meteor.subscribe('Person');
 activitySub = Meteor.subscribe('activity');

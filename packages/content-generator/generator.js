@@ -2,8 +2,8 @@ Generator = {};
 
 Generator.generateIdea = function(user) {
   var idea = {
-    title: Fake.sentence(3),
-    content: Fake.paragraph(6),
+    name: Fake.sentence(3),
+    description: Fake.paragraph(6),
     obj_backers: Math.floor((Math.random() * 100) + 1),
     type: 'Idea',
     credits: 0
@@ -11,6 +11,11 @@ Generator.generateIdea = function(user) {
 
   idea.members = [user.username];
   idea.inCharge = [user.username];
+  idea.templates = [
+    {name: 'View', templates: 'IdeaView'},
+    {name: 'Update', templates: 'IdeaUpdate'},
+    {name: 'Comment', templates: 'Wall'},
+  ]
   Actions.create(idea);
 }
 

@@ -44,7 +44,7 @@
 Meteor.methods({
   insertIdea: function (data) {
 
-    var exist = Idea.findOne( {title: data.title });
+    var exist = Idea.findOne( {name: data.name });
     var user = Meteor.users.findOne({_id: this.userId});
 
     if (!this.userId) {
@@ -54,6 +54,11 @@ Meteor.methods({
     if (!exist){
       data.members = [user.username];
       data.inCharge = [user.username];
+      data.templates = [
+        {name: 'View', templates: 'IdeaView'},
+        {name: 'Update', templates: 'IdeaUpdate'},
+        {name: 'Comment', templates: 'Wall'},
+      ]
       Actions.create(data);
     }
   },

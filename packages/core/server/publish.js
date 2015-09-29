@@ -1,5 +1,5 @@
-Meteor.publish("user", function (params) {
-  if (params && params.action == 'list') {
+Meteor.publish("Person", function (params) {
+  if (params && params.action == 'List') {
     return Meteor.users.find();
   }
   return Meteor.users.find({ _id: this.userId },

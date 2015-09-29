@@ -12,8 +12,6 @@ Collectivz.collections = {
   Wall: Wall
 };
 
-Collectivz.selected = new ReactiveVar(0);
-Collectivz.reactiveSubs = new ReactiveVar([]);
 
 // Collectivz provides all basic functions for its collections
 
@@ -62,36 +60,35 @@ Collectivz.remove = function (query) {
 **
 */
 
-Collectivz.templateSub = function (context, options) {
+Collectivz.templateSub = function (self, options) {
    options = options || {};
-   var self = context;
-   var dest = FlowRouter.getParam('dest');
-   var action = FlowRouter.getParam('action');
-   var id = FlowRouter.getParam('_id');
+   var data = self.data;
+   var type = data.type;
+   var action = data.action;
+   var _id = data._id;
 
    self.search = new ReactiveVar('');
-   self.type = dest[0].toUpperCase() + dest.substr(1);
    self.autorun(function() {
-      self.subscribe(dest, {action: action, _id: id});
+      self.sub = self.subscribe(type, {action: action, _id: _id});
    });
 
-   if (action == "list") {
+   if (action == "List") {
       self.getItems = function(searchText) {
          query = {
-            type: self.type
+            type: type
          }
          if (options.search) {
             var parts = searchText.trim().split(/[ \-\:]+/);
             regExp = new RegExp("(" + parts.join(' ') + ")", "ig");
-            query.title = { $regex: regExp }
+            query.name = { $regex: regExp }
          }
          return Collectivz.find(query)
       }
    } else {
       self.getItem = function() {
          query = {
-            type: self.type,
-            _id: id
+            type: type,
+            _id: _id
          }
          return Collectivz.findOne(query);
       }

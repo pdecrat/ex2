@@ -8,9 +8,9 @@
 
 render = function(params) {
   if (params.action) {
-    template = params.dest + Utils.capitalize(params.action) + 'Display';
+    template = params.type + params.action + 'Display';
   } else {
-    template = params.dest + 'Display';
+    template = params.type + 'Display';
   }
   if(!Blaze.isTemplate(Template[template]))
     template = 'not-found';

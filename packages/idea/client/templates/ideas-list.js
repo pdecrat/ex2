@@ -1,8 +1,8 @@
-Template.ideaListDisplay.onCreated(function(params) {
+Template.IdeaListDisplay.onCreated(function(params) {
 	Collectivz.templateSub(this, {search: true});
 });
 
-Template.ideaListDisplay.helpers({
+Template.IdeaListDisplay.helpers({
 	ideas: function() {
 		t = Template.instance()
 		s = t.search.get();
@@ -11,7 +11,7 @@ Template.ideaListDisplay.helpers({
 });
 
 
-Template.ideaListDisplay.events({
+Template.IdeaListDisplay.events({
   "keyup #search-box": _.throttle(function(e, t) {
 		template = t;
 			t.search.set($(e.target).val().trim());

@@ -1,18 +1,25 @@
-submitInsertForm = function(e, t) {
-  e.preventDefault();
 
-  var data = {
-    title: $('#title').val(),
-    content: $('#content').val(),
-    obj_backers: $('#obj_backers').val(),
-    canvas: t.pic.get(),
-    type: 'Idea',
-    credits: 0
-  }
-  Meteor.call('insertIdea', data);
-  t.pic.set(null);
-  t.p.set(null)
-};
+Template.ideaCreate.onCreated(function(){
+  self = this;
+  self.pic = new ReactiveVar(null);
+  self.p = new ReactiveVar(null);
+
+  self.submitInsertForm = function(e, t) {
+    e.preventDefault();
+
+    var data = {
+      name: $('#name').val(),
+      description: $('#description').val(),
+      obj_backers: $('#obj_backers').val(),
+      canvas: t.pic.get(),
+      type: 'Idea',
+      credits: 0
+    }
+    Meteor.call('insertIdea', data);
+    t.pic.set(null);
+    t.p.set(null)
+  };
+});
 
 Template.ideaCreate.helpers({
   'progress': function() {
@@ -26,10 +33,10 @@ Template.ideaCreate.helpers({
 Template.ideaCreate.events({
   'keypress input': function(e, t) {
     if (event.charCode === 13)
-      submitInsertForm(e, t);
+      Template.instance().submitInsertForm(e, t);
   },
   'click #submit': function(e, t) {
-      submitInsertForm(e, t);
+      Template.instance().submitInsertForm(e, t);
   },
   'change #file': function(e, t) {
     e.preventDefault();
@@ -46,10 +53,4 @@ Template.ideaCreate.events({
     }, false);
 
   }
-});
-
-Template.ideaCreate.onCreated(function(){
-  self = this;
-  self.pic = new ReactiveVar(null);
-  self.p = new ReactiveVar(null);
 });
