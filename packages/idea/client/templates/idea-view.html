@@ -1,5 +1,5 @@
 <template name="IdeaViewDisplay">
-  {{#if Template.subscriptionsReady}}
+   {{#if idea}}
     {{#with idea}}
     <div class="container-fluid item" style="height:200px; margin-top: -20px">
       <div class="col-xs-6">
@@ -23,9 +23,12 @@
         </div>
       </div>
     </div>
-    {{> Template.dynamic template=getContent data=this}}
+    {{> Template.dynamic template=selectedMenu data=this}}
   	{{/with}}
-  {{/if}}
+   {{else}}
+      {{> notFound}}
+   {{/if}}
+
 </template>
 
 <template name="IdeaView">

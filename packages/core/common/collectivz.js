@@ -60,37 +60,12 @@ Collectivz.remove = function (query) {
 **
 */
 
-Collectivz.templateSub = function (self, options) {
-   options = options || {};
-   var data = self.data;
-   var type = data.type;
-   var action = data.action;
-   var _id = data._id;
-
-   self.search = new ReactiveVar('');
-   self.autorun(function() {
-      self.sub = self.subscribe(type, {action: action, _id: _id});
-   });
-
-   if (action == "List") {
-      self.getItems = function(searchText) {
-         query = {
-            type: type
-         }
-         if (options.search) {
-            var parts = searchText.trim().split(/[ \-\:]+/);
-            regExp = new RegExp("(" + parts.join(' ') + ")", "ig");
-            query.name = { $regex: regExp }
-         }
-         return Collectivz.find(query)
-      }
-   } else {
-      self.getItem = function() {
-         query = {
-            type: type,
-            _id: _id
-         }
-         return Collectivz.findOne(query);
-      }
-   }
-}
+// Collectivz.templateSub = function (self) {
+//    var type = FlowRouter.getParam('type');
+//    var action = FlowRouter.getParam('action');
+//    var _id = FlowRouter.getParam('_id');
+//
+//    self.autorun(function() {
+//       self.subscribe(type, {action: action, _id: _id});
+//    });
+// }

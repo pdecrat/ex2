@@ -1,9 +1,13 @@
 <template name="layout">
-    {{> nav}}
-    {{> errors }}
-    {{> notification}}
-    {{>Template.dynamic template=template data=content}}
-  <footer>
-    <p>je suis un footer</p>
-  </footer>
+   {{> nav}}
+   {{> errors }}
+   {{> notification}}
+   {{#if Template.subscriptionsReady}}
+      {{>Template.dynamic template=template data=content}}
+   {{else}}
+      {{> loading}}
+   {{/if}}
+   <footer>
+      <p>je suis un footer</p>
+   </footer>
 </template>

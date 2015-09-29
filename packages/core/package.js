@@ -30,8 +30,6 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'common/collection.js',
-    'common/router.js',
-    'common/render-template.js',
     'common/collectivz.js',
     ], [ 'client', 'server' ]);
 
@@ -39,7 +37,6 @@ Package.onUse(function(api) {
     'server/start.js',
     'server/hooks/accounts.js',
     'server/hooks/activity.js',
-    'server/hooks/mission.js',
     'server/publish.js',
     'server/methods.js',
     'server/actions/do.js',
@@ -55,6 +52,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/templates/basic/home.html',
     'client/templates/basic/layout.html',
+    'client/templates/basic/layout.js',
     'client/templates/basic/loading.html',
     'client/templates/basic/nav.html',
     'client/templates/basic/nav.js',
@@ -76,7 +74,7 @@ Package.onUse(function(api) {
     'client/templates/activity/activity-list.html',
     'client/templates/activity/activity-list.js',
 
-    'client/subscribe.js',
+    'client/router.js',
     ], [ 'client' ]);
 
     api.export([

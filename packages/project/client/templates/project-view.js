@@ -1,49 +1,27 @@
 Template.ProjectViewDisplay.onCreated(function() {
-	selectedMission = new ReactiveVar(0);
 	var self = this;
-	var _id = self.data._id;
-	self.autorun(function() {
-		self.subscribe('Project', {action: 'View', _id: _id});
-		self.subscribe('Mission', { key: _id });
-	});
+	self.selectedMenu = new ReactiveVar('description');
+	selectedMission = new ReactiveVar(0);
 
-	self.getProject = function() {
-		return Project.findOne({ _id: _id });
-	}
-	self.findAllMission = function(projectId) {
-     return Mission.find({ project: projectId }).fetch();
-	 }
-	self.findOneMission = function(missionId) {
-     return Mission.find({ _id: missionId }).fetch();
-  }
-	self.getMenu = function() {
-		return self.data.sub
-	}
+	self.autorun(function() {
+		var id = FlowRouter.getParam('_id');
+		self.subscribe('mission', { key: id });
+	});
 });
 
 Template.ProjectViewDisplay.helpers({
 	project: function() {
-		var project = Template.instance().getProject();
-		if (project === undefined) {
-		//	FlowRouter.go('/not-found');
-			console.log("no project")
-		}
-		return project;
+		return Project.findOne(FlowRouter.getParam('_id'));
 	},
-	menuItems: function() {
-		var menuTemplate = Template.instance().getMenu();
-		if (menuTemplate === undefined)
-				return "description";
-		if(!Blaze.isTemplate(Template[menuTemplate]))
-				return "not-found";
-		return menuTemplate;
+	selectedMenu: function() {
+		return Template.instance().selectedMenu.get();
 	},
 	dataContext: function() {
-		if (Template.instance().getMenu() === "missions")
+		if (Template.instance().selectedMenu.get() === "missions")
 		{
 			if (selectedMission.get() !== 0)
-				return Template.instance().findOneMission(selectedMission.get());
-			return Template.instance().findAllMission(this._id);
+				return Mission.find({ _id: selectedMission.get() }).fetch();
+			return Mission.find({ project: FlowRouter.getParam('_id') }).fetch();
 		}
 		return this;
 	}
@@ -54,7 +32,8 @@ Template.ProjectViewDisplay.events({
 		e.preventDefault();
 		selectedMission.set(e.currentTarget.id)
 	},
-	'click .reset': function(e,t) {
+	'click .menuButton': function() {
 		selectedMission.set(0)
+		Template.instance().selectedMenu.set(this.templates);
 	}
 })

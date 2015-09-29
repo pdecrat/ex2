@@ -1,19 +1,21 @@
 Template.IdeaListDisplay.onCreated(function(params) {
-	Collectivz.templateSub(this, {search: true});
+	var self = this;
+	self.search = new ReactiveVar('');
 });
 
 Template.IdeaListDisplay.helpers({
 	ideas: function() {
 		t = Template.instance()
 		s = t.search.get();
-		return t.getItems(s);
+		var parts = s.trim().split(/[ \-\:]+/);
+		regExp = new RegExp("(" + parts.join(' ') + ")", "ig");
+		query = { type: "Idea", name: {$regex: regExp } };
+		return Collectivz.find(query)
 	}
 });
 
-
 Template.IdeaListDisplay.events({
   "keyup #search-box": _.throttle(function(e, t) {
-		template = t;
-			t.search.set($(e.target).val().trim());
-		}, 200)
+  	t.search.set($(e.target).val().trim());
+  }, 200)
 });

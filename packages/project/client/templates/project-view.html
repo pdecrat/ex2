@@ -1,10 +1,23 @@
 <template name="ProjectViewDisplay">
-  {{#if Template.subscriptionsReady}}
-    {{#with project}}
-    {{> projectMenu }}
+   {{#if project}}
 
-    {{> Template.dynamic template=menuItems data=dataContext }}
+       {{#with project}}
+          <div id="projectMenuWrapper" class="nav container-fluid">
+            <div id="projectMenu" class="container">
+              <div id="projectMenuItem" class="row">
+                <div class="btn-group btn-group-justified">
+                  {{#each templates}}
+                    <a href="#" class="btn btn-primary menuButton">{{this.name}}</a>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+          </div>
+          {{> Template.dynamic template=selectedMenu data=dataContext }}
+      	{{/with}}
 
-  	{{/with}}
-  {{/if}}
+   {{else}}
+      {{> notFound}}
+   {{/if}}
+
 </template>

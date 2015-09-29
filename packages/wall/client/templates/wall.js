@@ -20,11 +20,8 @@ Template.Wall.helpers({
 		wall = Template.instance().getWall();
 		return wall ? (wall.posts ? wall.posts.length : 0 ) : 0;
 	},
-	'OwnsR': function() {
+	'Owns': function() {
 		return (Meteor.user() && Meteor.user().username === this.inCharge) ? "right" : "left";
-	},
-	'OwnsL': function() {
-		return (Meteor.user() && Meteor.user().username === this.inCharge) ? "left" : "right";
 	}
 })
 

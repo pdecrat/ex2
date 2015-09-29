@@ -32,7 +32,6 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/templates/view/description.html',
     'client/templates/view/map.html',
-    'client/templates/view/menu.html',
     'client/templates/view/missions.html',
     'client/templates/view/missions.js',
     'client/templates/view/teams.html',

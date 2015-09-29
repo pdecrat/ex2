@@ -22,7 +22,7 @@ Template.electionViewDisplay.helpers({
 	election: function() {
 		var election = Template.instance().getElection();
 		if(election === undefined)
-			FlowRouter.go('/not-found');
+			FlowRouter.go('/notFound');
 		return election
 	}
 });

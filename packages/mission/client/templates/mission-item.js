@@ -1,17 +1,7 @@
-Template.missionItem.onCreated(function() {
-	var instance = this;
-	instance.autorun(function() {
-		var sub = instance.subscribe('mission', {action: 'list'});
-	});
-	instance.mission = function() {
-		return Mission.find();
-	}
-});
-
 Template.missionItem.helpers({
 	finish: function() {
     	var userId = Meteor.userId();
-    	if (userId === this.owner.id && this.finish === false) {
+    	if (this.owner && userId === this.owner._id && this.finish === false) {
      		return 'btn-primary finish';
     	}
     	else
@@ -19,7 +9,7 @@ Template.missionItem.helpers({
   },
   register: function() {
       var userId = Meteor.userId();
-      if (userId != this.owner.id && !_.include(this.members, userId))
+      if (this.owner && userId != this.owner._id && !_.include(this.members, userId))
         return 'btn-primary register';
   }
 });

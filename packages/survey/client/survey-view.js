@@ -22,7 +22,7 @@ Template.SurveyViewDisplay.helpers({
 	survey: function() {
 		var survey = Template.instance().getSurvey();
 		if(survey === undefined)
-			FlowRouter.go('/not-found');
+			FlowRouter.go('/notFound');
 		return survey
 	}
 });

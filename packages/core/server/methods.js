@@ -1,3 +1,5 @@
+// Notification method : probably needs to be changed into an action
+
 Meteor.methods({
   'markAsSeen': function(notifId) {
     if (typeof notifId === "number") {
