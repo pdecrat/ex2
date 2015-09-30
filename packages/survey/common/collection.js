@@ -23,8 +23,8 @@ SurveySchema = new SimpleSchema({
   createdAt: {
     type: Date
   },
-  project: {
-    type: String,
-    optional: true
+  attachedTo: {
+    type: Object,
+    blackbox: true
   }
 });

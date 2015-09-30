@@ -1,13 +1,20 @@
 Meteor.methods({
-  insertSurvey: function(data) {
-    if (Meteor.userId()) {
-      var exist = Survey.findOne( {title: data.title });
+  gidits: function(target) {
+    var user = Meteor.user();
+    var actions = [
+      {name: 'giveCredits', params: {cost: 1}},
+      {name: 'getXp', params: {xp: 10}},
+    ];
 
-      if (!exist) {
-        surveyId = Survey.insert(data);
-        var wall = {key: surveyId, from: "survey"};
-        Wall.insert(wall);
-      }
+    Actions.do(user, actions, target);
+  },
+  insertSurvey: function(data, target) {
+    var user = Meteor.user();
+    if (user) {
+      var actions = [
+        {name: 'survey', params: data}
+      ]
+      Actions.do(user, actions, target);
     }
   },
   voteSurvey: function(surveyId, proposal) {

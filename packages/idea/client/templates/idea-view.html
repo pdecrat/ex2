@@ -1,4 +1,8 @@
 <template name="IdeaViewDisplay">
+  {{> surveyCreate}}
+  <button href="#myModal" class="btn go btn-success" data-toggle="modal">
+    Creer un sondage
+  </button>
    {{#if idea}}
     {{#with idea}}
     <div class="container-fluid item" style="height:200px; margin-top: -20px">
