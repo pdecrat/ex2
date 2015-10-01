@@ -1,6 +1,4 @@
 Meteor.publish("Survey", function (params) {
-  console.log(params);
-  console.log("cetait les params")
   if (params.action == 'List')
     return Survey.find({});
   else if (params.action == 'View')
