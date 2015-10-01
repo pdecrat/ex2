@@ -38,6 +38,8 @@ Package.onUse(function(api) {
     'client/survey-list.js',
     'client/survey-view.html',
     'client/survey-view.js',
+    'client/survey.html',
+    'client/survey.js',
     ], [ 'client' ]);
 
   api.export([

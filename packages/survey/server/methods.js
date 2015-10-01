@@ -10,10 +10,12 @@ Meteor.methods({
   },
   insertSurvey: function(data, target) {
     var user = Meteor.user();
+    data.type = 'Survey';
     if (user) {
       var actions = [
         {name: 'survey', params: data}
       ]
+      console.log(data, target);
       Actions.do(user, actions, target);
     }
   },

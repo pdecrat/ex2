@@ -58,6 +58,7 @@ Meteor.methods({
         {name: 'View', templates: 'IdeaView'},
         {name: 'Update', templates: 'IdeaUpdate'},
         {name: 'Comment', templates: 'Wall'},
+        {name: 'Survey', templates: 'Survey'},
       ]
       Actions.create(data);
     }

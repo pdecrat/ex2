@@ -5,7 +5,7 @@ submitInsertForm = function(e, t) {
   }
   if (data.title) {
     data.proposal = t.proposal.get();
-    var target = {_id: this._id, type: this.type};
+    var target = {_id: t.data._id, type: t.data.type};
     Meteor.call('insertSurvey', data, target, function(err, res) {
       if (err)
         Errors.throw(err.reason);
