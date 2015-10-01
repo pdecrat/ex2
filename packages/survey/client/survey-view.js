@@ -1,9 +1,12 @@
 Template.SurveyViewDisplay.onCreated(function() {
 
+
 	var self = this;
-	var id = self.data.id;
+	console.log(self);
+	var id = self.data._id;
 	self.autorun(function() {
-		self.subscribe('survey', {action: 'view', id: id});
+	//	self.subscribe('survey', {action: 'view', id: id});
+			self.subscribe('survey', self.data);
 	});
 
 	self.getSurvey = function() {
@@ -21,8 +24,7 @@ Template.SurveyViewDisplay.events({
 Template.SurveyViewDisplay.helpers({
 	survey: function() {
 		var survey = Template.instance().getSurvey();
-		if(survey === undefined)
-			FlowRouter.go('/notFound');
+
 		return survey
 	}
 });
