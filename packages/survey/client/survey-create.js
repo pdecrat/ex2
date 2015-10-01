@@ -1,20 +1,3 @@
-submitInsertForm = function(e, t) {
-  e.preventDefault();
-  var data = {
-    title: $('#title').val(),
-  }
-  if (data.title) {
-    data.proposal = t.proposal.get();
-    var target = {_id: t.data._id, type: t.data.type};
-    Meteor.call('insertSurvey', data, target, function(err, res) {
-      if (err)
-        Errors.throw(err.reason);
-      else {
-        $('#title').val('');
-      }
-    });
-  }
-};
 
 submitProposal = function(e, t) {
   e.preventDefault();
@@ -40,9 +23,30 @@ removeProposal = function (t, proposal) {
 
 Template.surveyCreate.onCreated(function() {
   var self = this;
+  var context = self.data;
   var user = Meteor.users.findOne(Meteor.userId());
 
   self.proposal = new ReactiveVar([]);
+
+  self.submitInsertForm = function() {
+    var data = {
+      title: $('#title').val(),
+    }
+
+    if (data.title) {
+      context.proposal = self.proposal.get();
+      var target = {_id: context._id, type: context.type};
+
+      Meteor.call('insertSurvey', data, target, function(err, res) {
+        if (err)
+          Errors.throw(err.reason);
+        else {
+          $('#title').val('');
+        }
+      });
+    }
+  };
+
 })
 
 Template.surveyCreate.helpers({
@@ -54,12 +58,14 @@ Template.surveyCreate.helpers({
 Template.surveyCreate.events({
   'keypress input': function(e, t) {
     if (event.charCode === 13)
-      submitInsertForm(e, t);
+      Template.instance().submitInsertForm(e, t);
   },
   'click #submit': function(e, t) {
-    submitInsertForm(e, t);
+    e.preventDefault();
+    Template.instance().submitInsertForm(e, t);
   },
   'click #submit-proposal': function(e, t) {
+    e.preventDefault();
     submitProposal(e, t);
   },
   'click #remove-proposal': function(e, t) {

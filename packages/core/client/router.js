@@ -24,14 +24,13 @@ FlowRouter.route('/:type?/:action?/:_id?/:sub?', {
          if (params.action == 'List' && params._id)
             template = 'notFound';
          else {
-            console.log(params._id)
             template = params.type + params.action + 'Display';
          }
       } else {
          template = params.type + 'Display';
       }
       if(!Blaze.isTemplate(Template[template]))
-      template = 'notFound';
+        template = 'notFound';
       BlazeLayout.render('layout', {template: template, content: params});
    }
 });
