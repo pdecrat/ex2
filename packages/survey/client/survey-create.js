@@ -34,8 +34,9 @@ Template.surveyCreate.onCreated(function() {
     }
 
     if (data.title) {
-      context.proposal = self.proposal.get();
+      data.proposal = self.proposal.get();
       var target = {_id: context._id, type: context.type};
+      console.log(data, target);
 
       Meteor.call('insertSurvey', data, target, function(err, res) {
         if (err)

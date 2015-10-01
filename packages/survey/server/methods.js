@@ -11,6 +11,7 @@ Meteor.methods({
   insertSurvey: function(data, target) {
     var user = Meteor.user();
     data.type = 'Survey';
+    data.members = [];
     if (user) {
       var actions = [
         {name: 'survey', params: data}
@@ -20,7 +21,9 @@ Meteor.methods({
     }
   },
   voteSurvey: function(surveyId, proposal) {
+    console.log(surveyId);
     survey = Survey.findOne(surveyId);
+    console.log(survey);
     user = Meteor.userId();
     if (survey.members.includes(user))
       console.log("t'as deja voté pour une proposition mon gars");
