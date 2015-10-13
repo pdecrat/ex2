@@ -4,7 +4,7 @@
 
 Accounts.onCreateUser(function(options, user) {
 
-   user.type = 'Person';   
+   user.type = 'Person';
    user.profile = options.profile;
    user.roles = [];
    user.character = {

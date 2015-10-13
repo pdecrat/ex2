@@ -74,6 +74,7 @@ Package.onUse(function(api) {
     'client/templates/user/profile/objectif-item.html',
     'client/templates/user/profile/profile-view.html',
     'client/templates/user/profile/profile-view.js',
+    'client/templates/user/profile/talent-item.html',
 
     'client/templates/activity/activity-item.html',
     'client/templates/activity/activity-list.html',
