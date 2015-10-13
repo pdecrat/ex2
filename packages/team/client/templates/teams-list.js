@@ -1,4 +1,4 @@
-Template.TeamListDisplay.helpers({
+Template.TeamList.helpers({
 	teams: function() {
 		return Team.find({})
 	}

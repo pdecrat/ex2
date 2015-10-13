@@ -1,5 +1,5 @@
 
-Template.ideaCreate.onCreated(function(){
+Template.IdeaCreate.onCreated(function(){
   self = this;
   self.pic = new ReactiveVar(null);
   self.p = new ReactiveVar(null);
@@ -21,7 +21,7 @@ Template.ideaCreate.onCreated(function(){
   };
 });
 
-Template.ideaCreate.helpers({
+Template.IdeaCreate.helpers({
   'progress': function() {
      obj = Template.instance().p.get();
      if (!obj || obj.total === 0)
@@ -30,7 +30,7 @@ Template.ideaCreate.helpers({
   }
 })
 
-Template.ideaCreate.events({
+Template.IdeaCreate.events({
   'keypress input': function(e, t) {
     if (event.charCode === 13)
       Template.instance().submitInsertForm(e, t);

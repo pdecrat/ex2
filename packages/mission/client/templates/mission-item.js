@@ -1,4 +1,4 @@
-Template.missionItem.helpers({
+Template.MissionItem.helpers({
 	finish: function() {
     	var userId = Meteor.userId();
     	if (this.owner && userId === this.owner._id && this.finish === false) {
@@ -14,7 +14,7 @@ Template.missionItem.helpers({
   }
 });
 
-Template.missionItem.events({
+Template.MissionItem.events({
   'click .finish': function(e) {
     e.preventDefault();
     Meteor.call('finish', this._id);

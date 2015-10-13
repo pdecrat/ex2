@@ -1,4 +1,4 @@
-<template name="nav">
+<template name="Nav">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -9,7 +9,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/home">Collectivz</a>
+        <a class="navbar-brand" href="/Home">Collectivz</a>
       </div>
       {{#with currentUser}}
         Credits: {{this.character.credits}}
@@ -19,9 +19,9 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/Idea/List">Idées</a></li>
-          <li><a href="/Project/List">Projets</a></li>
-          <li><a href="/Team/List">Equipes</a></li>
+          <li><a href="/IdeaList">Idées</a></li>
+          <li><a href="/ProjectList">Projets</a></li>
+          <li><a href="/TeamList">Equipes</a></li>
           {{#if loggedIn }}
           <li>
             <a href="#notifModal" data-toggle="modal" class="overflow: hidden;">
@@ -31,9 +31,9 @@
               {{/if}}
             </a>
           </li>
-            <li><a href="/private/dashboard">Dashboard</a></li>
+            <li><a href="/Dashboard">Dashboard</a></li>
           {{/if}}
-          <li>{{> navButton}}</li>
+          <li>{{> NavButton}}</li>
         </ul>
       </div>
     </div>

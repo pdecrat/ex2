@@ -1,10 +1,10 @@
-Template.errors.helpers({
+Template.Errors.helpers({
   errors: function() {
     return Errors.find();
   }
 });
 
-Template.errorMessage.onRendered(function() {
+Template.ErrorMessage.onRendered(function() {
   var error = this.data;
     Meteor.setTimeout(function () {
       Errors.remove(error._id);

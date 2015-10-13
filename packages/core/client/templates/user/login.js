@@ -8,13 +8,13 @@ submitLoginForm = function(e, t) {
       if (error) {
        Errors.throw('Invalid Username or Password')
       } else {
-        FlowRouter.go('/home');
+        FlowRouter.go('/Home');
       }
   });
   return false;
 }
 
-Template.loginDisplay.events({
+Template.Login.events({
   'keypress input': function(e, t) {
     if (event.charCode === 13)
       submitLoginForm(e, t);

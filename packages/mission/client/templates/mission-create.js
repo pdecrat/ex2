@@ -13,7 +13,7 @@ submitInsertForm = function(e, t) {
   });
 };
 
-Template.missionCreate.events({
+Template.MissionCreate.events({
   'keypress input': function(e, t) {
     if (event.charCode === 13)
       submitInsertForm(e, t);

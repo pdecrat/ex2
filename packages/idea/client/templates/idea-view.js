@@ -1,9 +1,9 @@
-Template.IdeaViewDisplay.onCreated(function() {
+Template.IdeaView.onCreated(function() {
 	var self = this;
 	self.selectedMenu = new ReactiveVar('IdeaView');
 });
 
-Template.IdeaViewDisplay.helpers({
+Template.IdeaView.helpers({
 	idea: function() {
  		return Idea.findOne(FlowRouter.getParam('_id'));
 	},
@@ -12,7 +12,7 @@ Template.IdeaViewDisplay.helpers({
 	}
 });
 
-Template.IdeaViewDisplay.events({
+Template.IdeaView.events({
 	'click .menuButton': function() {
 		Template.instance().selectedMenu.set(this.templates);
 	}

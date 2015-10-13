@@ -1,4 +1,4 @@
-<template name="IdeaListDisplay">
+<template name="IdeaList">
 	<div class="container">
 
 		<div class="row">
@@ -20,7 +20,7 @@
 		<div class="row">
 		{{#if Template.subscriptionsReady}}
 			{{#each ideas}}
-					{{> ideaItem}}
+					{{> IdeaItem}}
 			{{/each}}
 		{{else}}
 			{{> spinner}}
@@ -28,5 +28,5 @@
 		 </div>
 	</div>
 
-	{{> ideaCreate}}
+	{{> IdeaCreate}}
  </template>

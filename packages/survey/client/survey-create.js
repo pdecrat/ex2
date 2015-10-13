@@ -21,7 +21,7 @@ removeProposal = function (t, proposal) {
   t.proposal.set(proposals);
 }
 
-Template.surveyCreate.onCreated(function() {
+Template.SurveyCreate.onCreated(function() {
   var self = this;
   var context = self.data;
   var user = Meteor.users.findOne(Meteor.userId());
@@ -48,13 +48,13 @@ Template.surveyCreate.onCreated(function() {
 
 })
 
-Template.surveyCreate.helpers({
+Template.SurveyCreate.helpers({
   proposal: function() {
     return Template.instance().proposal.get();
   }
 });
 
-Template.surveyCreate.events({
+Template.SurveyCreate.events({
   'keypress input': function(e, t) {
     if (event.charCode === 13)
       Template.instance().submitInsertForm(e, t);

@@ -2,35 +2,31 @@
 ** Client side routing logic => FlowRouter
 */
 
-FlowRouter.route('/logout', {
+FlowRouter.route('/Logout', {
    name: 'logout',
    triggersEnter: [function(context, redirect) {
       Meteor.logout()
-      redirect('/login');
+      redirect('/Login');
    }]
 });
 
 FlowRouter.route('/', {
    name: 'home',
    triggersEnter: [function(context, redirect) {
-      redirect('/home');
+      redirect('/Home');
    }]
 });
 
-FlowRouter.route('/:type?/:action?/:_id?/:sub?', {
+FlowRouter.route('/:type?/:_id?/', {
    action: function(params) {
       // Renders template depending on current url.
-      if (params.action) {
-         if (params.action == 'List' && params._id)
-            template = 'notFound';
-         else {
-            template = params.type + params.action + 'Display';
-         }
-      } else {
-         template = params.type + 'Display';
+      console.log(params)
+      if (params) {
+               template = params.type;
       }
+      console.log(template)
       if(!Blaze.isTemplate(Template[template]))
-        template = 'notFound';
-      BlazeLayout.render('layout', {template: template, content: params});
+        template = 'NotFound';
+      BlazeLayout.render('Layout', {template: template, content: params});
    }
 });

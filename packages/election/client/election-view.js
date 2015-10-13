@@ -1,4 +1,4 @@
-Template.electionViewDisplay.onCreated(function() {
+Template.ElectionView.onCreated(function() {
 
 	var self = this;
 	var id = self.data.id;
@@ -11,14 +11,14 @@ Template.electionViewDisplay.onCreated(function() {
 	}
 });
 
-Template.electionViewDisplay.events({
+Template.ElectionView.events({
   'click .voteCoordinateur': function(e,t) {
     e.preventDefault();
     Meteor.call('voteCoordinateur', t.data.id, this.id);
   }
 });
 
-Template.electionViewDisplay.helpers({
+Template.ElectionView.helpers({
 	election: function() {
 		var election = Template.instance().getElection();
 		if(election === undefined)

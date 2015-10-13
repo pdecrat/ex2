@@ -2,7 +2,7 @@
 ** Publish current custom User if logged as well as its activity
 */
 
-Meteor.publish(null, function() {
+Meteor.publish('userSub', function() {
    if (this.userId)
       return [ Collectivz.find({_id: this.userI, type: "Person"},
          { fields: {
@@ -14,3 +14,6 @@ Meteor.publish(null, function() {
             notification: 1 }
          }), Activity.find({ userId: this.userId }) ];
 })
+
+
+// Meteor.publish('ideaSub', function() { if (this.userId) { return Idea.find()}});

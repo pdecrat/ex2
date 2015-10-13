@@ -41,7 +41,7 @@ submitRegisterForm = function(e, t) {
  return false;
 }
 
-Template.registerDisplay.events({
+Template.Register.events({
   'keypress input': function(e, t) {
     if (event.charCode === 13)
       submitRegisterForm(e, t);

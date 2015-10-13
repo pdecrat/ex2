@@ -1,9 +1,9 @@
-Template.IdeaListDisplay.onCreated(function(params) {
+Template.IdeaList.onCreated(function(params) {
 	var self = this;
 	self.search = new ReactiveVar('');
 });
 
-Template.IdeaListDisplay.helpers({
+Template.IdeaList.helpers({
 	ideas: function() {
 		t = Template.instance()
 		s = t.search.get();
@@ -14,7 +14,7 @@ Template.IdeaListDisplay.helpers({
 	}
 });
 
-Template.IdeaListDisplay.events({
+Template.IdeaList.events({
   "keyup #search-box": _.throttle(function(e, t) {
   	t.search.set($(e.target).val().trim());
   }, 200)

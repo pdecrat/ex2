@@ -1,4 +1,4 @@
-Template.missions.helpers({
+Template.Missions.helpers({
   'isList': function() {
     return (this.length > 1) ? true : false;
   },

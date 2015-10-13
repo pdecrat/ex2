@@ -1,4 +1,4 @@
-Template.notification.events({
+Template.Notification.events({
   'click #goTo': function() {
     console.log("go to")
   },
@@ -7,7 +7,7 @@ Template.notification.events({
   }
 })
 
-Template.notification.helpers({
+Template.Notification.helpers({
   'notSeenNotif': function() {
       return _.where(Meteor.user().notification, {seen: false})
   },

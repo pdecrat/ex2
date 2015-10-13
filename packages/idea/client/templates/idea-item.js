@@ -1,4 +1,4 @@
-Template.ideaItem.helpers({
+Template.IdeaItem.helpers({
 	percent: function() {
 		if (this.credits === undefined)
 			return "0%";
@@ -7,7 +7,7 @@ Template.ideaItem.helpers({
 	}
 });
 
-Template.ideaItem.events({
+Template.IdeaItem.events({
 	'click .removeIdea': function(e) {
 		e.preventDefault();
 		Meteor.call('removeIdea', this._id);

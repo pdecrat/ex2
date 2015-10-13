@@ -48,20 +48,20 @@ removeMember = function (t, member) {
   t.members.set(members);
 }
 
-Template.teamCreate.onCreated(function() {
+Template.TeamCreate.onCreated(function() {
   var self = this;
   var user = Meteor.users.findOne(Meteor.userId());
 
   self.members = new ReactiveVar([{id: user._id, username: user.username}]);
 })
 
-Template.teamCreate.helpers({
+Template.TeamCreate.helpers({
   members: function() {
     return Template.instance().members.get();
   }
 });
 
-Template.teamCreate.events({
+Template.TeamCreate.events({
   'keypress input': function(e, t) {
     if (event.charCode === 13)
       submitInsertForm(e, t);

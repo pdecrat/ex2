@@ -1,4 +1,4 @@
-Template.electionListDisplay.onCreated(function() {
+Template.ElectionList.onCreated(function() {
 	var self = this;
 	self.autorun(function() {
 		var sub = self.subscribe('election', {action: 'list'});
@@ -8,7 +8,7 @@ Template.electionListDisplay.onCreated(function() {
 	}
 });
 
-Template.electionListDisplay.helpers({
+Template.ElectionList.helpers({
 	elections: function() {
 		return Template.instance().getElections();
 	}

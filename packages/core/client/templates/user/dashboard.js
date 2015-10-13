@@ -1,4 +1,4 @@
-Template.privateDashboardDisplay.onCreated(function() {
+Template.Dashboard.onCreated(function() {
   var self = this;
 	self.autorun(function() {
     var sub = self.subscribe('project', {action: 'list'});

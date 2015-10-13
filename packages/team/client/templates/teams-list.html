@@ -1,4 +1,4 @@
-<template name="TeamListDisplay">
+<template name="TeamList">
 	{{#if teams}}
 		<div class="container ">
 			<div class="col-xs-12 item">
@@ -13,12 +13,12 @@
 			</div>
 			{{#each teams}}
 				<div class="col-xs-12 item clickable">
-					{{> teamItem}}
+					{{> TeamItem}}
 				</div>
 			{{/each}}
 		</div>
 		{{#if currentUser}}
-			{{> teamCreate}}
+			{{> TeamCreate}}
 		{{/if}}
 	{{/if}}
 

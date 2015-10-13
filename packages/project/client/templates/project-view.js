@@ -1,4 +1,4 @@
-Template.ProjectViewDisplay.onCreated(function() {
+Template.ProjectView.onCreated(function() {
 	var self = this;
 	self.selectedMenu = new ReactiveVar('description');
 	selectedMission = new ReactiveVar(0);
@@ -9,7 +9,7 @@ Template.ProjectViewDisplay.onCreated(function() {
 	});
 });
 
-Template.ProjectViewDisplay.helpers({
+Template.ProjectView.helpers({
 	project: function() {
 		return Project.findOne(FlowRouter.getParam('_id'));
 	},
@@ -27,7 +27,7 @@ Template.ProjectViewDisplay.helpers({
 	}
 });
 
-Template.ProjectViewDisplay.events({
+Template.ProjectView.events({
 	'click .selectMission': function(e,t) {
 		e.preventDefault();
 		selectedMission.set(e.currentTarget.id)
