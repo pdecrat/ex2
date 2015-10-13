@@ -29,3 +29,9 @@ FlowRouter.route('/:type?/:_id?/', {
       BlazeLayout.render('Layout', {template: template, content: params});
    }
 });
+
+FlowRouter.notFound = {
+    action: function() {
+      BlazeLayout.render('Layout', {template: 'NotFound', content: null});
+    }
+};

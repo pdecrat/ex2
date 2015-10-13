@@ -1,8 +1,8 @@
 <template name="Missions">
   {{#if isList}}
-    {{> missionList }}
+    {{> MissionList }}
   {{else}}
     {{> Template.dynamic template=type data=mission }}
   {{/if}}
-  {{> missionCreate mission.project}}
+  {{> MissionCreate mission.project}}
 </template>

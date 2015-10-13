@@ -4,7 +4,7 @@ Template.Wall.onCreated(function() {
 	var attachedTo = {_id: data._id, type: data.type}
 
 	self.autorun(function() {
-		var sub = self.subscribe('Wall', { attachedTo: attachedTo });
+		var sub = self.subscribe('wallSub', { attachedTo: attachedTo });
 	});
 	self.getWall = function() {
 		return Wall.findOne({ attachedTo: attachedTo });

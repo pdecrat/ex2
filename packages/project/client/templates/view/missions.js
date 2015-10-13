@@ -6,6 +6,6 @@ Template.Missions.helpers({
     return this[0];
   },
   'type': function() {
-    return "mission" + this[0].missionType;
+    return "Mission" + this[0].missionType;
   }
 })
