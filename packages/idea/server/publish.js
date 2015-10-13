@@ -1,5 +1,5 @@
 Meteor.publish('ideaSub', function(id) {
    if (id && typeof id === "string")
       return Idea.find({_id: id});
-   return Idea.find({}, { limit: 20 });
+   return Idea.find({});
 });

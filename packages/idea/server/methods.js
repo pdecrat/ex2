@@ -55,14 +55,13 @@ Meteor.methods({
       data.members = [user.username];
       data.inCharge = [user.username];
       data.templates = [
-        {name: 'View', templates: 'IdeaView'},
+        {name: 'View', templates: 'Idea'},
         {name: 'Update', templates: 'IdeaUpdate'},
         {name: 'Comment', templates: 'Wall'},
         {name: 'Survey', templates: 'Survey'},
       ]
       Actions.create(data);
     }
-    console.log(data)
   },
   updateIdea: function(data, ideaId) {
     Idea.update(ideaId, {$set: {title: data.title, content: data.content}});

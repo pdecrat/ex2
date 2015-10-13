@@ -1,15 +1,13 @@
 Template.SurveyList.onCreated(function() {
 	var self = this;
 	self.autorun(function() {
-		self.subscribe('survey', {action: 'list'});
+		self.subscribe('surveySub', {action: 'List'});
 	});
-	self.getSurveys = function() {
-		return Survey.find();
-	}
+
 });
 
 Template.SurveyList.helpers({
 	surveys: function() {
-		return Template.instance().getSurveys();
+		return Survey.find({});
 	}
 });
