@@ -71,9 +71,13 @@ Package.onUse(function(api) {
     'client/templates/user/users-list.html',
     'client/templates/user/users-list.js',
 
+    'client/templates/user/profile/experience-item.html',
+    'client/templates/user/profile/information-item.html',
+    'client/templates/user/profile/interest-item.html',
     'client/templates/user/profile/objectif-item.html',
     'client/templates/user/profile/profile-view.html',
     'client/templates/user/profile/profile-view.js',
+    'client/templates/user/profile/skill-item.html',
     'client/templates/user/profile/talent-item.html',
 
     'client/templates/activity/activity-item.html',
