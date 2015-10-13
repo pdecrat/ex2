@@ -2,7 +2,7 @@ Meteor.publish('projectSub', function(id) {
    if (this.userId) {
       if (id && typeof id === "string")
          return Project.find({_id: id})
-      return Project.find({}, { limit: 20 })
+      return Project.find({})
    }
    return null;
 });

@@ -1,4 +1,4 @@
-Meteor.publish("Survey", function (params) {
+Meteor.publish("surveySub", function (params) {
   if (params.action == 'List')
     return Survey.find({});
   else if (params.action == 'View')
