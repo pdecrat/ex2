@@ -5,8 +5,13 @@ Template.ProjectView.onCreated(function() {
 
 	self.autorun(function() {
 		var id = FlowRouter.getParam('_id');
-		self.subscribe('mission', { key: id });
+	  self.subscribe('projectSub', id);
 	});
+
+	// self.autorun(function() {
+	// 	var id = FlowRouter.getParam('_id');
+	// 	self.subscribe('mission', { key: id });
+	// });
 });
 
 Template.ProjectView.helpers({
@@ -17,7 +22,7 @@ Template.ProjectView.helpers({
 		return Template.instance().selectedMenu.get();
 	},
 	dataContext: function() {
-		if (Template.instance().selectedMenu.get() === "missions")
+		if (Template.instance().selectedMenu.get() === "Missions")
 		{
 			if (selectedMission.get() !== 0)
 				return Mission.find({ _id: selectedMission.get() }).fetch();

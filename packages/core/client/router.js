@@ -20,13 +20,12 @@ FlowRouter.route('/', {
 FlowRouter.route('/:type?/:_id?/', {
    action: function(params) {
       // Renders template depending on current url.
-      console.log(params)
       if (params) {
-               template = params.type;
+         template = params.type;
       }
-      console.log(template)
       if(!Blaze.isTemplate(Template[template]))
         template = 'NotFound';
+        console.log(params.type);
       BlazeLayout.render('Layout', {template: template, content: params});
    }
 });

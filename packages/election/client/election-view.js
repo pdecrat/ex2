@@ -1,9 +1,9 @@
 Template.ElectionView.onCreated(function() {
 
 	var self = this;
-	var id = self.data.id;
 	self.autorun(function() {
-		self.subscribe('election', {action: 'view', id: id});
+		var id = FlowRouter.getParam('_id');
+		self.subscribe('electionSub', id);
 	});
 
 	self.getElection = function() {
@@ -22,7 +22,7 @@ Template.ElectionView.helpers({
 	election: function() {
 		var election = Template.instance().getElection();
 		if(election === undefined)
-			FlowRouter.go('/notFound');
+			FlowRouter.go('/NotFound');
 		return election
 	}
 });

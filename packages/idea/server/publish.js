@@ -1,5 +1,5 @@
-Meteor.publish("Idea", function (params) {
-  if (params.action == 'List')
-    return Idea.find();
-  return Idea.find({ _id: params._id });
+Meteor.publish('ideaSub', function(id) {
+   if (id && typeof id === "string")
+      return Idea.find({_id: id});
+   return Idea.find({}, { limit: 20 });
 });

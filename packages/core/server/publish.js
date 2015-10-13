@@ -3,7 +3,7 @@
 */
 
 Meteor.publish('userSub', function() {
-   if (this.userId)
+   if (this.userId) {
       return [ Collectivz.find({_id: this.userI, type: "Person"},
          { fields: {
             emails: 1,
@@ -13,7 +13,6 @@ Meteor.publish('userSub', function() {
             character: 1,
             notification: 1 }
          }), Activity.find({ userId: this.userId }) ];
+   }
+   return null;
 })
-
-
-// Meteor.publish('ideaSub', function() { if (this.userId) { return Idea.find()}});

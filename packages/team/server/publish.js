@@ -1,5 +1,8 @@
-Meteor.publish("Team", function (params) {
-  if (params.action == 'List')
-    return Team.find();
-  return Team.find({ _id: params.id });
+Meteor.publish('teamSub', function(id) {
+   if (this.userId) {
+      if (id && typeof id === "string")
+         return Team.findOne(id)
+      return Team.find({}, { limit: 20 })
+   }
+   return null;
 });

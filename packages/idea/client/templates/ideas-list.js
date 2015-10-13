@@ -1,5 +1,8 @@
 Template.IdeaList.onCreated(function(params) {
 	var self = this;
+	self.autorun(function() {
+	  self.subscribe('ideaSub', null);
+	});
 	self.search = new ReactiveVar('');
 });
 

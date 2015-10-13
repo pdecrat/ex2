@@ -12,7 +12,7 @@ Generator.generateIdea = function(user) {
   idea.members = [user.username];
   idea.inCharge = [user.username];
   idea.templates = [
-    {name: 'View', templates: 'IdeaView'},
+    {name: 'View', templates: 'Idea'},
     {name: 'Update', templates: 'IdeaUpdate'},
     {name: 'Comment', templates: 'Wall'},
     {name: 'Survey', templates: 'Survey'},

@@ -1,6 +1,10 @@
 Template.IdeaView.onCreated(function() {
 	var self = this;
-	self.selectedMenu = new ReactiveVar('IdeaView');
+	self.autorun(function() {
+		var id = FlowRouter.getParam('_id');
+	  self.subscribe('ideaSub', id);
+	});
+	self.selectedMenu = new ReactiveVar('Idea');
 });
 
 Template.IdeaView.helpers({

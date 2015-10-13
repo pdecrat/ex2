@@ -48,7 +48,7 @@ Meteor.methods({
     var user = Meteor.users.findOne({_id: this.userId});
 
     if (!this.userId) {
-     FlowRouter.go('/login');
+     FlowRouter.go('/Login');
      return;
     }
     if (!exist){
@@ -62,6 +62,7 @@ Meteor.methods({
       ]
       Actions.create(data);
     }
+    console.log(data)
   },
   updateIdea: function(data, ideaId) {
     Idea.update(ideaId, {$set: {title: data.title, content: data.content}});

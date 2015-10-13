@@ -1,8 +1,8 @@
 <template name="IdeaView">
-  {{> surveyCreate}}
+  <!-- {{> SurveyCreate}}
   <button href="#myModal" class="btn go btn-success" data-toggle="modal">
     Creer un sondage
-  </button>
+  </button> -->
    {{#if idea}}
     {{#with idea}}
     <div class="container-fluid item" style="height:200px; margin-top: -20px">
@@ -30,7 +30,11 @@
     {{> Template.dynamic template=selectedMenu data=this}}
   	{{/with}}
    {{else}}
-      {{> notFound}}
+      {{> NotFound}}
    {{/if}}
 
+</template>
+
+<template name="Idea">
+   {{description}}
 </template>
