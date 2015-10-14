@@ -4,7 +4,7 @@
 
 Meteor.publish('userSub', function() {
    if (this.userId) {
-      return [ Collectivz.find({_id: this.userI, type: "Person"},
+      return [ Collectivz.find({_id: this.userId, type: "Person"},
          { fields: {
             emails: 1,
             username: 1,
