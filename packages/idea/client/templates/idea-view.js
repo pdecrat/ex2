@@ -2,7 +2,7 @@ Template.IdeaView.onCreated(function() {
 	var self = this;
 	self.autorun(function() {
 		var id = FlowRouter.getParam('_id');
-	  self.subscribe('ideaSub', id);
+	  self.subscribe('ideaSub', {id: id, action: 'View'});
 	});
 	self.selectedMenu = new ReactiveVar('Idea');
 });

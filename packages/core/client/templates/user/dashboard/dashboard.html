@@ -1,0 +1,104 @@
+<head>
+   <style>
+      #dashboardHeader {
+         background: url('packages/collectivz_core/public/blured.jpg') 100% center no-repeat;
+         text-align: center;
+         margin: auto;
+      }
+
+      #profilePic {
+         color: #fff;
+         margin-top: 15px;
+         height: 150px;
+         width: 150px;
+         border-radius:50%;
+         background-color: gold;">
+         box-sizing: border-box;
+         display: inline-block;
+      }
+
+      #profileDescription {
+         color: gold;
+         font-size: 18px;
+      }
+
+      .profileBadge {
+         color: #fff;
+         margin-top: 25px;
+         height: 100px;
+         width: 100px;
+         border-radius:50%;
+         background-color:green;">
+         box-sizing: border-box;
+         display: inline-block;
+      }
+
+      .profileBadge p {
+         margin-top: 50px;
+         margin-left: 25px;
+      }
+
+      span.glyphicon {
+          font-size: 2em;
+      }
+
+      .task {
+         margin: 20px;
+      }
+
+
+
+   </style>
+</head>
+
+
+<template name="Dashboard">
+    {{#if Template.subscriptionsReady}}
+    <div id="dashboardHeader" class="container-fluid" >
+      {{> dashboardHeader}}
+   </div>
+      {{> dashboardTasks}}
+      {{> dashboardActivity}}
+  {{/if}}
+
+</template>
+
+
+<template name="dashboardItem">
+            {{title}}
+            {{content}}
+            {{_id}}
+</template>
+
+<template name="dashboardTasks">
+         <div class="task">
+               <span class="glyphicon glyphicon-cog"></span>
+               <span>Mes taches</span>
+         </div>
+            {{#each group}}
+            <div class="col-xs-12">
+               {{> dashboardItem}}
+            </div>
+            {{/each}}
+</template>
+
+<template name="dashboardActivity">
+
+</template>
+
+<template name="dashboardHeader">
+           <div class="col-xs-12" >
+             <div id="profilePic">
+             </div>
+          </div>
+          <div class="col-xs-12">
+             <div class="profileBadge"><p>center it</p></div>
+             <div class="profileBadge"><p>center it</p></div>
+             <div class="profileBadge"><p>center it</p></div>
+             <div class="profileBadge"><p>center it</p></div>
+          </div>
+          <div id="profileDescription" class="col-xs-12">
+            <h1>{{currentUser.username}}</h1>
+            <p>SORCIER DE LA COMMUNICATION</p>
+          </div>
+</template>

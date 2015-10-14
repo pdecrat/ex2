@@ -1,12 +1,3 @@
-Meteor.publish('projectSub', function(id) {
-   if (this.userId) {
-      if (id && typeof id === "string")
-         return Project.find({_id: id})
-      return Project.find({})
-   }
-   return null;
-});
-
 // Generate training project  "Mes premiers avec Collectivz" on startup
 
 if (Project.find().count() == 0)

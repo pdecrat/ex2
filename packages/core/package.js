@@ -25,6 +25,12 @@ Package.onUse(function(api) {
   'collectivz:content-generator'
 ];
 
+api.addAssets([
+   'public/blured.jpg'
+], ['client'])
+
+
+
   api.use(packages);
   api.imply(packages);
 
@@ -59,8 +65,8 @@ Package.onUse(function(api) {
     'client/templates/basic/nav.js',
     'client/templates/basic/not-found.html',
 
-    'client/templates/user/dashboard.html',
-    'client/templates/user/dashboard.js',
+    'client/templates/user/dashboard/dashboard.html',
+    'client/templates/user/dashboard/dashboard.js',
     'client/templates/user/login.html',
     'client/templates/user/login.js',
     'client/templates/user/nav-button.html',

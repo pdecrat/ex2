@@ -5,7 +5,7 @@ Template.ProjectView.onCreated(function() {
 
 	self.autorun(function() {
 		var id = FlowRouter.getParam('_id');
-	  self.subscribe('projectSub', id);
+	  self.subscribe('projectSub', {id: id, action: 'View'});
 	});
 
 	// self.autorun(function() {

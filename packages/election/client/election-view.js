@@ -3,7 +3,7 @@ Template.ElectionView.onCreated(function() {
 	var self = this;
 	self.autorun(function() {
 		var id = FlowRouter.getParam('_id');
-		self.subscribe('electionSub', id);
+		self.subscribe('electionSub', {id: id});
 	});
 
 	self.getElection = function() {

@@ -7,7 +7,7 @@ Template.ProjectList.helpers({
 Template.ProjectList.onCreated(function() {
 	var self = this;
 	self.autorun(function() {
-	  self.subscribe('projectSub', null);
+	  self.subscribe('projectSub', {action: 'List'});
 	});
 
 })
