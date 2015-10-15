@@ -64,7 +64,7 @@ Meteor.methods({
     }
   },
   updateIdea: function(data, ideaId) {
-    Idea.update(ideaId, {$set: {title: data.title, content: data.content}});
+    Idea.update(ideaId, {$set: {name: data.name, description: data.description}});
   },
   removeIdea: function(ideaId) {
     Idea.remove(ideaId);

@@ -1,6 +1,6 @@
 Template.SurveyView.onCreated(function() {
 	var self = this;
-	var id = self.data._id;
+	var id = FlowRouter.getParam('_id');
 	self.autorun(function() {
 			self.subscribe('Survey', {id: self.data});
 	});

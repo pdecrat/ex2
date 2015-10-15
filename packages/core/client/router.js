@@ -25,7 +25,6 @@ FlowRouter.route('/:type?/:_id?/', {
       }
       if(!Blaze.isTemplate(Template[template]))
         template = 'NotFound';
-        console.log(params.type);
       BlazeLayout.render('Layout', {template: template, content: params});
    }
 });

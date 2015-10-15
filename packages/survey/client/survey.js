@@ -1,9 +1,9 @@
 Template.Survey.onCreated(function() {
   var self = this;
-	var attachedTo = {_id: FlowRouter.getParam('_id'), type: FlowRouter.getParam('type')}
+	var attachedTo = {_id: self.data._id, type: self.data.type}
 
 	self.autorun(function() {
-		sub = self.subscribe('Survey', { attachedTo: attachedTo });
+		sub = self.subscribe('surveySub', { attachedTo: attachedTo });
 	});
 });
 
