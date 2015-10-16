@@ -1,0 +1,25 @@
+<template name="SurveyList">
+	{{#if Template.subscriptionsReady}}
+		<div class="container ">
+			<div class="col-xs-12 item">
+				<h1 class="col-xs-10">Liste des sondages:</h1>
+				{{#if currentUser}}
+					<div class="col-xs-12 text-center">
+						<h4 class="text-left">
+							Sondage
+						</h4>
+						<button href="#myModal" class="btn go btn-success" data-toggle="modal">
+							Creer un sondage
+						</button>
+					</div>
+				{{/if}}
+			</div>
+			{{#each surveys}}
+				<div class="col-xs-12 item clickable">
+					{{> SurveyItem}}
+				</div>
+			{{/each}}
+		</div>
+	{{/if}}
+	{{> SurveyCreate}}
+ </template>

@@ -1,0 +1,62 @@
+<template name="Wall">
+	<div class="container">
+	    <div class="row">
+	        <div class="panel panel-default widget">
+
+	            <div class="panel-heading">
+								{{#if count}}
+	                <h3 class="panel-title"><span class="glyphicon glyphicon-comment" style="margin-right: 20px;"></span>Recent Comments</h3>
+								{{else}}
+									<h3 class="panel-title"><span class="glyphicon glyphicon-comment" style="margin-right: 20px;"></span>Il n'y a pas de commentaires pour le moment</h3>
+								{{/if}}
+	            </div>
+							{{#if Template.subscriptionsReady}}
+	            <div class="panel-body">
+								{{#if count}}
+	                <ul class="list-group">
+										{{#each posts}}
+	                    <li class="list-group-item">
+	                        <div class='row text-{{Owns}}'>
+	                            <div class='col-xs-2 col-md-1 pull-{{Owns}}'>
+	                                <img src="http://placehold.it/80" class="img-circle img-responsive " alt="" /></div>
+	                            <div class="col-xs-10 col-md-11 ">
+
+	                                <div class='comment-text text-{{Owns}}' style="word-wrap: break-word;">
+																			{{capitalize content}}
+	                                </div>
+																	<div>
+	                                    <div class="mic-info">
+	                                        By: <a href="#">{{inCharge}}</a>
+	                                    </div>
+																			<div>
+																					{{timeAgo createdAt}}
+																			</div>
+	                                </div>
+																	<!-- <div class="action">
+	                                    <button type="button" class="btn btn-primary btn-xs" title="Edit">
+	                                        <span class="glyphicon glyphicon-pencil"></span>
+	                                    </button>
+	                                    <button type="button" class="btn btn-success btn-xs" title="Approved">
+	                                        <span class="glyphicon glyphicon-ok"></span>
+	                                    </button>
+	                                    <button type="button" class="btn btn-danger btn-xs" title="Delete">
+	                                        <span class="glyphicon glyphicon-trash"></span>
+	                                    </button>
+	                                </div> -->
+	                            </div>
+	                        </div>
+	                    </li>
+											{{/each}}
+	                </ul>
+									{{/if}}
+									<form>
+										<textarea name="content" class="form-control" placeholder="Feel free to comment!" rows="4" cols="50"></textarea>
+									 	<input class="btn btn-primary btn-sm btn-block" type="submit" value="insert">
+									</form>
+	            </div>
+					{{/if}}
+	        </div>
+	    </div>
+	</div>
+
+</template>

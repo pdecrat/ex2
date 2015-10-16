@@ -1,0 +1,37 @@
+<template name="Nav">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/Home">Collectivz</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/IdeaList">Idées</a></li>
+          <li><a href="/ProjectList">Projets</a></li>
+          <li><a href="/TeamList">Equipes</a></li>
+          {{#if loggedIn }}
+          <li>
+            <a href="#notifModal" data-toggle="modal" class="overflow: hidden;">
+              <span class="glyphicon glyphicon-comment" style="font-size: 20px;"></span>
+              {{#if count}}
+                <span class="badge" style="background:red;position:relative;top: -15px;left: -15px;">{{count}}</span>
+              {{/if}}
+            </a>
+          </li>
+            <li><a href="/Dashboard">Dashboard</a></li>
+          {{/if}}
+          <li>{{> NavButton}}</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</template>

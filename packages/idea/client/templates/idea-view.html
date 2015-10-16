@@ -1,0 +1,40 @@
+<template name="IdeaView">
+  <!-- {{> SurveyCreate}}
+  <button href="#myModal" class="btn go btn-success" data-toggle="modal">
+    Creer un sondage
+  </button> -->
+   {{#if idea}}
+    {{#with idea}}
+    <div class="container-fluid item" style="height:200px; margin-top: -20px">
+      <div class="col-xs-6">
+        <img src="{{canvas}}" alt="" class="img-responsive">
+      </div>
+      <div class="col-xs-6">
+        <h2>{{name}}</h2>
+        Credits : {{credits}}
+        <br />
+        Créée par : {{#each inCharge}}{{this}}{{/each}}
+      </div>
+    </div>
+    <div id="projectMenuWrapper" class="nav container-fluid">
+      <div id="projectMenu" class="container">
+        <div id="projectMenuItem" class="row">
+          <div class="btn-group btn-group-justified">
+            {{#each templates}}
+              <a href="#" class="btn btn-primary menuButton">{{this.name}}</a>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{> Template.dynamic template=selectedMenu data=this}}
+  	{{/with}}
+   {{else}}
+      {{> NotFound}}
+   {{/if}}
+
+</template>
+
+<template name="Idea">
+   {{description}}
+</template>

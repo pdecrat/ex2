@@ -1,0 +1,18 @@
+<template name="SkillItem">
+    <div class="col-xs-12 col-sm-6 thumbnail">
+      <!-- <a href="{{url}}"> -->
+        <div class="col-xs-6">
+          <p>Competences</p>
+        </div>
+        <div class="col-xs-12">
+          <div class="col-xs-6">
+            {{#if currentUser.profile.skill}}
+            <p>Vous avez défini vos compétences</p>
+            {{else}}
+            <p>Vous n'avez pas défini vos compétences</p>
+            {{/if}}
+          </div>
+        </div>
+      <!-- </a> -->
+    </div>
+</template>

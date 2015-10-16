@@ -1,0 +1,16 @@
+<template name="ElectionList">
+	{{#if Template.subscriptionsReady}}
+		<div class="container ">
+			<div class="col-xs-12 item">
+				<h1 class="col-xs-10">Liste des elections:</h1>
+				{{#if currentUser}}
+				{{/if}}
+			</div>
+			{{#each elections}}
+				<div class="col-xs-12 item clickable">
+					{{> electionItem}}
+				</div>
+			{{/each}}
+		</div>
+	{{/if}}
+ </template>

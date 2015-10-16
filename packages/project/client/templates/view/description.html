@@ -1,0 +1,35 @@
+<template name="Description">
+    <div class="container" style="background-color: #fff">
+      <div class="row" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="col-xs-12 col-sm-9 text-center">
+
+            <div>
+              <h3> Objectif : </h3>
+              <h3> {{ title }} </h3>
+            </div>
+            <hr>
+            <div>
+              {{ content }}
+            </div>
+            <hr>
+
+        </div>
+        <div class="col-xs-12 col-sm-3 text-center">
+            <div style="background-color: #efefef;">
+                <p style="background-color: #fff; margin: 10px 10px 10px 10px;">Début :</p>
+                <p style="background-color: #fff; margin: 10px 10px 10px 10px;">Fin :</p>
+                <p style="background-color: #fff; margin: 10px 10px 10px 10px;">Temps restant :</p>
+            </div>
+            <hr>
+            <div>
+                <h4><span class="glyphicon glyphicon-user"></span> Participants :</h4>
+                <p>{{ members.length }}</p>
+            </div>
+            <hr style="width: 50%;">
+            <div>
+              <h4>Récompenses :</h4>
+            </div>
+          </div>
+      </div>
+    </div>
+</template>

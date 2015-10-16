@@ -1,0 +1,14 @@
+<template name="ProjectList">
+	{{#if projects}}
+		<div class="container ">
+			<div class="col-xs-12 item">
+				<h1 class="col-xs-10">Liste des projets:</h1>
+			</div>
+			{{#each projects}}
+				<div class="col-xs-12 item clickable">
+					{{> ProjectItem}}
+				</div>
+			{{/each}}
+		</div>
+	{{/if}}
+ </template>

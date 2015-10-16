@@ -1,0 +1,53 @@
+<template name="TeamCreate">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Ajouter une équipe !</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <br />
+            <div class="form-group col-xs-12">
+              <label for="name">Nom de l'équipe:</label>
+              <input class="form-control" type="text" placeholder="Nom d'équipe" id="name" />
+            </div>
+            <div class="form-group col-xs-12">
+              <label for="description">Description:</label>
+              <textarea placeholder="Décrivez votre équipe ici..." class="form-control" id="description" rows="4" cols="50"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-xs-10 col-xs-offset-1" for="members">Inviter des membres:</label>
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-10 col-xs-offset-1">
+             {{#each members}}
+              <div class="container-fluid">
+                <div class="col-xs-10">
+                  <span class="form-control">{{username}}</span>
+                </div>
+                <div class='col-xs-2'>
+                  <button class="btn btn-default" id="remove-member" type="submit"><span class="glyphicon glyphicon-minus"></span></button>
+                </div>
+              </div>
+             {{/each}}
+             <div class="container-fluid">
+               <div class="col-xs-10">
+                 <input class="form-control" type="text" placeholder="Nom de l'utilisateur" id="member" />
+              </div>
+                <div class='col-xs-2'>
+                  <button class="btn btn-default" id="submit-member" type="submit"><span class="glyphicon glyphicon-plus"></span></button>
+                </div>
+             </div>
+           </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success col-xs-8 col-xs-offset-2" id="submit" type="submit">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ </template>

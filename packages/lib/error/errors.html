@@ -1,0 +1,15 @@
+<template name="Errors">
+  <div class="errors row-fluid">
+    {{#each errors}}
+	      {{> ErrorMessage}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="ErrorMessage">
+  <div class="alert alert-danger" role="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    {{message}}
+  </div>
+</template>

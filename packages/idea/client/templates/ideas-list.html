@@ -1,0 +1,32 @@
+<template name="IdeaList">
+	<div class="container">
+
+		<div class="row">
+		{{#if currentUser}}
+				<div class="col-xs-12 text-center">
+					<h4 class="text-left">
+						IDEES
+					</h4>
+					<button href="#myModal" class="btn go btn-success" data-toggle="modal">
+						Publier une idée
+					</button>
+				</div>
+		{{/if}}
+				<div class="col-xs-12">
+					<input type="text" id="search-box" placeholder="Rechercher une idée par titre" />
+					<span class="pull-right">test</span>
+				</div>
+		</div>
+		<div class="row">
+		{{#if Template.subscriptionsReady}}
+			{{#each ideas}}
+					{{> IdeaItem}}
+			{{/each}}
+		{{else}}
+			{{> spinner}}
+		{{/if}}
+		 </div>
+	</div>
+
+	{{> IdeaCreate}}
+ </template>

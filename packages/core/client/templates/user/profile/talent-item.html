@@ -1,0 +1,18 @@
+<template name="TalentItem">
+    <div class="col-xs-12 col-sm-6 thumbnail">
+      <!-- <a href="{{url}}"> -->
+        <div class="col-xs-6">
+          <p>Talents</p>
+        </div>
+        <div class="col-xs-12">
+          <div class="col-xs-6">
+            {{#if currentUser.profile.talent}}
+            <p>Vous avez défini vos talents</p>
+            {{else}}
+            <p>Vous n'avez pas défini de talent</p>
+            {{/if}}
+          </div>
+        </div>
+      <!-- </a> -->
+    </div>
+</template>

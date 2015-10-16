@@ -1,0 +1,8 @@
+<template name="Missions">
+  {{#if isList}}
+    {{> MissionList }}
+  {{else}}
+    {{> Template.dynamic template=type data=mission }}
+  {{/if}}
+  {{> MissionCreate mission.project}}
+</template>

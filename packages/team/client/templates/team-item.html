@@ -1,0 +1,23 @@
+<template name="TeamItem">
+  <div id="teamItem" class="container">
+    <div class="row" style="padding-bottom: 20px;">
+        <h4 style="padding-left: 15px;">{{capitalize name}}</h4>
+          <div class="col-xs-4 col-sm-2">
+            <img src="http://placehold.it/120x120">
+          </div>
+          <div class="col-xs-8 col-sm-10">
+            <div class="col-xs-12 col-sm-7">
+              <p>{{synopsis description}}</p>
+              <p>
+                <a id="{{this._id}}" class="selectTeam btn btn-info">Plus d'info</a>
+              </p>
+              <p style="margin-bottom: 20px;">
+                <span class="label label-info tags">mastermind</span>
+                <span class="label label-info tags">Awesome</span>
+                <span class="label label-info tags">Crazy</span>
+              </p>
+            </div>
+          </div>
+    </div>
+  </div>
+</template>
