@@ -1,10 +1,11 @@
 Template.IdeaView.onCreated(function() {
 	var self = this;
+	var id = FlowRouter.getParam('_id');
+
+	self.selectedMenu = new ReactiveVar('Idea');
 	self.autorun(function() {
-		var id = FlowRouter.getParam('_id');
 	  self.subscribe('ideaSub', {id: id, action: 'View'});
 	});
-	self.selectedMenu = new ReactiveVar('Idea');
 });
 
 Template.IdeaView.helpers({
@@ -19,5 +20,12 @@ Template.IdeaView.helpers({
 Template.IdeaView.events({
 	'click .menuButton': function() {
 		Template.instance().selectedMenu.set(this.templates);
-	}
+	},
+	// 'click #startElection': function() {
+	// 	var election = {
+	// 		name: 'Election',
+	// 		template: 'Election'
+	// 	}
+	// 	Idea.update(this._id, {$addToSet: {templates: }})
+	// }
 })

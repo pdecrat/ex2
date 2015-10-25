@@ -22,8 +22,6 @@ Meteor.methods({
   insertMission: function (data) {
     if (!this.userId) {
       FlowRouter.go('/login');
-      if (Meteor.isClient)
-        Errors.throw('Login noob');
       return;
     }
     if (Meteor.isClient && (data.content === "" || data.title === "")) {
@@ -38,16 +36,14 @@ Meteor.methods({
     var mission = {
       title: data.title,
       content: data.content,
-      missionType: data.missionType,
       project: data.project,
       owner: ownerObj
     };
 
-    if (Meteor.isServer) {
-      var missionId = Mission.insert(mission);
-      var wall = {key: missionId, from: "mission"};
-      Wall.insert(wall);
-      project = Project.findOne({ _id: mission.project }, {fields: {members: 1, title: 1, _id: 1}});
+    var missionId = Mission.insert(mission);
+    var wall = {key: missionId, from: "mission"};
+    Wall.insert(wall);
+    project = Project.findOne({ _id: mission.project }, {fields: {members: 1, title: 1, _id: 1}});
       // Notif.addNotification(project.members, {
       //   content: "Une nouvelle mission a été ajouté au projet " + project.title + " : ",
       //   title: mission.title,

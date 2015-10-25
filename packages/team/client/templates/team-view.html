@@ -1,0 +1,14 @@
+<template name="TeamView">
+  {{#if Template.subscriptionsReady }}
+    {{#with team}}
+      {{name}}
+      {{description}}
+
+      {{#each members}}
+        {{this}}
+      {{/each}}
+    {{/with}}
+  {{else}}
+    {{> spinner}}
+  {{/if}}
+</template>

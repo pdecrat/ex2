@@ -14,6 +14,11 @@
         Credits : {{credits}}
         <br />
         Créée par : {{#each inCharge}}{{this}}{{/each}}
+        {{#if goalReached}}
+          {{#if isInCharge}}
+            <button id="start-election">Lancer l'élection</button>
+          {{/if}}
+        {{/if}}
       </div>
     </div>
     <div id="projectMenuWrapper" class="nav container-fluid">

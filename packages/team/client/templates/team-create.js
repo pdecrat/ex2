@@ -4,16 +4,19 @@ submitInsertForm = function(e, t) {
   var data = {
     name: $('#name').val(),
     description: $('#description').val()
-  }
+  };
+  var user = Meteor.user();
 
   if (data.name && data.description) {
     data.members = t.members.get();
+    console.log(data);
     Meteor.call('insertTeam', data, function(err, res) {
       if (err)
         Errors.throw(err.reason);
       else {
         $('#name').val('');
         $('#description').val('');
+        t.members.set([user.username]);
       }
     });
   }
@@ -23,13 +26,13 @@ submitMember = function(e, t) {
   e.preventDefault();
 
   var member = $('#member').val();
+  var members = t.members.get();
 
-  if (!_.some(t.members.get(), function (el) { return el.username === member; })) {
-    Meteor.call('getUserInfo', member, function (err, res) {
-      if (res) {
-        var newMembers = t.members.get();
-        newMembers.push(res);
-        t.members.set(newMembers);
+  if (!_.contains(members, member)) {
+    Meteor.call('isUser', member, function(err, res) {
+      if (res === true) {
+        members.push(member);
+        t.members.set(members);
         $('#member').val('');
       } else {
         Errors.throw('Ce nom ne correspond à personne.');
@@ -50,9 +53,9 @@ removeMember = function (t, member) {
 
 Template.TeamCreate.onCreated(function() {
   var self = this;
-  var user = Meteor.users.findOne(Meteor.userId());
+  var user = Meteor.user();
 
-  self.members = new ReactiveVar([{id: user._id, username: user.username}]);
+  self.members = new ReactiveVar([user.username]);
 })
 
 Template.TeamCreate.helpers({

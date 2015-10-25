@@ -33,8 +33,10 @@ Package.onUse(function(api) {
     'client/templates/team-create.html',
     'client/templates/team-create.js',
     'client/templates/team-item.html',
-    'client/templates/teams-list.html',
-    'client/templates/teams-list.js',
+    'client/templates/team-list.html',
+    'client/templates/team-list.js',
+    'client/templates/team-view.html',
+    'client/templates/team-view.js',
     ], [ 'client' ]);
 
   api.export([

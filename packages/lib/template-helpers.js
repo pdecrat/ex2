@@ -1,6 +1,10 @@
-Template.registerHelper('isOwner', function() {
-  return Meteor.userId() === this.owner.id;
+Template.registerHelper('isInCharge', function() {
+  return _.contains(this.inCharge, Meteor.user().username);
 });
+
+Template.registerHelper('goalReached', function() {
+  return this.credits >= this.obj_backers;
+})
 
 Template.registerHelper('log', function(item) {
   console.log(item);
