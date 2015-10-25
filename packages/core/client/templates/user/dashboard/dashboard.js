@@ -25,6 +25,10 @@ Template.dashboardTasks.helpers({
       Idea.find({}).fetch().forEach(function(el) {
          group.push(el);
       });
+      Survey.find({}).fetch().forEach(function(el) {
+         group.push(el);
+      });
+
       return group;
    }
 })

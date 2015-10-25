@@ -36,6 +36,7 @@ Meteor.methods({
     var mission = {
       title: data.title,
       content: data.content,
+      missionType: data.missionType,
       project: data.project,
       owner: ownerObj
     };
@@ -51,7 +52,6 @@ Meteor.methods({
       //   projectId: project._id
       // })
 
-    }
   },
   finish: function(missionId) {
     var mission = Mission.findOne(missionId);

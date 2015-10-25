@@ -51,7 +51,6 @@
    </style>
 </head>
 
-
 <template name="Dashboard">
     {{#if Template.subscriptionsReady}}
     <div id="dashboardHeader" class="container-fluid" >
@@ -63,29 +62,7 @@
 
 </template>
 
-
-<template name="dashboardItem">
-            {{title}}
-            {{content}}
-            {{_id}}
-</template>
-
-<template name="dashboardTasks">
-         <div class="task">
-               <span class="glyphicon glyphicon-cog"></span>
-               <span>Mes taches</span>
-         </div>
-            {{#each group}}
-            <div class="col-xs-12">
-               {{> dashboardItem}}
-            </div>
-            {{/each}}
-</template>
-
-<template name="dashboardActivity">
-
-</template>
-
+<!-- dashboard header -->
 <template name="dashboardHeader">
            <div class="col-xs-12" >
              <div id="profilePic">
@@ -101,4 +78,27 @@
             <h1>{{currentUser.username}}</h1>
             <p>SORCIER DE LA COMMUNICATION</p>
           </div>
+</template>
+
+<!-- dashboard content -->
+<template name="dashboardTasks">
+         <div class="task">
+               <span class="glyphicon glyphicon-cog"></span>
+               <span>Mes taches</span>
+         </div>
+            {{#each group}}
+            <div class="col-xs-12">
+               {{> dashboardItem}}
+            </div>
+            {{/each}}
+</template>
+
+<template name="dashboardItem">
+            {{title}}
+            {{content}}
+            {{_id}}
+</template>
+
+<template name="dashboardActivity">
+
 </template>

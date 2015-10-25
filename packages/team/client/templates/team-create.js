@@ -9,7 +9,6 @@ submitInsertForm = function(e, t) {
 
   if (data.name && data.description) {
     data.members = t.members.get();
-    console.log(data);
     Meteor.call('insertTeam', data, function(err, res) {
       if (err)
         Errors.throw(err.reason);

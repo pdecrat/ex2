@@ -29,6 +29,21 @@ Template.SurveyCreate.onCreated(function() {
   self.proposal = new ReactiveVar([]);
 
   self.submitInsertForm = function() {
+    var data = {
+      title: $('#title').val(),
+    }
+
+    if (data.title) {
+      data.proposal = self.proposal.get();
+      var target = {_id: context._id, type: context.type};
+      Meteor.call('insertSurvey', data, target, function(err, res) {
+        if (err)
+          Errors.throw(err.reason);
+        else {
+          $('#title').val('');
+        }
+      });
+    }
   };
 
 })
@@ -46,20 +61,8 @@ Template.SurveyCreate.events({
   },
   'click #submit': function(e, t) {
     e.preventDefault();
-    var data = {
-      title: $('#title').val(),
-    }
-    if (data.title) {
-      data.proposal = Template.instance().proposal.get();
-      var target = {_id: this._id, type: this.type};
-      Meteor.call('insertSurvey', data, target, function(err, res) {
-        if (err)
-          Errors.throw(err.reason);
-        else {
-          $('#title').val('');
-        }
-      });
-    }
+
+    Template.instance().submitInsertForm(e, t);
   },
   'click #submit-proposal': function(e, t) {
     e.preventDefault();

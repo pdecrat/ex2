@@ -5,4 +5,7 @@ Template.Missions.helpers({
   'mission': function() {
     return this[0];
   },
+  'type': function() {
+    return "Mission" + this[0].missionType;
+  }
 })
