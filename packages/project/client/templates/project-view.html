@@ -1,10 +1,9 @@
 <template name="ProjectView">
    {{#if project}}
-eza
        {{#with project}}
-          <div id="projectMenuWrapper" class="nav container-fluid">
-            <div id="projectMenu" class="container">
-              <div id="projectMenuItem" class="row">
+          <div id="MenuWrapper" class="nav container-fluid">
+            <div id="Menu" class="container">
+              <div id="MenuItem" class="row">
                 <div class="btn-group btn-group-justified">
                   {{#each templates}}
                     <a href="#" class="btn btn-primary menuButton">{{this.name}}</a>
@@ -15,9 +14,7 @@ eza
           </div>
           {{> Template.dynamic template=selectedMenu data=dataContext }}
       	{{/with}}
-
    {{else}}
       {{> NotFound}}
    {{/if}}
-
 </template>

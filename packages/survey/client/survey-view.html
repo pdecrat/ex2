@@ -1,9 +1,12 @@
 <template name="SurveyView">
   {{#if Template.subscriptionsReady}}
-    {{#with survey}}
+  {{#with survey}}
+  <div class="row center">
+     <h1>{{survey.title}}</h1>
+  </div>
     <div class="container">
         {{#each proposal}}
-            <div class="col-xs-4">
+            <div class="col-xs-12">
                 <p>Proposition: {{name}}</p>
                 <p>Vote reçu: {{voted}}</p>
                 <button href="#" class="btn btn-primary voteSurvey">Votez pour cette proposition</button>

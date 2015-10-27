@@ -1,0 +1,11 @@
+<template name="dashboardTasks">
+         <div class="task">
+               <span class="glyphicon glyphicon-cog"></span>
+               <span>Mes taches</span>
+         </div>
+            {{#each group}}
+            <div class="col-xs-12">
+               {{> dashboardItem}}
+            </div>
+            {{/each}}
+</template>

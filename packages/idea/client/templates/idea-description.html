@@ -1,0 +1,45 @@
+<template name="IdeaDescription">
+   <div class="container" style="background-color: white;">
+      <div class="row" style="margin-top: 20px;">
+         <div class="col-xs-12 col-sm-8 center">
+            <img src="{{images.original}}" width="100%">
+            <p>{{description}}</p>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+           <div class="center" style="background-color: #79c84e; height: 40px;">
+             <a href="#" id="giveCredit" style="line-height: 40px;">SOUTENIR</a>
+           </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+           <div class="center" style="margin-top: 10px;">
+             <p>supporters:</p>
+             <p style="line-height: 25px; font-size: 25px;">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                {{credits}}
+             </p>
+            </div>
+            <hr>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+           <div class="center" style="margin-top: 10px;">
+             <p>Jours restants:</p>
+             <p style="line-height: 25px; font-size: 25px;">
+                <span class="glyphicon glyphicon-time"></span>
+             </p>
+            </div>
+            <hr>
+        </div>
+    </div>
+   </div>
+</template>
+
+<!-- Description: {{description}}
+<br/>
+Credits : {{credits}}
+<br />
+Créée par : {{#each inCharge}}{{this}}{{/each}}
+{{#if goalReached}}
+   {{#if isInCharge}}
+     <button id="start-election">Lancer l'élection</button>
+   {{/if}}
+{{/if}} -->

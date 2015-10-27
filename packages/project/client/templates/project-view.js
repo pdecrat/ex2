@@ -1,6 +1,6 @@
 Template.ProjectView.onCreated(function() {
 	var self = this;
-	self.selectedMenu = new ReactiveVar('description');
+	self.selectedMenu = new ReactiveVar('Description');
 	selectedMission = new ReactiveVar(0);
 
 	self.autorun(function() {

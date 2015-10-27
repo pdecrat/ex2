@@ -19,3 +19,9 @@ Template.IdeaUpdate.onRendered(function (){
   $('#name').val(this.data.name);
   $('#description').val(this.data.description);
 });
+
+Template.IdeaUpdate.helpers({
+  'viewEdit': function() {
+     return _.contains(this.inCharge, Meteor.user().username);
+  }
+});

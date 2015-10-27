@@ -65,6 +65,10 @@ api.addAssets([
     'client/templates/basic/nav.js',
     'client/templates/basic/not-found.html',
 
+    'client/templates/user/dashboard/dashboard-item.html',
+    'client/templates/user/dashboard/dashboard-header.html',
+    'client/templates/user/dashboard/dashboard-tasks.html',
+
     'client/templates/user/dashboard/dashboard.html',
     'client/templates/user/dashboard/dashboard.js',
     'client/templates/user/login.html',

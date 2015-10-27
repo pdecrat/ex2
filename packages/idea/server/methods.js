@@ -55,10 +55,10 @@ Meteor.methods({
       data.members = [user.username];
       data.inCharge = [user.username];
       data.templates = [
-        {name: 'View', templates: 'Idea'},
-        {name: 'Update', templates: 'IdeaUpdate'},
-        {name: 'Comment', templates: 'Wall'},
-        {name: 'Survey', templates: 'Survey'},
+        {name: 'Description', templates: 'IdeaDescription'},
+        {name: 'Mise à jour', templates: 'IdeaUpdate'},
+        {name: 'Commentaires', templates: 'Wall'},
+        {name: 'Sondage', templates: 'Survey'},
       ]
       Actions.create(data);
     }

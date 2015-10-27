@@ -1,13 +1,11 @@
 Template.SurveyView.onCreated(function() {
 	var self = this;
 	var id = FlowRouter.getParam('_id');
+
 	self.autorun(function() {
-			self.subscribe('Survey', {id: self.data});
+		var sub = self.subscribe('surveySub', { action: 'View', id: id });
 	});
 
-	self.getSurvey = function() {
-		return Survey.findOne({ _id: id });
-	}
 });
 
 Template.SurveyView.events({
@@ -19,6 +17,7 @@ Template.SurveyView.events({
 
 Template.SurveyView.helpers({
 	survey: function() {
-		 return Template.instance().getSurvey();
+		var id = FlowRouter.getParam('_id');
+		 return Survey.findOne(id)
 	}
 });
