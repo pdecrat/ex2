@@ -7,14 +7,6 @@
     {{#with idea}}
     <div class="container center">
       <h1>{{name}}</h1>
-      Credits : {{credits}}
-      <br />
-      Créée par : {{#each inCharge}}{{this}}{{/each}}
-      {{#if goalReached}}
-        {{#if isInCharge}}
-          <button id="startElection">Lancer l'élection</button>
-        {{/if}}
-      {{/if}}
    </div>
     <div id="MenuWrapper" class="nav container">
       <div id="Menu" class="container">
