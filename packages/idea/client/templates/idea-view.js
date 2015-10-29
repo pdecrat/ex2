@@ -19,13 +19,9 @@ Template.IdeaView.helpers({
 
 Template.IdeaView.events({
 	'click .menuButton': function() {
-		Template.instance().selectedMenu.set(this.templates);
+		Template.instance().selectedMenu.set(this.template);
 	},
-	// 'click #startElection': function() {
-	// 	var election = {
-	// 		name: 'Election',
-	// 		template: 'Election'
-	// 	}
-	// 	Idea.update(this._id, {$addToSet: {templates: }})
-	// }
+	'click #startElection': function() {
+		Meteor.call('startElection', this._id);
+	}
 })

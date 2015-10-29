@@ -55,10 +55,10 @@ Meteor.methods({
       data.members = [user.username];
       data.inCharge = [user.username];
       data.templates = [
-        {name: 'Description', templates: 'IdeaDescription'},
-        {name: 'Mise à jour', templates: 'IdeaUpdate'},
-        {name: 'Commentaires', templates: 'Wall'},
-        {name: 'Sondage', templates: 'Survey'},
+        {name: 'Description', template: 'IdeaDescription'},
+        {name: 'Mise à jour', template: 'IdeaUpdate'},
+        {name: 'Commentaires', template: 'Wall'},
+        {name: 'Sondage', template: 'Survey'},
       ]
       Actions.create(data);
     }
@@ -89,5 +89,13 @@ Meteor.methods({
     ];
 
     Actions.do(user, actions, target);
+  },
+  startElection: function(id) {
+    var election = {
+			name: 'Election',
+			template: 'Election'
+		}
+
+		Idea.update(id, {$addToSet: {templates: election}})
   }
 });

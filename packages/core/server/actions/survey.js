@@ -1,5 +1,4 @@
 Actions.survey = function(origin, target, params) {
-  console.log(target, params);
   var survey = Collectivz.findOne({
     type: 'Survey',
     attachedTo: {
@@ -8,8 +7,6 @@ Actions.survey = function(origin, target, params) {
     },
     title: params.title
  });
-
-
 
   if (survey === undefined) {
     survey = params;
