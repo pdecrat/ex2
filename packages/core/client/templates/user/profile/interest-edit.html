@@ -1,0 +1,12 @@
+<template name="InterestEdit">
+  <div class="form-group col-xs-12">
+    Intérêts
+    <label for="interest">Définissez vos intérêts sous forme de mots-clés.</label>
+    <input class="form-control" placeholder="Ex: écologie, science, service à la persone ..." type="text" id="interest" />
+    {{#if currentUser.profile.interest}}
+      {{#each currentUser.profile.interest}}
+        {{currentUser.profile.interest}}
+      {{/each}}
+    {{/if}}
+  </div>
+</template>

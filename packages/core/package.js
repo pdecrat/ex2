@@ -83,7 +83,9 @@ api.addAssets([
 
     'client/templates/user/profile/experience-item.html',
     'client/templates/user/profile/information-item.html',
+    'client/templates/user/profile/information-edit.html',
     'client/templates/user/profile/interest-item.html',
+    'client/templates/user/profile/interest-edit.html',
     'client/templates/user/profile/objectif-item.html',
     'client/templates/user/profile/profile-view.html',
     'client/templates/user/profile/profile-view.js',
