@@ -7,8 +7,6 @@ Actions.notifyMembers = function(origin, target, params) {
     seen: false,
   }
 
-  console.log(target.url)
-
   members.forEach(function(member) {
     notif._id = member.notification.length + 1;
     member.notification.push(notif);

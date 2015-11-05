@@ -78,8 +78,6 @@ api.addAssets([
     'client/templates/user/notification.js',
     'client/templates/user/register.html',
     'client/templates/user/register.js',
-    'client/templates/user/users-list.html',
-    'client/templates/user/users-list.js',
 
     'client/templates/user/profile/experience-item.html',
     'client/templates/user/profile/information-item.html',
