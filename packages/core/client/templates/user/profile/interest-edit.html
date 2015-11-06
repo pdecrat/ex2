@@ -3,10 +3,10 @@
     Intérêts
     <label for="interest">Définissez vos intérêts sous forme de mots-clés.</label>
     <input class="form-control" placeholder="Ex: écologie, science, service à la persone ..." type="text" id="interest" />
+    <button class="btn btn-success col-xs-8 col-xs-offset-2" id="submit" type="submit">Submit</button>
+    <br />
     {{#if currentUser.profile.interest}}
-      {{#each currentUser.profile.interest}}
-        {{currentUser.profile.interest}}
-      {{/each}}
+      {{currentUser.profile.interest}}
     {{/if}}
   </div>
 </template>

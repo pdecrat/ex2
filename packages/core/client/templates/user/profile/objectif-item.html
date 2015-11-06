@@ -1,17 +1,13 @@
 <template name="ObjectifItem">
     <div class="col-xs-12 col-sm-6 thumbnail">
       <!-- <a href="{{url}}"> -->
-        <div class="col-xs-6">
-          <p>Objectifs</p>
-        </div>
         <div class="col-xs-12">
-          <div class="col-xs-6">
+          <p>Objectifs</p>
             {{#if currentUser.profile.objectif}}
             <p>Vous avez défini un objectif</p>
             {{else}}
             <p>Vous n'avez pas défini d'objectif</p>
             {{/if}}
-          </div>
         </div>
       <!-- </a> -->
     </div>

@@ -1,0 +1,15 @@
+<template name="SkillEdit">
+  <div class="form-group col-xs-12">
+    Compétences
+    <br />
+    {{#each currentUser.profile.skill}}
+      {{name}} {{level}}
+      <br />
+    {{/each}}
+    <label for="skill">Définissez vos compétences</label>
+    <input class="form-control" placeholder="Ex: Commercials, Open Source, Human ressources..." type="text" id="skill" />
+    <button class="btn btn-success col-xs-8 col-xs-offset-2" id="submit" type="submit">Submit</button>
+    <label for="skill">ATTENTION : les compétences doivent être saisie en anglais</label>
+    <br />
+  </div>
+</template>

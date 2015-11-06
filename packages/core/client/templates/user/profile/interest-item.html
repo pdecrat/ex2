@@ -1,18 +1,13 @@
-<template name="interestItem">
+<template name="InterestItem">
     <div class="col-xs-12 col-sm-6 thumbnail">
-      <!-- <a href="{{url}}"> -->
-        <div class="col-xs-6">
-          <p>Intérêts</p>
-        </div>
         <div class="col-xs-12">
-          <div class="col-xs-6">
+          <p>Intérêts</p>
             {{#if currentUser.profile.interest}}
             <p>Vous avez défini vos intérêts</p>
             {{else}}
             <p>Vous n'avez pas défini d'intérêt</p>
             {{/if}}
-          </div>
         </div>
-      <!-- </a> -->
+         <a href="{{InterestEdit}}">Edit</a>
     </div>
 </template>
